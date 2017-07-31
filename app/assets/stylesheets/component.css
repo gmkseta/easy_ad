@@ -77,15 +77,18 @@ html, body { height: 100%; }
 }
 
 .pt-page-1 {
-	background: #0ac2d2;
+	background-image: url("http://cfile22.uf.tistory.com/image/246D6C5057D07F932062EE");
+	background-size:100%;
 }
 
 .pt-page-2 {
-	background: #7bb7fa;
+	background-image: url("http://cfile1.uf.tistory.com/image/2369EB3E57E2127B030226");
+	background-size:100%;
 }
 
-.pt-page-3 {
-	background: #60d7a9;
+.pt-page-3 {	
+	background-image: url("http://cfile22.uf.tistory.com/image/2356F73D57D08C58360C7B");
+	background-size:100%;
 }
 
 .pt-page-4 {
