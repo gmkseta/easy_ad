@@ -20,28 +20,22 @@
 	<div id="pt-main" class="pt-perspective">
 			
 			<div class="pt-page pt-page-1">
-				<h1>
-					<span>1</span>			 	<strong>Page</strong>				Transitions
-				</h1>
+				<div class="container">
+					<h1>
+				           <span class="first_page"></span>
+				    </h1>
+				</div>
 				
 			</div>
 				
 				
 			<div class="pt-page pt-page-2">
 				<div class="container">
-						<h1>
-				            <span class="ityped"></span>
-				        </h1>
-		
+					<h1>
+				           <span class="second_page"></span>
+				    </h1>
 				</div>
-				<script src="/assets/ityped.js"></script>
-				<script>
-					window.ityped.init(document.querySelector('.ityped'), {
-						strings : ['한글은 잘되려나'],
-						loop : true
-					});
-						   
-				</script>
+
 			</div>
 			
 			<div class="pt-page pt-page-3">
@@ -69,4 +63,15 @@
     <script src='/assets/pagetransitions.js'></script>
     <script src="/assets/jquery.dlmenu.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		
+						<script src="/assets/ityped.js"></script>
+				<script>
+
+					window.ityped.init(document.querySelector('.first_page'), {
+						strings : ['아싸 개이득'],
+						loop : true
+					});
+					window.ityped.init(document.querySelector('.second_page'), {
+						strings : ['한글은 잘되려나'],
+						loop : true
+					});
+				</script>
