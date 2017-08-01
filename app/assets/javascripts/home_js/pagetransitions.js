@@ -61,7 +61,7 @@ var PageTransitions = (function() {
 		//return this.pushStack(n>=0&&t>n?[this[n]]:[])
 		//}
 		//인데
-		//
+		//ss
 		$pages.eq( current ).addClass( 'pt-page-current' );
 		//아니 근데 저 eq가 사실 그거같은데 그 자식들 eq(3) 하면 (0부터라서) 4번째꺼 말하는거같은데
 		//아 current 얘가 선언한거구나,...current 0 으로 해놨으니까..
