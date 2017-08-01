@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/write' => 'home#write'
   get 'home/edit2/:id' => 'home#edit2'
   get 'home/destroy/:id' => 'home#destroy'
-
+  get 'home/list'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

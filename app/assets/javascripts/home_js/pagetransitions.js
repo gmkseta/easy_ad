@@ -66,13 +66,14 @@ var PageTransitions = (function() {
 		//아니 근데 저 eq가 사실 그거같은데 그 자식들 eq(3) 하면 (0부터라서) 4번째꺼 말하는거같은데
 		//아 current 얘가 선언한거구나,...current 0 으로 해놨으니까..
 		//무튼 얘 덕에 첫번쨰 페이지가 current로 바로박힘
-		$( '#dl-menu' ).dlmenu( {
-			animationClasses : { in : 'dl-animate-in-2', out : 'dl-animate-out-2' },
-			onLinkClick : function( el, ev ) {
-				ev.preventDefault();
-				nextPage( el.data( 'animation' ) );
-			}
-		} );
+		//이거 dlmenu 있을때 쓰는거
+		// $( '#dl-menu' ).dlmenu( {
+		// 	animationClasses : { in : 'dl-animate-in-2', out : 'dl-animate-out-2' },
+		// 	onLinkClick : function( el, ev ) {
+		// 		ev.preventDefault();
+		// 		nextPage( el.data( 'animation' ) );
+		// 	}
+		// } );
 
 
 		//이게 버튼 클릭되었을때 실행되는 거임
