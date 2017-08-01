@@ -1,0 +1,78 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+</head>
+
+<div class="parent">
+  <div class="child">
+    <header>
+      <h1>Make Your Poster</h1>
+       <a href = "/home/destroy/<%=@post.id %>">×</a>
+    </header>
+    <div class="input_form row">
+      <form action="/write" method="POST" enctype="multipart/form-data">
+        <div class="form-group"> <!-- form group은 한 줄 / for inline은 같은 줄 -->
+          <label class="sr-only" for="title">Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Title" name="title">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="detail">Detail</label>
+          <textarea type="text" class="form-control" id="detail" placeholder="Detail" name="detail"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="address">Address</label>
+          <input type="text" class="form-control" id="address" placeholder="Address" name="address">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="picture">Image</label>
+          <input type="file" class="fileinput" name="picture" id="picture">
+        </div>
+        <button type="submit" class="btn-EditSubmit">Submit</button>
+      </form>
+      
+        
+      <!--여기에 최종저장 버튼을 추가하고 이 버튼을 누르면 db생각-->
+    </div>
+  </div>
+  
+  <div class="child">
+    <div class="poster" id="html-content-holder">
+      <div class="pt_content">
+        <h2><%= @post.title %> </h2>
+      </div>
+      <div>
+        <img src="<%= @post.picture.url %>">
+      </div>
+      <div>
+        <h4><%= @post.detail %> </h4>
+      </div>
+      <div>
+        <h4><%= @post.address %> </h4>
+      </div>
+    </div>
+  <!--<input id="btn-Preview-Image" type="button" value="이미지로 변환"/>  -->
+  <a id="btn-Convert-Html2Image" href="#" >이미지 저장</a>
+  </div>
+  
+</div>
+
+<!-- div 이미지로 변환 및 저장 script-->
+<script>
+$(document).ready(function(){
+
+var element = $("#html-content-holder"); // global variable
+var getCanvas; // global variable
+      html2canvas(element, {
+         onrendered: function (canvas) {
+                $("#html_content_holder").append(canvas);
+                getCanvas = canvas;
+             }
+         });
+	$("#btn-Convert-Html2Image").on('click', function () {
+    var imageData = getCanvas.toDataURL("image/png");
+    // Now browser starts downloading it instead of just showing it
+    var newData = imageData.replace(/^data:image\/png/, "data:application/octet-stream");
+    $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+	});
+});
+</script>
