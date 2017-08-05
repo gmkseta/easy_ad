@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text :detail
       t.text :address
       t.string :picture
+      t.string :final
       t.timestamps null: false
     end
   end

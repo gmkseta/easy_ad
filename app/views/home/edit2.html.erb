@@ -37,16 +37,16 @@
   
   <div class="child">
     <div class="poster" id="html-content-holder"> 
-      <div>
+      <div id = "pt_title">
         <h2><%= @post.title %> </h2>
       </div>
-      <div>
+      <div id = "pt_picture">
         <img src="<%= @post.picture.url %>">
       </div>
-      <div>
+      <div id = "pt_detail">
         <h4><%= @post.detail %> </h4>
       </div>
-      <div>
+      <div id = "pt_address">
         <h4><%= @post.address %> </h4>
       </div>
     </div>
@@ -55,6 +55,7 @@
   </div>
   
 </div>
+
 
 <!-- div 이미지로 변환 및 저장 script-->
 <script>
@@ -75,4 +76,31 @@ var getCanvas; // global variable
     $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
 	});
 });
+</script>
+
+<script>
+
+    $('#title').keyup(function (){
+    $('#pt_title' , "div" ).empty();
+    var input = document.getElementById("title").value;
+
+    $('#pt_title').append("<div>"+input+"</div>")});
+    
+    $('#detail').keyup(function (){
+    $('#pt_detail' , "div" ).empty();
+    var input = document.getElementById("detail").value;
+
+    $('#pt_detail').append("<div>"+input+"</div>")});
+    
+    $('#title').keyup(function (){
+    $('#pt_title' , "div" ).empty();
+    var input = document.getElementById("title").value;
+
+    $('#pt_title').append("<div>"+input+"</div>")});
+    
+    $('#title').keyup(function (){
+    $('#pt_title' , "div" ).empty();
+    var input = document.getElementById("title").value;
+
+    $('#pt_title').append("<div>"+input+"</div>")});
 </script>
