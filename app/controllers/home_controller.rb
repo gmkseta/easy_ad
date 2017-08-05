@@ -24,4 +24,18 @@ class HomeController < ApplicationController
     lion.destroy
     redirect_to '/home/edit1'
   end
+  
+  def edit_test
+  end
+  
+  def write2
+    lion = Post.new
+    lion.title = params["title"]
+    lion.detail = params["detail"]
+    lion.address = params["address"]
+    lion.picture = params["picture"]
+    lion.save
+    redirect_to '/home/edit_test' #따로 목록없음 걍 바로 보여주고 끝 (아이디값 이용)
+  end
+  
 end
