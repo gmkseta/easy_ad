@@ -1,0 +1,35 @@
+
+
+<style>
+
+    #container { width: 568px; height:781px; border:2px solid #ccc; }
+
+</style>
+  
+  <div class="child" id="here"></div>
+
+    
+<script>
+    var tag = "<%=escape_javascript(@hpost.htmltag)%>";
+    tag = tag.replace(/&lt;/gi,"<");
+    tag = tag.replace(/&gt;/gi,">");
+    tag = tag.replace(/&quot;/gi,"\"");
+    
+    $("#here").html(tag);
+     $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>');
+    
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+ 
+    $( ".draggable" ).draggable({ containment: "#container", scroll: false });
+    $( "#draggable1" ).draggable({ containment: "#container", scroll: false });
+    $( ".resizable" ).resizable();
+  })
+    // $("").mouseout(
+    //     function(){
+    //         $("p:first",this).text("mouse out"); $("p:last",this).text(++i); }).mouseover(function(){ $("p:first",this).text("mouse over"); });
+
+  </script>

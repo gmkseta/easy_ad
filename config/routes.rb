@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hposts
   root 'home#index'
   get 'home/edit1'
   post '/write' => 'home#write'
