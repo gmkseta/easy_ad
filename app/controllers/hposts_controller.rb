@@ -30,6 +30,7 @@ class HpostsController < ApplicationController
     
     respond_to do |format|
       if @hpost.save
+        # format.html { render(:text => "not implemented") }
         format.js
         # { redirect_to @hpost, notice: 'Hpost was successfully created.' }
         # format.json { render :show, status: :created, location: @hpost }

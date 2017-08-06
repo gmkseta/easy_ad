@@ -1,1 +1,6 @@
 alert("성공!");
+<% if remotipart_submitted? %>
+  alert('submitted via remotipart')
+<% else %>
+  alert('submitted via native jquery-ujs')
+<% end %>
