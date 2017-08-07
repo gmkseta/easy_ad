@@ -20,7 +20,6 @@ class HpostsController < ApplicationController
 
   # GET /hposts/1/edit
   def edit
-    render :_form
   end
 
   # POST /hposts

@@ -1,4 +1,6 @@
-
-
-
-
+<% if remotipart_submitted? %>
+  <!--alert('submitted via remotipart')-->
+  $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>');
+<% else %>
+  alert('submitted via native jquery-ujs')
+<% end %>
