@@ -32,10 +32,11 @@
                   <%= f.hidden_field :picture_cache %>
               </div>
               <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
-              <br>
-              <div class="actions">
-                <%= f.submit value:"헤헿" ,id:"submit_poster" %>
-              </div>
+                <br>
+                <div class="actions">
+                  <%= f.submit value:"헤헿" ,id:"submit_poster" %>
+                </div>
+            <% end %>
             
     </div>
       </div>
@@ -44,6 +45,7 @@
 
   <!-- 오른쪽 poster -->
   <div class="child" id="here">
+    
     <div class="poster" id="html-content-holder"> 
       <div id = "pt_title"></div>
       <div id = "pt_picture">
@@ -59,7 +61,6 @@
   <a id="btn-Convert-Html2Image" href="#" >이미지 저장</a>
   <button type="submit" class="btn-EditSubmit">Submit</button>
 
-  <% end %>
 
 <script>
   $(document).ready(function(){
@@ -102,6 +103,7 @@
       
   
     $("#hpost_picture").change(function(){
+      
       $('#submit_poster').trigger('click');
     });
     
