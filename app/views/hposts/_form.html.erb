@@ -1,9 +1,8 @@
 <head>
   <!-- ajax -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <!-- 이미지 변환/저장 -->
+   <!--이미지 변환/저장 -->
   <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script> 
-  <!-- ? -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <!-- textfill -->
@@ -13,39 +12,37 @@
   
   <script>
   //폰트설정
-      $(function(){
-       //초기 설정
+       function changeEdit() {
+         //초기 설
+      
         
-      
-       var size=12;
-       
-       var select=$("div.select"); //class나 id값 이용해서 바꾸면 됨! 나중에 해결되면 selected로 바꾸면 됩니다!
+         var size=12;
+         var select=$("div.select"); //class나 id값 이용해서 바꾸면 됨! 나중에 해결되면 selected로 바꾸면 됩니다! 
+          //① 글자 크기의 버튼들을 클릭했을 때
+          $(".zoom button").on("click",function(){
+              var btn_index=$(".zoom button").index(this);  //클릭한 버튼의 인덱스 반환
+              
+              if(btn_index==0){ //"+"를 클릭했을 경우
+                 size++; //size가 1씩 증가
+                 select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. 
+              }else if(btn_index==2){ //"-"를 클릭했을 경우
+                 size--; //size가 1씩 감소
+                 select.css("font-size",size+"px"); //글자 크기 속성이 변경됨.
+              }else{ //"0"를 클릭했을 경우
+                 size=12; //디폴트로 다시 세팅
+                 select.css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
+              }
+              $("#lbl_fontsize").text(size); //글자크기 출력
+          });
     
-        //① 글자 크기의 버튼들을 클릭했을 때
-        $(".zoom button").on("click",function(){
-            var btn_index=$(".zoom button").index(this);  //클릭한 버튼의 인덱스 반환
-            
-            if(btn_index==0){ //"+"를 클릭했을 경우
-               size++; //size가 1씩 증가
-               select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. 
-            }else if(btn_index==2){ //"-"를 클릭했을 경우
-               size--; //size가 1씩 감소
-               select.css("font-size",size+"px"); //글자 크기 속성이 변경됨.
-            }else{ //"0"를 클릭했을 경우
-               size=12; //디폴트로 다시 세팅
-               select.css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
-            }
-            $("#lbl_fontsize").text(size); //글자크기 출력
-        });
-    
-        //② 글자 모양을 선택했을 때 (폰트 변경)
-        $("#fs").on("change",function(){
-          select.css("font-family",$(this).val()); //글자 모양 변경
-        });
-     
+          //② 글자 모양을 선택했을 때 (폰트 변경)
+          $("#fs").on("change",function(){
+            select.css("font-family",$(this).val()); //글자 모양 변경
+          });
+      };
       
-  //bold underline italic 설정
-      $(document).ready(function(){
+  //bold underline italic 설정 - 작동안함 ㅠ 
+    $(document).ready(function(){
           $('.boldText').click(function(){
              $('div.select').toggleClass("bold");
           });
@@ -55,7 +52,6 @@
           $('.underlineText').click(function(){
             $('div.select').toggleClass("underline");
           });
-      });
       });
   
   //이미지저장 + 실시간입력
@@ -79,27 +75,28 @@
     	});
 
 
-    //<!-- 실시간으로 input 값이 입력 되는 script -->
-    
-      $('#title').keyup(function (){
-      $('#pt_title' , "div" ).empty();
-      $('#pt_title').append("<div>"+document.getElementById("title").value+"</div>")});
+      //<!-- 실시간으로 input 값이 입력 되는 script -->
       
-      $('#detail').keyup(function (){
-      $('#pt_detail' , "div" ).empty();
-      $('#pt_detail').append("<div>"+document.getElementById("detail").value+"</div>")});
-      
-      $('#address').keyup(function (){
-      $('#pt_address' , "div" ).empty();
-      $('#pt_address').append("<div>"+document.getElementById("address").value+"</div>")});
-  // ?
-      $("#hpost_picture").change(function(){
-        $('#submit_poster').trigger('click');
-      });
+        $('#title').keyup(function (){
+        $('#pt_title' , "div" ).empty();
+        $('#pt_title').append("<div>"+document.getElementById("title").value+"</div>")});
+        
+        $('#detail').keyup(function (){
+        $('#pt_detail' , "div" ).empty();
+        $('#pt_detail').append("<div>"+document.getElementById("detail").value+"</div>")});
+        
+        $('#address').keyup(function (){
+        $('#pt_address' , "div" ).empty();
+        $('#pt_address').append("<div>"+document.getElementById("address").value+"</div>")});
+    // ?
+        $("#hpost_picture").change(function(){
+          $('#submit_poster').trigger('click');
+        });
    });  
+  
     
   // 마우스 클릭 시, 그 흰화면 따락 뜸
-      $(document).ready(function(){
+    $(document).ready(function(){
     
         // run the currently selected effect
         function runEffectTitle() {
@@ -115,11 +112,30 @@
           $( "#address_effect" ).toggle( "blind", options, 500 );
         };
         
-        
-         $( "#title" ).on( "click", function() {runEffectTitle();});
-         $( "#detail" ).on( "click", function() {runEffectDetail();});
-         $( "#address" ).on( "click", function() {runEffectAddress();});
-      });
+         $( "#title" ).on( "click", function() {runEffectTitle();
+           $("#pt_title").addClass('select'); //class select 지워주는 거 추가하고 뒤에 detail이랑 address에 추가
+           changeEdit();
+         });
+         
+         $( "#detail" ).on( "click", function() {runEffectDetail();
+           //추가
+         });
+         
+         $( "#address" ).on( "click", function() {runEffectAddress();
+           //추가
+         });
+      }); //input 클릭 시 실행되는 script 닫음
+      
+      
+      
+      
+      // //test
+      //   $(document).ready(function() {
+      //       $('#detail').click(function() {
+      //           $('#pt_detail').addClass('select');
+      //       });
+      //   });
+      
     </script>
 </head>
 
@@ -304,7 +320,7 @@
   <!-- 오른쪽 poster -->
   <div class="child" id="here">
     <div class="poster" id="html-content-holder"> 
-        <div id = "pt_title">
+        <div id = "pt_title" class = "">
         </div>
         
         <div id = "pt_picture">
@@ -316,7 +332,7 @@
         <div id = "pt_detail">
         </div>
         
-        <div class="select" id = "pt_address">
+        <div id = "pt_address">
         </div>
     </div>
   
