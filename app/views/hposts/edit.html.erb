@@ -1,6 +1,5 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -34,8 +33,9 @@
                 <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
                     <br>
                     <div class="actions">
-                        <%= f.submit value:"헤헿" ,id:"submit_poster" %>
+                        <%= f.submit id:"submit_poster" %>
                     </div>
+                    <a href="/hposts/<%=@hpost.id%>">완 료</a>
                 <% end %>
             </div>
         </div>
@@ -46,6 +46,7 @@
   <div class="child" id="here"></div>
 
 </div>
+
 
 <script>
 
@@ -70,6 +71,9 @@
   });
          
 	$("#btn-Convert-Html2Image").on('click', function () {
+	  
+	  $('#submit_poster').trigger('click');
+	  
     var imageData = getCanvas.toDataURL("image/png");
     // Now browser starts downloading it instead of just showing it
     var newData = imageData.replace(/^data:image\/png/, "data:application/octet-stream");

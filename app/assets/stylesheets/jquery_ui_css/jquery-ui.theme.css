@@ -1,0 +1,443 @@
+/*!
+ * jQuery UI CSS Framework 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/theming/
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?scope=mintchoc&folderName=mintchoc&cornerRadiusShadow=8px&offsetLeftShadow=-8px&offsetTopShadow=-8px&thicknessShadow=8px&opacityShadow=30&bgImgOpacityShadow=0&bgTextureShadow=flat&bgColorShadow=aaaaaa&opacityOverlay=30&bgImgOpacityOverlay=0&bgTextureOverlay=flat&bgColorOverlay=aaaaaa&iconColorError=f1fd86&fcError=ffffff&borderColorError=5f391b&bgImgOpacityError=15&bgTextureError=glass&bgColorError=5f391b&iconColorHighlight=ffffff&fcHighlight=ffffff&borderColorHighlight=add978&bgImgOpacityHighlight=20&bgTextureHighlight=highlight_soft&bgColorHighlight=619226&iconColorActive=e3ddc9&fcActive=e3ddc9&borderColorActive=9c947c&bgImgOpacityActive=20&bgTextureActive=highlight_soft&bgColorActive=201913&iconColorHover=add978&fcHover=baec7e&borderColorHover=9c947c&bgImgOpacityHover=30&bgTextureHover=gloss_wave&bgColorHover=44372c&iconColorDefault=9bcc60&fcDefault=9bcc60&borderColorDefault=695444&bgImgOpacityDefault=20&bgTextureDefault=gloss_wave&bgColorDefault=1c160d&iconColorContent=222222&fcContent=ffffff&borderColorContent=9c947c&bgImgOpacityContent=10&bgTextureContent=inset_soft&bgColorContent=201913&iconColorHeader=e3ddc9&fcHeader=e3ddc9&borderColorHeader=695649&bgImgOpacityHeader=25&bgTextureHeader=gloss_wave&bgColorHeader=453326&cornerRadius=4px&fsDefault=1.1em&fwDefault=bold&ffDefault=Segoe%20UI%2CHelvetica%2CArial%2Csans-serif
+ */
+
+
+/* Component containers
+----------------------------------*/
+mintchoc .ui-widget {
+	font-family: Segoe UI,Helvetica,Arial,sans-serif;
+	font-size: 1.1em;
+}
+mintchoc .ui-widget .ui-widget {
+	font-size: 1em;
+}
+mintchoc .ui-widget input,
+mintchoc .ui-widget select,
+mintchoc .ui-widget textarea,
+mintchoc .ui-widget button {
+	font-family: Segoe UI,Helvetica,Arial,sans-serif;
+	font-size: 1em;
+}
+mintchoc .ui-widget.ui-widget-content {
+	border: 1px solid #695444;
+}
+mintchoc .ui-widget-content {
+	border: 1px solid #9c947c;
+	background: #201913 url("images/ui-bg_inset-soft_10_201913_1x100.png") 50% bottom repeat-x;
+	color: #ffffff;
+}
+mintchoc .ui-widget-content a {
+	color: #ffffff;
+}
+mintchoc .ui-widget-header {
+	border: 1px solid #695649;
+	background: #453326 url("images/ui-bg_gloss-wave_25_453326_500x100.png") 50% 50% repeat-x;
+	color: #e3ddc9;
+	font-weight: bold;
+}
+mintchoc .ui-widget-header a {
+	color: #e3ddc9;
+}
+
+/* Interaction states
+----------------------------------*/
+mintchoc .ui-state-default,
+mintchoc .ui-widget-content .ui-state-default,
+mintchoc .ui-widget-header .ui-state-default,
+mintchoc .ui-button,
+
+/* We use html here because we need a greater specificity to make sure disabled
+works properly when clicked or hovered */
+html mintchoc .ui-button.ui-state-disabled:hover,
+html mintchoc .ui-button.ui-state-disabled:active {
+	border: 1px solid #695444;
+	background: #1c160d url("images/ui-bg_gloss-wave_20_1c160d_500x100.png") 50% 50% repeat-x;
+	font-weight: bold;
+	color: #9bcc60;
+}
+mintchoc .ui-state-default a,
+mintchoc .ui-state-default a:link,
+mintchoc .ui-state-default a:visited,
+amintchoc .ui-button,
+a:linkmintchoc .ui-button,
+a:visitedmintchoc .ui-button,
+mintchoc .ui-button {
+	color: #9bcc60;
+	text-decoration: none;
+}
+mintchoc .ui-state-hover,
+mintchoc .ui-widget-content .ui-state-hover,
+mintchoc .ui-widget-header .ui-state-hover,
+mintchoc .ui-state-focus,
+mintchoc .ui-widget-content .ui-state-focus,
+mintchoc .ui-widget-header .ui-state-focus,
+mintchoc .ui-button:hover,
+mintchoc .ui-button:focus {
+	border: 1px solid #9c947c;
+	background: #44372c url("images/ui-bg_gloss-wave_30_44372c_500x100.png") 50% 50% repeat-x;
+	font-weight: bold;
+	color: #baec7e;
+}
+mintchoc .ui-state-hover a,
+mintchoc .ui-state-hover a:hover,
+mintchoc .ui-state-hover a:link,
+mintchoc .ui-state-hover a:visited,
+mintchoc .ui-state-focus a,
+mintchoc .ui-state-focus a:hover,
+mintchoc .ui-state-focus a:link,
+mintchoc .ui-state-focus a:visited,
+amintchoc .ui-button:hover,
+amintchoc .ui-button:focus {
+	color: #baec7e;
+	text-decoration: none;
+}
+
+mintchoc .ui-visual-focus {
+	box-shadow: 0 0 3px 1px rgb(94, 158, 214);
+}
+mintchoc .ui-state-active,
+mintchoc .ui-widget-content .ui-state-active,
+mintchoc .ui-widget-header .ui-state-active,
+amintchoc .ui-button:active,
+mintchoc .ui-button:active,
+mintchoc .ui-button.ui-state-active:hover {
+	border: 1px solid #9c947c;
+	background: #201913 url("images/ui-bg_highlight-soft_20_201913_1x100.png") 50% 50% repeat-x;
+	font-weight: bold;
+	color: #e3ddc9;
+}
+mintchoc .ui-icon-background,
+mintchoc .ui-state-active .ui-icon-background {
+	border: #9c947c;
+	background-color: #e3ddc9;
+}
+mintchoc .ui-state-active a,
+mintchoc .ui-state-active a:link,
+mintchoc .ui-state-active a:visited {
+	color: #e3ddc9;
+	text-decoration: none;
+}
+
+/* Interaction Cues
+----------------------------------*/
+mintchoc .ui-state-highlight,
+mintchoc .ui-widget-content .ui-state-highlight,
+mintchoc .ui-widget-header .ui-state-highlight {
+	border: 1px solid #add978;
+	background: #619226 url("images/ui-bg_highlight-soft_20_619226_1x100.png") 50% top repeat-x;
+	color: #ffffff;
+}
+mintchoc .ui-state-checked {
+	border: 1px solid #add978;
+	background: #619226;
+}
+mintchoc .ui-state-highlight a,
+mintchoc .ui-widget-content .ui-state-highlight a,
+mintchoc .ui-widget-header .ui-state-highlight a {
+	color: #ffffff;
+}
+mintchoc .ui-state-error,
+mintchoc .ui-widget-content .ui-state-error,
+mintchoc .ui-widget-header .ui-state-error {
+	border: 1px solid #5f391b;
+	background: #5f391b url("images/ui-bg_glass_15_5f391b_1x400.png") 50% 50% repeat-x;
+	color: #ffffff;
+}
+mintchoc .ui-state-error a,
+mintchoc .ui-widget-content .ui-state-error a,
+mintchoc .ui-widget-header .ui-state-error a {
+	color: #ffffff;
+}
+mintchoc .ui-state-error-text,
+mintchoc .ui-widget-content .ui-state-error-text,
+mintchoc .ui-widget-header .ui-state-error-text {
+	color: #ffffff;
+}
+mintchoc .ui-priority-primary,
+mintchoc .ui-widget-content .ui-priority-primary,
+mintchoc .ui-widget-header .ui-priority-primary {
+	font-weight: bold;
+}
+mintchoc .ui-priority-secondary,
+mintchoc .ui-widget-content .ui-priority-secondary,
+mintchoc .ui-widget-header .ui-priority-secondary {
+	opacity: .7;
+	filter:Alpha(Opacity=70); /* support: IE8 */
+	font-weight: normal;
+}
+mintchoc .ui-state-disabled,
+mintchoc .ui-widget-content .ui-state-disabled,
+mintchoc .ui-widget-header .ui-state-disabled {
+	opacity: .35;
+	filter:Alpha(Opacity=35); /* support: IE8 */
+	background-image: none;
+}
+mintchoc .ui-state-disabled .ui-icon {
+	filter:Alpha(Opacity=35); /* support: IE8 - See #6059 */
+}
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+mintchoc .ui-icon {
+	width: 16px;
+	height: 16px;
+}
+mintchoc .ui-icon,
+mintchoc .ui-widget-content .ui-icon {
+	background-image: url("images/ui-icons_222222_256x240.png");
+}
+mintchoc .ui-widget-header .ui-icon {
+	background-image: url("images/ui-icons_e3ddc9_256x240.png");
+}
+mintchoc .ui-state-hover .ui-icon,
+mintchoc .ui-state-focus .ui-icon,
+mintchoc .ui-button:hover .ui-icon,
+mintchoc .ui-button:focus .ui-icon {
+	background-image: url("images/ui-icons_add978_256x240.png");
+}
+mintchoc .ui-state-active .ui-icon,
+mintchoc .ui-button:active .ui-icon {
+	background-image: url("images/ui-icons_e3ddc9_256x240.png");
+}
+mintchoc .ui-state-highlight .ui-icon,
+mintchoc .ui-button .ui-state-highlight.ui-icon {
+	background-image: url("images/ui-icons_ffffff_256x240.png");
+}
+mintchoc .ui-state-error .ui-icon,
+mintchoc .ui-state-error-text .ui-icon {
+	background-image: url("images/ui-icons_f1fd86_256x240.png");
+}
+mintchoc .ui-button .ui-icon {
+	background-image: url("images/ui-icons_9bcc60_256x240.png");
+}
+
+/* positioning */
+mintchoc .ui-icon-blank { background-position: 16px 16px; }
+mintchoc .ui-icon-caret-1-n { background-position: 0 0; }
+mintchoc .ui-icon-caret-1-ne { background-position: -16px 0; }
+mintchoc .ui-icon-caret-1-e { background-position: -32px 0; }
+mintchoc .ui-icon-caret-1-se { background-position: -48px 0; }
+mintchoc .ui-icon-caret-1-s { background-position: -65px 0; }
+mintchoc .ui-icon-caret-1-sw { background-position: -80px 0; }
+mintchoc .ui-icon-caret-1-w { background-position: -96px 0; }
+mintchoc .ui-icon-caret-1-nw { background-position: -112px 0; }
+mintchoc .ui-icon-caret-2-n-s { background-position: -128px 0; }
+mintchoc .ui-icon-caret-2-e-w { background-position: -144px 0; }
+mintchoc .ui-icon-triangle-1-n { background-position: 0 -16px; }
+mintchoc .ui-icon-triangle-1-ne { background-position: -16px -16px; }
+mintchoc .ui-icon-triangle-1-e { background-position: -32px -16px; }
+mintchoc .ui-icon-triangle-1-se { background-position: -48px -16px; }
+mintchoc .ui-icon-triangle-1-s { background-position: -65px -16px; }
+mintchoc .ui-icon-triangle-1-sw { background-position: -80px -16px; }
+mintchoc .ui-icon-triangle-1-w { background-position: -96px -16px; }
+mintchoc .ui-icon-triangle-1-nw { background-position: -112px -16px; }
+mintchoc .ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+mintchoc .ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+mintchoc .ui-icon-arrow-1-n { background-position: 0 -32px; }
+mintchoc .ui-icon-arrow-1-ne { background-position: -16px -32px; }
+mintchoc .ui-icon-arrow-1-e { background-position: -32px -32px; }
+mintchoc .ui-icon-arrow-1-se { background-position: -48px -32px; }
+mintchoc .ui-icon-arrow-1-s { background-position: -65px -32px; }
+mintchoc .ui-icon-arrow-1-sw { background-position: -80px -32px; }
+mintchoc .ui-icon-arrow-1-w { background-position: -96px -32px; }
+mintchoc .ui-icon-arrow-1-nw { background-position: -112px -32px; }
+mintchoc .ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+mintchoc .ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+mintchoc .ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+mintchoc .ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+mintchoc .ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+mintchoc .ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+mintchoc .ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+mintchoc .ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+mintchoc .ui-icon-arrowthick-1-n { background-position: 1px -48px; }
+mintchoc .ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+mintchoc .ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+mintchoc .ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+mintchoc .ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+mintchoc .ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+mintchoc .ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+mintchoc .ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+mintchoc .ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+mintchoc .ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+mintchoc .ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+mintchoc .ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+mintchoc .ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+mintchoc .ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+mintchoc .ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+mintchoc .ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+mintchoc .ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+mintchoc .ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+mintchoc .ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+mintchoc .ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+mintchoc .ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+mintchoc .ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+mintchoc .ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+mintchoc .ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+mintchoc .ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+mintchoc .ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+mintchoc .ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+mintchoc .ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+mintchoc .ui-icon-arrow-4 { background-position: 0 -80px; }
+mintchoc .ui-icon-arrow-4-diag { background-position: -16px -80px; }
+mintchoc .ui-icon-extlink { background-position: -32px -80px; }
+mintchoc .ui-icon-newwin { background-position: -48px -80px; }
+mintchoc .ui-icon-refresh { background-position: -64px -80px; }
+mintchoc .ui-icon-shuffle { background-position: -80px -80px; }
+mintchoc .ui-icon-transfer-e-w { background-position: -96px -80px; }
+mintchoc .ui-icon-transferthick-e-w { background-position: -112px -80px; }
+mintchoc .ui-icon-folder-collapsed { background-position: 0 -96px; }
+mintchoc .ui-icon-folder-open { background-position: -16px -96px; }
+mintchoc .ui-icon-document { background-position: -32px -96px; }
+mintchoc .ui-icon-document-b { background-position: -48px -96px; }
+mintchoc .ui-icon-note { background-position: -64px -96px; }
+mintchoc .ui-icon-mail-closed { background-position: -80px -96px; }
+mintchoc .ui-icon-mail-open { background-position: -96px -96px; }
+mintchoc .ui-icon-suitcase { background-position: -112px -96px; }
+mintchoc .ui-icon-comment { background-position: -128px -96px; }
+mintchoc .ui-icon-person { background-position: -144px -96px; }
+mintchoc .ui-icon-print { background-position: -160px -96px; }
+mintchoc .ui-icon-trash { background-position: -176px -96px; }
+mintchoc .ui-icon-locked { background-position: -192px -96px; }
+mintchoc .ui-icon-unlocked { background-position: -208px -96px; }
+mintchoc .ui-icon-bookmark { background-position: -224px -96px; }
+mintchoc .ui-icon-tag { background-position: -240px -96px; }
+mintchoc .ui-icon-home { background-position: 0 -112px; }
+mintchoc .ui-icon-flag { background-position: -16px -112px; }
+mintchoc .ui-icon-calendar { background-position: -32px -112px; }
+mintchoc .ui-icon-cart { background-position: -48px -112px; }
+mintchoc .ui-icon-pencil { background-position: -64px -112px; }
+mintchoc .ui-icon-clock { background-position: -80px -112px; }
+mintchoc .ui-icon-disk { background-position: -96px -112px; }
+mintchoc .ui-icon-calculator { background-position: -112px -112px; }
+mintchoc .ui-icon-zoomin { background-position: -128px -112px; }
+mintchoc .ui-icon-zoomout { background-position: -144px -112px; }
+mintchoc .ui-icon-search { background-position: -160px -112px; }
+mintchoc .ui-icon-wrench { background-position: -176px -112px; }
+mintchoc .ui-icon-gear { background-position: -192px -112px; }
+mintchoc .ui-icon-heart { background-position: -208px -112px; }
+mintchoc .ui-icon-star { background-position: -224px -112px; }
+mintchoc .ui-icon-link { background-position: -240px -112px; }
+mintchoc .ui-icon-cancel { background-position: 0 -128px; }
+mintchoc .ui-icon-plus { background-position: -16px -128px; }
+mintchoc .ui-icon-plusthick { background-position: -32px -128px; }
+mintchoc .ui-icon-minus { background-position: -48px -128px; }
+mintchoc .ui-icon-minusthick { background-position: -64px -128px; }
+mintchoc .ui-icon-close { background-position: -80px -128px; }
+mintchoc .ui-icon-closethick { background-position: -96px -128px; }
+mintchoc .ui-icon-key { background-position: -112px -128px; }
+mintchoc .ui-icon-lightbulb { background-position: -128px -128px; }
+mintchoc .ui-icon-scissors { background-position: -144px -128px; }
+mintchoc .ui-icon-clipboard { background-position: -160px -128px; }
+mintchoc .ui-icon-copy { background-position: -176px -128px; }
+mintchoc .ui-icon-contact { background-position: -192px -128px; }
+mintchoc .ui-icon-image { background-position: -208px -128px; }
+mintchoc .ui-icon-video { background-position: -224px -128px; }
+mintchoc .ui-icon-script { background-position: -240px -128px; }
+mintchoc .ui-icon-alert { background-position: 0 -144px; }
+mintchoc .ui-icon-info { background-position: -16px -144px; }
+mintchoc .ui-icon-notice { background-position: -32px -144px; }
+mintchoc .ui-icon-help { background-position: -48px -144px; }
+mintchoc .ui-icon-check { background-position: -64px -144px; }
+mintchoc .ui-icon-bullet { background-position: -80px -144px; }
+mintchoc .ui-icon-radio-on { background-position: -96px -144px; }
+mintchoc .ui-icon-radio-off { background-position: -112px -144px; }
+mintchoc .ui-icon-pin-w { background-position: -128px -144px; }
+mintchoc .ui-icon-pin-s { background-position: -144px -144px; }
+mintchoc .ui-icon-play { background-position: 0 -160px; }
+mintchoc .ui-icon-pause { background-position: -16px -160px; }
+mintchoc .ui-icon-seek-next { background-position: -32px -160px; }
+mintchoc .ui-icon-seek-prev { background-position: -48px -160px; }
+mintchoc .ui-icon-seek-end { background-position: -64px -160px; }
+mintchoc .ui-icon-seek-start { background-position: -80px -160px; }
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+mintchoc .ui-icon-seek-first { background-position: -80px -160px; }
+mintchoc .ui-icon-stop { background-position: -96px -160px; }
+mintchoc .ui-icon-eject { background-position: -112px -160px; }
+mintchoc .ui-icon-volume-off { background-position: -128px -160px; }
+mintchoc .ui-icon-volume-on { background-position: -144px -160px; }
+mintchoc .ui-icon-power { background-position: 0 -176px; }
+mintchoc .ui-icon-signal-diag { background-position: -16px -176px; }
+mintchoc .ui-icon-signal { background-position: -32px -176px; }
+mintchoc .ui-icon-battery-0 { background-position: -48px -176px; }
+mintchoc .ui-icon-battery-1 { background-position: -64px -176px; }
+mintchoc .ui-icon-battery-2 { background-position: -80px -176px; }
+mintchoc .ui-icon-battery-3 { background-position: -96px -176px; }
+mintchoc .ui-icon-circle-plus { background-position: 0 -192px; }
+mintchoc .ui-icon-circle-minus { background-position: -16px -192px; }
+mintchoc .ui-icon-circle-close { background-position: -32px -192px; }
+mintchoc .ui-icon-circle-triangle-e { background-position: -48px -192px; }
+mintchoc .ui-icon-circle-triangle-s { background-position: -64px -192px; }
+mintchoc .ui-icon-circle-triangle-w { background-position: -80px -192px; }
+mintchoc .ui-icon-circle-triangle-n { background-position: -96px -192px; }
+mintchoc .ui-icon-circle-arrow-e { background-position: -112px -192px; }
+mintchoc .ui-icon-circle-arrow-s { background-position: -128px -192px; }
+mintchoc .ui-icon-circle-arrow-w { background-position: -144px -192px; }
+mintchoc .ui-icon-circle-arrow-n { background-position: -160px -192px; }
+mintchoc .ui-icon-circle-zoomin { background-position: -176px -192px; }
+mintchoc .ui-icon-circle-zoomout { background-position: -192px -192px; }
+mintchoc .ui-icon-circle-check { background-position: -208px -192px; }
+mintchoc .ui-icon-circlesmall-plus { background-position: 0 -208px; }
+mintchoc .ui-icon-circlesmall-minus { background-position: -16px -208px; }
+mintchoc .ui-icon-circlesmall-close { background-position: -32px -208px; }
+mintchoc .ui-icon-squaresmall-plus { background-position: -48px -208px; }
+mintchoc .ui-icon-squaresmall-minus { background-position: -64px -208px; }
+mintchoc .ui-icon-squaresmall-close { background-position: -80px -208px; }
+mintchoc .ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+mintchoc .ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+mintchoc .ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+mintchoc .ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+mintchoc .ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+mintchoc .ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+mintchoc .ui-corner-all,
+mintchoc .ui-corner-top,
+mintchoc .ui-corner-left,
+mintchoc .ui-corner-tl {
+	border-top-left-radius: 4px;
+}
+mintchoc .ui-corner-all,
+mintchoc .ui-corner-top,
+mintchoc .ui-corner-right,
+mintchoc .ui-corner-tr {
+	border-top-right-radius: 4px;
+}
+mintchoc .ui-corner-all,
+mintchoc .ui-corner-bottom,
+mintchoc .ui-corner-left,
+mintchoc .ui-corner-bl {
+	border-bottom-left-radius: 4px;
+}
+mintchoc .ui-corner-all,
+mintchoc .ui-corner-bottom,
+mintchoc .ui-corner-right,
+mintchoc .ui-corner-br {
+	border-bottom-right-radius: 4px;
+}
+
+/* Overlays */
+mintchoc .ui-widget-overlay {
+	background: #aaaaaa;
+	opacity: .3;
+	filter: Alpha(Opacity=30); /* support: IE8 */
+}
+mintchoc .ui-widget-shadow {
+	-webkit-box-shadow: -8px -8px 8px #aaaaaa;
+	box-shadow: -8px -8px 8px #aaaaaa;
+}
