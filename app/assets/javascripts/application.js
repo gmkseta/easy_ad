@@ -20,3 +20,4 @@
 //= require jscolor.min
 //= require jquery.textfill
 //= require jquery.textfill.min
+//= require scripts
