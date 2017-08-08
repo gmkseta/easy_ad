@@ -92,40 +92,77 @@
         $("#hpost_picture").change(function(){
           $('#submit_poster').trigger('click');
         });
-   });  
+   });  //이미지저장 끄읏
   
+//요기부터주석처리 잠깐    
+  // // 마우스 클릭 시, 그 흰화면 따락 뜸
+  //   $(document).ready(function(){
     
-  // 마우스 클릭 시, 그 흰화면 따락 뜸
-    $(document).ready(function(){
-    
-        // run the currently selected effect
-        function runEffectTitle() {
-          var options = {};
-          $( "#title_effect" ).toggle( "blind", options, 500 );
-        };
-        function runEffectDetail() {
-          var options = {};
-          $( "#detail_effect" ).toggle( "blind", options, 500 );
-        };
-        function runEffectAddress() {
-          var options = {};
-          $( "#address_effect" ).toggle( "blind", options, 500 );
-        };
+  //       // run the currently selected effect
+  //       function runEffectTitle() {
+  //         var options = {};
+  //         $( "#title_effect" ).toggle( "blind", options, 500 );
+  //       };
+  //       function runEffectDetail() {
+  //         var options = {};
+  //         $( "#detail_effect" ).toggle( "blind", options, 500 );
+  //       };
+  //       function runEffectAddress() {
+  //         var options = {};
+  //         $( "#address_effect" ).toggle( "blind", options, 500 );
+  //       };
         
-         $( "#title" ).on( "click", function() {runEffectTitle();
-           $("#pt_title").addClass('select'); //class select 지워주는 거 추가하고 뒤에 detail이랑 address에 추가
-           changeEdit();
-         });
+  //       $( "#title" ).on( "click", function() {runEffectTitle();
+  //         // $("#pt_title").addClass('select'); //class select 지워주는 거 추가하고 뒤에 detail이랑 address에 추가
+  //         // changeEdit();
+  //       });
          
-         $( "#detail" ).on( "click", function() {runEffectDetail();
-           //추가
-         });
+  //       $( "#detail" ).on( "click", function() {runEffectDetail();
+  //         //추가
+  //       });
          
-         $( "#address" ).on( "click", function() {runEffectAddress();
-           //추가
-         });
-      }); //input 클릭 시 실행되는 script 닫음
-      
+  //       $( "#address" ).on( "click", function() {runEffectAddress();
+  //         //추가
+  //       });
+         
+         
+  //                             // $("#address").hover(                                              //address 마우스오버 때
+  //                             //       function(){runEffectAddress();                 },              // 이거 생겨야됨
+  //                             //       function(){$("#pt_address").removeClass('select');}                 //  마우스아웃 때, select 제거
+  //                             //   );
+                             
+                             
+  //                             // $("#address_effect").hover(                                              //마우스오버 때
+  //                             //       function(){$("#pt_address").addClass('select');                     // pt_address 에 class에 select 추가
+  //                             //                 $("#title_zm").addClass('zoom');                         // pt_address 에 class에 zoom 추가
+  //                             //                   changeEdit();},                                         // ChangeEdit 함수 실행
+  //                             //       function(){$("#pt_address").removeClass('select');}                 //  마우스아웃 때, select 제거
+  //                             //   );
+
+
+  //     }); //input 클릭 시 실행되는 script 닫음
+//요기까지 주석처리
+
+
+
+
+
+
+$(document).ready(function(){
+    $('.top').on('click', function() {
+    	$parent_box = $(this).closest('.box');
+    	$parent_box.siblings().find('.bottom').slideUp();
+    	$parent_box.find('.bottom').slideToggle(1000, 'swing');
+    });
+});
+
+
+
+
+
+
+
+
       
       
       
@@ -147,154 +184,123 @@
         <h1>Make Your Poster</h1>
       </header>
       <div class="input_form row">
-          <div class="form-group"> <!-- form group은 한 줄 / for inline은 같은 줄 -->
+        
+          <div class="form-group box"> <!-- form group은 한 줄 / for inline은 같은 줄 -->
             <label class="sr-only" for="title">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Title" name="title" autocomplete="off">
-            <div id="title_effect"> 
-                <div class="option" id="f_wrap">
-                      <dl>
-                          <dt>글자크기 (<span id="lbl_fontsize">12</span>px) </dt>
-                              <dd class="zoom">
-                                <button>+</button>
-                                <button>X</button>
-                                <button>-</button>
-                              </dd>
-                          <dt>글자모양</dt>
-                              <dd class="f_style">
-                                  <select name="fs" id="fs">
-                                      <option value="dotum,'돋움',sans-serif">돋움</option>
-                                      <option value="Nanum Brush Script, '나눔손글씨붓', serif">나눔손글씨붓</option>
-                                      <option value="Nanum Pen Script, '나눔손글씨펜', serif">나눔손글씨펜</option>
-                                      <option value="Nanum Myeongjo, '나눔명조', serif">나눔명조</option>
-                                      <option value="Nanum Gothic, '나눔고딕', serif">나눔고딕</option>
-                                      <option value="Sedgwick Ave, 'Sedgwick Ave', cursive">Sedgwick Ave</option>
-                                      <option value="Acme, 'Acme', sans-serif">Acme</option>
-                                      <option value="Godo, '고도', serif">고도</option>
-                                      <option value="daehan, '대한체', serif">대한체</option>
-                                  </select>
-                              </dd>
-                            
-                            	<!-- 이건 백그라운드
-                            	Color: <input class="jscolor" value="ab2567"> 
-                            	-->
-                          	<button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
-                          	    Color
-                          	</button>
-                                <input id="chosen-value" value="000000">
-                              	<script>
-                                  	function setTextColor(picker) {
-                                  		document.getElementsByClassName('select')[0].style.color = '#' + picker.toString()
-                                  	}
-                              	</script>
-                            	
-                          	<br>
-                            	<!-- bold italic -->
-                          	<input type="button" class="boldText" value="Bold">
-                            <input type="button" class="italicText" value="Italic">
-                            <input type="button" class="underlineText" value="Underline">
-                      </dl>
-                 </div> <!-- option 태그 닫음 -->
-            </div>
+            <input type="text" class="top form-control" id="title" placeholder="Title" name="title" autocomplete="off">
+              <!--<div id="title_effect"> -->
+              <!--</div>-->
+              
+              <div class="bottom">
+                door #1
+              </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group box">
             <label class="sr-only" for="detail">Detail</label>
-            <textarea type="text" class="form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
-            <div id="detail_effect">
-                <div class="option" id="f_wrap">
-                      <dl>
-                          <dt>글자크기 (<span id="lbl_fontsize">12</span>px) </dt>
-                              <dd class="zoom">
-                                <button>+</button>
-                                <button>X</button>
-                                <button>-</button>
-                              </dd>
-                          <dt>글자모양</dt>
-                              <dd class="f_style">
-                                  <select name="fs" id="fs">
-                                      <option value="dotum,'돋움',sans-serif">돋움</option>
-                                      <option value="Nanum Brush Script, '나눔손글씨붓', serif">나눔손글씨붓</option>
-                                      <option value="Nanum Pen Script, '나눔손글씨펜', serif">나눔손글씨펜</option>
-                                      <option value="Nanum Myeongjo, '나눔명조', serif">나눔명조</option>
-                                      <option value="Nanum Gothic, '나눔고딕', serif">나눔고딕</option>
-                                      <option value="Sedgwick Ave, 'Sedgwick Ave', cursive">Sedgwick Ave</option>
-                                      <option value="Acme, 'Acme', sans-serif">Acme</option>
-                                      <option value="Godo, '고도', serif">고도</option>
-                                      <option value="daehan, '대한체', serif">대한체</option>
-                                  </select>
-                              </dd>
-                            
-                            	<!-- 이건 백그라운드
-                            	Color: <input class="jscolor" value="ab2567"> 
-                            	-->
-                          	<button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
-                          	    Color
-                          	</button>
-                                <input id="chosen-value" value="000000">
-                              	<script>
-                                  	function setTextColor(picker) {
-                                  		document.getElementsByClassName('select')[0].style.color = '#' + picker.toString()
-                                  	}
-                              	</script>
-                            	
-                          	<br>
-                            	<!-- bold italic -->
-                          	<input type="button" class="boldText" value="Bold">
-                            <input type="button" class="italicText" value="Italic">
-                            <input type="button" class="underlineText" value="Underline">
-                      </dl>
-                 </div> <!-- option 태그 닫음 -->
-            </div> <!-- detail effect 태그 -->
+            <textarea type="text" class="top form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
+            <div class="bottom">
+                door #2
+              </div>
+                                      <!--<div id="detail_effect">-->
+                                      <!--    <div class="option" id="f_wrap">-->
+                                      <!--          <dl>-->
+                                      <!--              <dt>글자크기 (<span id="lbl_fontsize">12</span>px) </dt>-->
+                                      <!--                  <dd id="title_zm" > <!-- class="zoom" -->
+                                      <!--                    <button>+</button>-->
+                                      <!--                    <button>X</button>-->
+                                      <!--                    <button>-</button>-->
+                                      <!--                  </dd>-->
+                                      <!--              <dt>글자모양</dt>-->
+                                      <!--                  <dd class="f_style">-->
+                                      <!--                      <select name="fs" id="fs">-->
+                                      <!--                          <option value="dotum,'돋움',sans-serif">돋움</option>-->
+                                      <!--                          <option value="Nanum Brush Script, '나눔손글씨붓', serif">나눔손글씨붓</option>-->
+                                      <!--                          <option value="Nanum Pen Script, '나눔손글씨펜', serif">나눔손글씨펜</option>-->
+                                      <!--                          <option value="Nanum Myeongjo, '나눔명조', serif">나눔명조</option>-->
+                                      <!--                          <option value="Nanum Gothic, '나눔고딕', serif">나눔고딕</option>-->
+                                      <!--                          <option value="Sedgwick Ave, 'Sedgwick Ave', cursive">Sedgwick Ave</option>-->
+                                      <!--                          <option value="Acme, 'Acme', sans-serif">Acme</option>-->
+                                      <!--                          <option value="Godo, '고도', serif">고도</option>-->
+                                      <!--                          <option value="daehan, '대한체', serif">대한체</option>-->
+                                      <!--                      </select>-->
+                                      <!--                  </dd>-->
+                                                      
+                                                      	<!-- 이건 백그라운드
+                                      <!--                	Color: <input class="jscolor" value="ab2567"> -->
+                                      <!--                	-->
+                                      <!--              	<button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">-->
+                                      <!--              	    Color-->
+                                      <!--              	</button>-->
+                                      <!--                    <input id="chosen-value" value="000000">-->
+                                      <!--                  	<script>-->
+                                      <!--                      	function setTextColor(picker) {-->
+                                      <!--                      		document.getElementsByClassName('select')[0].style.color = '#' + picker.toString()-->
+                                      <!--                      	}-->
+                                      <!--                  	</script>-->
+                                                      	
+                                      <!--              	<br>-->
+                                                      	<!-- bold italic -->
+                                      <!--              	<input type="button" class="boldText" value="Bold">-->
+                                      <!--                <input type="button" class="italicText" value="Italic">-->
+                                      <!--                <input type="button" class="underlineText" value="Underline">-->
+                                      <!--          </dl>-->
+                                      <!--     </div> <!-- option 태그 닫음 -->
+                                      <!--</div> <!-- detail effect 태그 -->
           </div> <!-- form group 태그 -->
           
-          <div class="form-group">
+          
+          <div class="form-group box">
             <label class="sr-only" for="address">Address</label>
-            <input type="text" class="form-control" id="address" placeholder="Address" name="address">
-            <div id="address_effect">
-                <div class="option" id="f_wrap">
-                      <dl>
-                          <dt>글자크기 (<span id="lbl_fontsize">12</span>px) </dt>
-                              <dd class="zoom">
-                                <button>+</button>
-                                <button>X</button>
-                                <button>-</button>
-                              </dd>
-                          <dt>글자모양</dt>
-                              <dd class="f_style">
-                                  <select name="fs" id="fs">
-                                      <option value="dotum,'돋움',sans-serif">돋움</option>
-                                      <option value="Nanum Brush Script, '나눔손글씨붓', serif">나눔손글씨붓</option>
-                                      <option value="Nanum Pen Script, '나눔손글씨펜', serif">나눔손글씨펜</option>
-                                      <option value="Nanum Myeongjo, '나눔명조', serif">나눔명조</option>
-                                      <option value="Nanum Gothic, '나눔고딕', serif">나눔고딕</option>
-                                      <option value="Sedgwick Ave, 'Sedgwick Ave', cursive">Sedgwick Ave</option>
-                                      <option value="Acme, 'Acme', sans-serif">Acme</option>
-                                      <option value="Godo, '고도', serif">고도</option>
-                                      <option value="daehan, '대한체', serif">대한체</option>
-                                  </select>
-                              </dd>
-                            
-                            	<!-- 이건 백그라운드
-                            	Color: <input class="jscolor" value="ab2567"> 
-                            	-->
-                          	<button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
-                          	    Color
-                          	</button>
-                                <input id="chosen-value" value="000000">
-                              	<script>
-                                  	function setTextColor(picker) {
-                                  		document.getElementsByClassName('select')[0].style.color = '#' + picker.toString()
-                                  	}
-                              	</script>
-                            	
-                          	<br>
-                            	<!-- bold italic -->
-                          	<input type="button" class="boldText" value="Bold">
-                            <input type="button" class="italicText" value="Italic">
-                            <input type="button" class="underlineText" value="Underline">
-                      </dl>
-                 </div> <!-- option 태그 닫음 -->
+            <input type="text" class="top form-control" id="address" placeholder="Address" name="address">
+            <div class="bottom">
+                door #2
             </div>
+                                  <!--<div id="address_effect">-->
+                                  <!--    <div class="option" id="f_wrap">-->
+                                  <!--          <dl>-->
+                                  <!--              <dt>글자크기 (<span id="lbl_fontsize">12</span>px) </dt>-->
+                                  <!--                  <dd id="title_zm" class="zoom" >-->
+                                  <!--                    <button>+</button>-->
+                                  <!--                    <button>X</button>-->
+                                  <!--                    <button>-</button>-->
+                                  <!--                  </dd>-->
+                                  <!--              <dt>글자모양</dt>-->
+                                  <!--                  <dd class="f_style">-->
+                                  <!--                      <select name="fs" id="fs">-->
+                                  <!--                          <option value="dotum,'돋움',sans-serif">돋움</option>-->
+                                  <!--                          <option value="Nanum Brush Script, '나눔손글씨붓', serif">나눔손글씨붓</option>-->
+                                  <!--                          <option value="Nanum Pen Script, '나눔손글씨펜', serif">나눔손글씨펜</option>-->
+                                  <!--                          <option value="Nanum Myeongjo, '나눔명조', serif">나눔명조</option>-->
+                                  <!--                          <option value="Nanum Gothic, '나눔고딕', serif">나눔고딕</option>-->
+                                  <!--                          <option value="Sedgwick Ave, 'Sedgwick Ave', cursive">Sedgwick Ave</option>-->
+                                  <!--                          <option value="Acme, 'Acme', sans-serif">Acme</option>-->
+                                  <!--                          <option value="Godo, '고도', serif">고도</option>-->
+                                  <!--                          <option value="daehan, '대한체', serif">대한체</option>-->
+                                  <!--                      </select>-->
+                                  <!--                  </dd>-->
+                                                  
+                                                  	<!-- 이건 백그라운드
+                                  <!--                	Color: <input class="jscolor" value="ab2567"> -->
+                                  <!--                	-->
+                                  <!--              	<button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">-->
+                                  <!--              	    Color-->
+                                  <!--              	</button>-->
+                                  <!--                    <input id="chosen-value" value="000000">-->
+                                  <!--                  	<script>-->
+                                  <!--                      	function setTextColor(picker) {-->
+                                  <!--                      		document.getElementsByClassName('select')[0].style.color = '#' + picker.toString()-->
+                                  <!--                      	}-->
+                                  <!--                  	</script>-->
+                                                  	
+                                  <!--              	<br>-->
+                                                  	<!-- bold italic -->
+                                  <!--              	<input type="button" class="boldText" value="Bold">-->
+                                  <!--                <input type="button" class="italicText" value="Italic">-->
+                                  <!--                <input type="button" class="underlineText" value="Underline">-->
+                                  <!--          </dl>-->
+                                  <!--     </div> <!-- option 태그 닫음 -->
+                                  <!--</div>-->
           </div>
           
           <div class="form-group">
