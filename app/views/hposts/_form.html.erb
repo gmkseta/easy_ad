@@ -3,7 +3,7 @@
   <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="jscolor.js"></script>
+  <script src="jscolor.js"></script>  <!-- 폰트 색상 script--> 
   <script>   //script for 폰트 설정
     //<![CDATA[
       $(function(){
@@ -37,7 +37,7 @@
     
     //]]>
     </script>
-    <script>
+    <script> //bold underline italic 설정
     $(document).ready(function(){
         $('.boldText').click(function(){
            $('div.select').toggleClass("bold");
@@ -50,8 +50,29 @@
         });
     });
     </script>
+    
+    <script>    
+  $(document).ready(function(){
 
+    // run the currently selected effect
+    function runEffectTitle() {
+      var options = {};
+      $( "#title_effect" ).toggle( "blind", options, 500 );
+    };
+    function runEffectDetail() {
+      var options = {};
+      $( "#detail_effect" ).toggle( "blind", options, 500 );
+    };
+    function runEffectAddress() {
+      var options = {};
+      $( "#address_effect" ).toggle( "blind", options, 500 );
+    };
+     $( "#title" ).on( "click", function() {runEffectTitle();});
+     $( "#detail" ).on( "click", function() {runEffectDetail();});
+     $( "#address" ).on( "click", function() {runEffectAddress();});
 
+  });
+  </script>
 </head>
 
 <div class="parent">
@@ -65,13 +86,20 @@
             <label class="sr-only" for="title">Title</label>
             <input type="text" class="form-control" id="title" placeholder="Title" name="title">
           </div>
+          <div id="title_effect">
+          </div>
           <div class="form-group">
             <label class="sr-only" for="detail">Detail</label>
             <textarea type="text" class="form-control" id="detail" placeholder="Detail" name="detail"></textarea>
+            <div id="detail_effect">
           </div>
+          </div>
+          
           <div class="form-group">
             <label class="sr-only" for="address">Address</label>
             <input type="text" class="form-control" id="address" placeholder="Address" name="address">
+          </div>
+          <div id="address_effect">
           </div>
           <div class="form-group">
              <label class="sr-only" for="pic">pic</label>
@@ -161,13 +189,13 @@
         <div id = "pt_detail">
         </div>
         
-        <div id = "pt_address">
+        <div class="select" id = "pt_address">
         </div>
     </div>
-  </div>
   
-  <a id="btn-Convert-Html2Image" href="#" >이미지 저장</a>
-  <button type="submit" class="btn-EditSubmit">Submit</button>
+    <a id="btn-Convert-Html2Image" href="#" >이미지 저장</a>
+    <button type="submit" class="btn-EditSubmit">Submit</button>
+  </div>
 
 </div>
 
