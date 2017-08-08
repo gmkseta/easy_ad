@@ -11,33 +11,6 @@
   <script src="jscolor.js"></script>  
   
   <script>
-  //폰트설정
-       function changeEdit() {
-         var size=12;
-         var select=$("div.select"); //class나 id값 이용해서 바꾸면 됨! 나중에 해결되면 selected로 바꾸면 됩니다! 
-          //① 글자 크기의 버튼들을 클릭했을 때
-          $(".zoom button").on("click",function(){
-              var btn_index=$(".zoom button").index(this);  //클릭한 버튼의 인덱스 반환
-              
-              if(btn_index==0){ //"+"를 클릭했을 경우
-                 size++; //size가 1씩 증가
-                 select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. 
-              }else if(btn_index==2){ //"-"를 클릭했을 경우
-                 size--; //size가 1씩 감소
-                 select.css("font-size",size+"px"); //글자 크기 속성이 변경됨.
-              }else{ //"0"를 클릭했을 경우
-                 size=12; //디폴트로 다시 세팅
-                 select.css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
-              }
-              $("#lbl_fontsize").text(size); //글자크기 출력
-          });
-    
-          //② 글자 모양을 선택했을 때 (폰트 변경)
-          $("#fs").on("change",function(){
-            select.css("font-family",$(this).val()); //글자 모양 변경
-          });
-      };
-
 
 
   //이미지저장 + 실시간입력
@@ -80,9 +53,53 @@
         });
    });  //이미지저장 끄읏
   
+  
+    //폰트설정
+       function editOption() {
+         var size=15;
+         var select=$("div.select");
+         
+          // 글자 크기의 버튼들을 클릭했을 때
+          $(".zoom button").on("click",function(){
+              var btn_index=$(".zoom button").index(this);  //클릭한 버튼의 인덱스 반환
+              
+              if(btn_index==0){ //"+"를 클릭했을 경우
+                 size++; //size가 1씩 증가
+                 select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. 
+              }else if(btn_index==2){ //"-"를 클릭했을 경우
+                 size--; //size가 1씩 감소
+                 select.css("font-size",size+"px"); //글자 크기 속성이 변경됨.
+              }else{ //"0"를 클릭했을 경우
+                 size=12; //디폴트로 다시 세팅
+                 select.css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
+              }
+              $("#lbl_fontsize").text(size); //글자크기 출력
+          });
+    
+    
+          // 글자 모양을 선택했을 때 (폰트 변경)
+          $("#fs").on("change",function(){
+            select.css("font-family",$(this).val()); //글자 모양 변경
+          });
+          
+          
+          // 색상
+      };
 
 
 
+
+
+// 생각생각을 해봅시다!!
+// 그니까 지금 하려는게 
+// 클릭 시 -> 아래 하단에 띄우기
+// 하단에 띄우는 것은 bottom 인데
+// 이 때 클릭시에 bottom 내부에 render (option.render)가 들어가게 하는 것!!! 이렇게 해야 오류가 안난다고ㅠㅠㅠ히우ㅜㅎ잏이
+
+// 그리고 이 div에 마우스를 올리면,
+// class에 select를 추가해서 요소변경할 수 있도록 연결하는데
+
+// 여기서 지금은 폰트만 되고 / 색은 안됨 (아마 changeEdit 함수 건드려야 하지 않나 생각중)
 
 
   $(document).ready(function(){
@@ -93,12 +110,16 @@
       });
       
       
-      $('.bottom').hover(                                                      //bottom 마우스오버 때
+      $('.numb3 .bottom').hover(                                                      //bottom 마우스오버 때
           function(){$("#pt_address").addClass('select');
-                    changeEdit();
+                    editOption();
                     },             
           function(){$("#pt_address").removeClass('select');}                 //  마우스아웃 때, select 제거
-      );
+      ); 
+      
+      
+//위에 render문제가 해결이 되면, 이거는 numb1 -> pt_title / numb2 -> pt_detail / numb3 -> pt_address로 연결 시키면 될듯
+      
   });
 
       
@@ -119,7 +140,7 @@
               <label class="sr-only" for="title">Title</label>
               <input type="text" class="top form-control" id="title" placeholder="Title" name="title" autocomplete="off">
               <div class="bottom">
-                    <%= render "option" %>
+                    g
               </div>
           </div>
         
@@ -127,11 +148,11 @@
               <label class="sr-only" for="detail">Detail</label>
               <textarea type="text" class="top form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
               <div class="bottom">
-                    <%= render "option" %>
+                    ㅂ
               </div>
           </div>
           
-          <div class="form-group box">
+          <div class="numb3 form-group box">
               <label class="sr-only" for="address">Address</label>
               <input type="text" class="top form-control" id="address" placeholder="Address" name="address" autocomplete="off">
               <div class="bottom">
