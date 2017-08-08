@@ -5,17 +5,14 @@
   <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script> 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <!-- textfill -->
-  <script src="jquery.textfill.min.js"></script> 
+
+
   <!-- 폰트 색상 script--> 
   <script src="jscolor.js"></script>  
   
   <script>
   //폰트설정
        function changeEdit() {
-         //초기 설
-      
-        
          var size=12;
          var select=$("div.select"); //class나 id값 이용해서 바꾸면 됨! 나중에 해결되면 selected로 바꾸면 됩니다! 
           //① 글자 크기의 버튼들을 클릭했을 때
@@ -40,20 +37,9 @@
             select.css("font-family",$(this).val()); //글자 모양 변경
           });
       };
-      
-  //bold underline italic 설정 - 작동안함 ㅠ 
-    $(document).ready(function(){
-          $('.boldText').click(function(){
-             $('div.select').toggleClass("bold");
-          });
-          $('.italicText').click(function(){
-            $('div.select').toggleClass("italic");
-          });
-          $('.underlineText').click(function(){
-            $('div.select').toggleClass("underline");
-          });
-      });
-  
+
+
+
   //이미지저장 + 실시간입력
   $(document).ready(function(){
 
@@ -94,67 +80,26 @@
         });
    });  //이미지저장 끄읏
   
-//요기부터주석처리 잠깐    
-  // // 마우스 클릭 시, 그 흰화면 따락 뜸
-  //   $(document).ready(function(){
-    
-  //       // run the currently selected effect
-  //       function runEffectTitle() {
-  //         var options = {};
-  //         $( "#title_effect" ).toggle( "blind", options, 500 );
-  //       };
-  //       function runEffectDetail() {
-  //         var options = {};
-  //         $( "#detail_effect" ).toggle( "blind", options, 500 );
-  //       };
-  //       function runEffectAddress() {
-  //         var options = {};
-  //         $( "#address_effect" ).toggle( "blind", options, 500 );
-  //       };
-        
-  //       $( "#title" ).on( "click", function() {runEffectTitle();
-  //         // $("#pt_title").addClass('select'); //class select 지워주는 거 추가하고 뒤에 detail이랑 address에 추가
-  //         // changeEdit();
-  //       });
-         
-  //       $( "#detail" ).on( "click", function() {runEffectDetail();
-  //         //추가
-  //       });
-         
-  //       $( "#address" ).on( "click", function() {runEffectAddress();
-  //         //추가
-  //       });
-         
-         
-  //                             // $("#address").hover(                                              //address 마우스오버 때
-  //                             //       function(){runEffectAddress();                 },              // 이거 생겨야됨
-  //                             //       function(){$("#pt_address").removeClass('select');}                 //  마우스아웃 때, select 제거
-  //                             //   );
-                             
-                             
-  //                             // $("#address_effect").hover(                                              //마우스오버 때
-  //                             //       function(){$("#pt_address").addClass('select');                     // pt_address 에 class에 select 추가
-  //                             //                 $("#title_zm").addClass('zoom');                         // pt_address 에 class에 zoom 추가
-  //                             //                   changeEdit();},                                         // ChangeEdit 함수 실행
-  //                             //       function(){$("#pt_address").removeClass('select');}                 //  마우스아웃 때, select 제거
-  //                             //   );
-
-
-  //     }); //input 클릭 시 실행되는 script 닫음
-//요기까지 주석처리
 
 
 
 
 
-
-$(document).ready(function(){
-    $('.top').on('click', function() {
-    	$parent_box = $(this).closest('.box');
-    	$parent_box.siblings().find('.bottom').slideUp();
-    	$parent_box.find('.bottom').slideToggle(1000, 'swing');
-    });
-});
+  $(document).ready(function(){
+      $('.top').on('click', function() {
+      	$parent_box = $(this).closest('.box');
+      	$parent_box.siblings().find('.bottom').slideUp();
+      	$parent_box.find('.bottom').slideToggle(1000, 'swing');
+      });
+      
+      
+      $('.bottom').hover(                                                      //bottom 마우스오버 때
+          function(){$("#pt_address").addClass('select');
+                    changeEdit();
+                    },             
+          function(){$("#pt_address").removeClass('select');}                 //  마우스아웃 때, select 제거
+      );
+  });
 
       
     </script>
@@ -177,19 +122,18 @@ $(document).ready(function(){
                     <%= render "option" %>
               </div>
           </div>
-
+        
           <div class="form-group box">
               <label class="sr-only" for="detail">Detail</label>
               <textarea type="text" class="top form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
               <div class="bottom">
-                  <%= render "option" %>
+                    <%= render "option" %>
               </div>
-          </div> <!-- form group 태그 -->
-          
+          </div>
           
           <div class="form-group box">
               <label class="sr-only" for="address">Address</label>
-              <input type="text" class="top form-control" id="address" placeholder="Address" name="address">
+              <input type="text" class="top form-control" id="address" placeholder="Address" name="address" autocomplete="off">
               <div class="bottom">
                   <%= render "option" %>
               </div>
@@ -210,15 +154,15 @@ $(document).ready(function(){
                 <% end %>
            </div>
          
-      </div> <!-- input_form row div 태그 닫음 -->
-  </div> <!-- child 태그 닫음 -->
+      </div> <!-- input_form row -->
+  </div> <!-- child -->
     
     
 
   <!-- 오른쪽 poster -->
   <div class="child" id="here">
     <div class="poster" id="html-content-holder"> 
-        <div id = "pt_title" class = "">
+        <div id = "pt_title">
         </div>
         
         <div id = "pt_picture">
@@ -236,7 +180,7 @@ $(document).ready(function(){
   
     <a id="btn-Convert-Html2Image" href="#" >이미지 저장</a>
     <button type="submit" class="btn-EditSubmit">Submit</button>
-  </div> <!-- child 태그 닫음 -->
+  </div> <!-- child -->
 
-</div>  <!-- 전체 parent 태그 -->
+</div>  <!-- parent / end -->
 
