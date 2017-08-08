@@ -58,25 +58,25 @@
 <script>
 $(document).ready(function(){
 
-<!-- div 이미지로 변환 및 저장 script-->
-var element = $("#html-content-holder"); // global variable
-var getCanvas; // global variable
-      html2canvas(element, {
-         onrendered: function (canvas) {
-                $("#html_content_holder").append(canvas);
-                getCanvas = canvas;
-             }
-         });
-         
-	$("#btn-Convert-Html2Image").on('click', function () {
-    var imageData = getCanvas.toDataURL("image/png");
-    // Now browser starts downloading it instead of just showing it
-    var newData = imageData.replace(/^data:image\/png/, "data:application/octet-stream");
-    $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
-	});
+  //<!-- div 이미지로 변환 및 저장 script-->
+  var element = $("#html-content-holder"); // global variable
+  var getCanvas; // global variable
+        html2canvas(element, {
+           onrendered: function (canvas) {
+                  $("#html_content_holder").append(canvas);
+                  getCanvas = canvas;
+               }
+           });
+           
+  	$("#btn-Convert-Html2Image").on('click', function () {
+      var imageData = getCanvas.toDataURL("image/png");
+      // Now browser starts downloading it instead of just showing it
+      var newData = imageData.replace(/^data:image\/png/, "data:application/octet-stream");
+      $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+  	});
 
 
-<!-- 실시간으로 input 값이 입력 되는 script -->
+  //<!-- 실시간으로 input 값이 입력 되는 script -->
   
     $('#title').keyup(function (){
     $('#pt_title' , "div" ).empty();
