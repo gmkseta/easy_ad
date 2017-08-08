@@ -6,7 +6,6 @@
 </head>
 
 <div class="parent">
-<<<<<<< HEAD
   <div class="child">
     <header>
       <h1>Make Your Poster</h1>
@@ -41,7 +40,6 @@
             
     </div>
       </div>
-=======
     <div class="child">
         <header>
             <h1>Make Your Poster</h1>
@@ -75,12 +73,10 @@
                 <% end %>
             </div>
         </div>
->>>>>>> 501e1e1073a3b8529a727575e921ec0f1acc3365
     </div>
     
 
   <!-- 오른쪽 poster -->
-<<<<<<< HEAD
   <div class="child" id="here">
     
     <div class="poster" id="html-content-holder"> 
@@ -92,7 +88,6 @@
       </div>
       <div id = "pt_detail"></div>
       <div id = "pt_address"></div>
-=======
     <div class="child" id="here">
         <div class="poster" id="html-content-holder"> 
             <div id = "pt_title"></div>
@@ -104,16 +99,13 @@
             <div id = "pt_detail"></div>
             <div id = "pt_address"></div>
         </div>
->>>>>>> 501e1e1073a3b8529a727575e921ec0f1acc3365
     </div>
 </div>
 <a id="btn-Convert-Html2Image" href="#" >이미지 저장</a>
 <button type="submit" class="btn-EditSubmit">Submit</button>
 
-<<<<<<< HEAD
-=======
+
  
->>>>>>> 501e1e1073a3b8529a727575e921ec0f1acc3365
 
 <script>
   $(document).ready(function(){
@@ -138,7 +130,7 @@
 // <!-- 실시간으로 input 값이 입력 되는 script -->
       $('#title').keyup(function (){
         $('#pt_title' , "div" ).empty();
-        $('#pt_title').append("<div>"+document.getElementById("title").value+"</div>");
+        $('#pt_title').append("<div id = "pst_title">"+document.getElementById("title").value+"</div>"); //
       });
       
       $('#detail').keyup(function (){
