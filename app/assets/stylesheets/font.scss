@@ -1,38 +1,29 @@
-
-// Fonts for English
-@import url(https://fonts.googleapis.com/css?family=PT+Sans);
-// Fonts for Korean
-@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
-
 //font - Korean
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
 @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
 @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
-@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css); //제주고딕 - 적용 안됨
-@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css); //제주한라산 - 적용 안됨
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css); //한나체 - 적용안됨
+
 
 //font - English
 @import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave');
 @import url('https://fonts.googleapis.com/css?family=Acme');
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
-//font - using CDN
+
+//font - using CDN - for Korean
 @font-face {
   font-family: 'Godo';
   font-style: normal;
   font-weight: 700;
   src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff') format('woff');
 }
-
 @font-face {
   font-family: 'Daehan';
   font-style: normal;
   font-weight: 400;
   src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanR.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanR.woff') format('woff');
 }
-
 @font-face {
   font-family: 'Daehan';
   font-style: normal;
