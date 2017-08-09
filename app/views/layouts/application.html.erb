@@ -12,8 +12,8 @@
   <script type="text/javascript" src="/assets/jquery-ui.js"></script>
   <!------------------------------------------------------------------->
   
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
     
     <script src='/assets/home_js/modernizr.custom.js'></script>
     <!-- Bootstrap CDN -->
@@ -26,22 +26,70 @@
       
 </head>
 <body>
-     <nav class="navbar navbar-default navbar-inverse" style="margin-bottom: 0px;border-bottom-width: 0px;"role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                            <span class="sr-only">Tssoggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                    </button>
-              <a class="navbar-brand" href="/">HOME</a>
+    
+        <header>
+        
+        <div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                
+                    <div class="col-sm-3">
+                        <div class="logo">
+                            <a href="index.html">EasyAD</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-9">
+                        <div class="navigation-menu">
+                            <div class="navbar">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="active"><a class="smoth-scroll" href="#home">Home <div class="ripple-wrapper"></div></a>
+                                        </li>
+                                        <li><a class="smoth-scroll" href="#menu1">menu1</a> <!-- menu1 href연결 후 아래 div에 설정 or 새 페이지로 연결 -->
+                                        </li>
+                                        <li><a class="smoth-scroll" href="#portfolio">menu2</a>
+                                        </li>
+                                        <li><a class="smoth-scroll" href="#testimonials">menu3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    
+        
+    </header>
+    <!-- Home & Menu Section End-->
+    
+    
+    <!-- <nav class="navbar navbar-default navbar-inverse" style="margin-bottom: 0px;border-bottom-width: 0px;"role="navigation">-->
+            <!-- Brand and toggle get grouped for better mobile display -->
+    <!--        <div class="navbar-header">-->
+    <!--                        <span class="sr-only">Tssoggle navigation</span>-->
+    <!--                        <span class="icon-bar"></span>-->
+    <!--                        <span class="icon-bar"></span>-->
+    <!--                        <span class="icon-bar"></span>-->
+    <!--                </button>-->
+    <!--          <a class="navbar-brand" href="/">HOME</a>-->
+    <!--        </div>-->
     
       <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                        <li><a href="/home/list">LIST</a></li>
-                        <li><a href="/home/edit1">EDIT</a></li>
+    <!--      <div class="collapse navbar-collapse navbar-ex1-collapse">-->
+    <!--            <ul class="nav navbar-nav">-->
+    <!--                    <li><a href="/home/list">LIST</a></li>-->
+    <!--                    <li><a href="/home/edit1">EDIT</a></li>-->
                         <!--<li class="dropdown">-->
                         <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
                         <!--    <ul class="dropdown-menu">-->
@@ -53,13 +101,13 @@
                         <!--    </ul>-->
                         <!--</li>-->
                         
-                </ul>
-            <form class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                        <input type=  "text" class="form-control" placeholder="Search">
-                  </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+    <!--            </ul>-->
+    <!--        <form class="navbar-form navbar-left" role="search">-->
+    <!--              <div class="form-group">-->
+    <!--                    <input type=  "text" class="form-control" placeholder="Search">-->
+    <!--              </div>-->
+    <!--          <button type="submit" class="btn btn-default">Submit</button>-->
+    <!--        </form>-->
             <!--<ul class="nav navbar-nav navbar-right">-->
             <!--      <li><a href="#">Link</a></li>-->
             <!--      <li class="dropdown">-->
@@ -72,8 +120,8 @@
             <!--            </ul>-->
             <!--      </li>-->
             <!--</ul>-->
-          </div><!-- /.navbar-collapse -->
-    </nav>
+    <!--      </div><!-- /.navbar-collapse -->-->
+    <!--</nav>-->
 
 <%= yield %>
 
