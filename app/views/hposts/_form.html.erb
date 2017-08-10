@@ -55,20 +55,24 @@
   
     //폰트설정
        function editOption() {
-         var size=15;
+        
+        var el = document.getElementsByClassName('select');
+        var style = window.getComputedStyle(el[0], null).getPropertyValue('font-size');
+        var size = parseFloat(style); 
+
          var select=$("div.select");
          
           // 글자 크기의 버튼들을 클릭했을 때
           $(".zoom button").on("click",function(){
-              var btn_index=$(".zoom button").index(this);  //클릭한 버튼의 인덱스 반환
+              var btn_index=$(this).val();  //클릭한 버튼의 인덱스 반환
               
-              if(btn_index==0){ //"+"를 클릭했을 경우
+              if(btn_index=="btn_plus"){ //"+"를 클릭했을 경우
                  size++; //size가 1씩 증가
                  select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. 
-              }else if(btn_index==2){ //"-"를 클릭했을 경우
+              }else if(btn_index=="btn_minus"){ //"-"를 클릭했을 경우
                  size--; //size가 1씩 감소
                  select.css("font-size",size+"px"); //글자 크기 속성이 변경됨.
-              }else{ //"0"를 클릭했을 경우
+              }else if(btn_index=="btn_default"){ //"0"를 클릭했을 경우
                  size=12; //디폴트로 다시 세팅
                  select.css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
               }
@@ -80,7 +84,6 @@
           $("#fs").on("change",function(){
             select.css("font-family",$(this).val()); //글자 모양 변경
           });
-          
           
           // 색상
       };
@@ -101,8 +104,6 @@
 
 //그냥 함수 만드는게 답인것같아염 함수에 입력변수값 + 스크립트 + 클래스 막 다 연결해서 슝슝 ㅎ,ㅎ...
 
-
-
   $(document).ready(function(){
       $('.top').on('click', function() {                       //top은 input에 공동으로 준 class
       	$parent_box = $(this).closest('.box');                 // 가장 위 ? 부모? 가장 가까운 부모가 box인 걸로 접근 / input 상단의 div에 'box'클래스를 공동으로 줌
@@ -110,7 +111,14 @@
       	$parent_box.find('.bottom').slideToggle(1000, 'swing'); //구래서 이렇게 하면 ! 세 input중 하나만 선택가능하게 됨니당ㅎ.ㅎ
       });
       
-      
+      $('.numb2 .bottom').hover(                                        //bottom은 아래 생기는 흰 박스 (내부에는 그 폰트변경요소들) + 마우스 오버 되면
+          function(){$("#pt_detail").addClass('select');
+                   //select가 추가됨 (이 때, 첫번째bottom- pt_tile / 두번째-pt_detail) 연결해야하는데 얘도   
+                                                                    //1)함수로 만들면 입력변수로 조절 2)부모자식요소로 접근 (위에처럼)  3)세개! 수작업 헤헤
+                    editOption();                                    // editOption은 걍 위에 그 어제 해논 함수명 바꿔가지고 ! 그거 실행됨
+                    },             
+          function(){$("#pt_detail").removeClass('select'); }                 //  마우스아웃 때, select 제거! 
+      ); 
       $('.numb3 .bottom').hover(                                        //bottom은 아래 생기는 흰 박스 (내부에는 그 폰트변경요소들) + 마우스 오버 되면
           function(){$("#pt_address").addClass('select');
                    //select가 추가됨 (이 때, 첫번째bottom- pt_tile / 두번째-pt_detail) 연결해야하는데 얘도   
@@ -142,7 +150,7 @@
       
       <div class="input_form row">
         
-          <div class="form-group box"> <!-- form group은 한 줄 / for inline은 같은 줄 -->
+          <div class="numb1 form-group box"> <!-- form group은 한 줄 / for inline은 같은 줄 -->
               <label class="sr-only" for="title">Title</label>
               <input type="text" class="top form-control" id="title" placeholder="Title" name="title" autocomplete="off">
               <div class="bottom">
@@ -150,7 +158,7 @@
               </div>
           </div>
         
-          <div class="form-group box">
+          <div class="numb2 form-group box">
               <label class="sr-only" for="detail">Detail</label>
               <textarea type="text" class="top form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
               <div class="bottom">
