@@ -6,7 +6,6 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
   <!-- 폰트 색상 script--> 
   <script src="jscolor.js"></script>  
   
@@ -65,7 +64,7 @@
           // 글자 크기의 버튼들을 클릭했을 때
           $(".zoom button").on("click",function(){
               var btn_index=$(this).val();  //클릭한 버튼의 인덱스 반환
-              
+              // alert("123");
               if(btn_index=="btn_plus"){ //"+"를 클릭했을 경우
                  size++; //size가 1씩 증가
                  select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. 
@@ -88,10 +87,6 @@
           // 색상
       };
 
-
-
-
-
 // 생각생각을 해봅시다!!
 // 그니까 지금 하려는게 
 // 클릭 시 -> 아래 하단에 띄우기
@@ -109,49 +104,55 @@
       	$parent_box = $(this).closest('.box');                 // 가장 위 ? 부모? 가장 가까운 부모가 box인 걸로 접근 / input 상단의 div에 'box'클래스를 공동으로 줌
       	$parent_box.siblings().find('.bottom').slideUp();     // box 자식요소인 bottom! SlideUp은 약간 애니메이션?액션? 느낌
       	$parent_box.find('.bottom').slideToggle(1000, 'swing'); //구래서 이렇게 하면 ! 세 input중 하나만 선택가능하게 됨니당ㅎ.ㅎ
-      
-        if ($('.numb2 .bottom').is(':visible'))
-        {
-          $("#pt_detail").addClass('select');
-          $("#pt_title").removeClass('select');
-          $("#pt_address").removeClass('select');
-          editOption(); 
-        }
-        else if ($('.numb1 .bottom').is(':visible'))
-        {
+        
+      //   if ($('.numb1 .top').slideDown())
+      //   {
+      //     $("#pt_detail").removeClass('select');
+      //     $("#pt_title").addClass('select');
+      //     $("#pt_address").removeClass('select');
+      //     editOption(); 
+      //   }      
+      //   if ($('.numb2 .bottom').slideDown())
+      //   {
+      //     $("#pt_detail").addClass('select');
+      //     $("#pt_title").removeClass('select');
+      //     $("#pt_address").removeClass('select');
+      //     editOption(); 
+      //   }
+      //   if ($('.numb3 .bottom').slideDown())
+      //   {
           
-          $("#pt_detail").removeClass('select');
-          $("#pt_title").addClass('select');
-          $("#pt_address").removeClass('select');
-          editOption(); 
-        }
-        else if ($('.numb3 .bottom').is(':visible'))
-        {
-          
-          $("#pt_detail").removeClass('select');
-          $("#pt_title").removeClass('select');
-          $("#pt_address").addClass('select');
-          editOption(); 
-        }
+      //     $("#pt_detail").removeClass('select');
+      //     $("#pt_title").removeClass('select');
+      //     $("#pt_address").addClass('select');
+      //     editOption(); 
+      //   }
       });
       
-      // $('.numb2 .bottom').hover(                                        //bottom은 아래 생기는 흰 박스 (내부에는 그 폰트변경요소들) + 마우스 오버 되면
-      //     function(){$("#pt_detail").addClass('select');
-      //             //select가 추가됨 (이 때, 첫번째bottom- pt_tile / 두번째-pt_detail) 연결해야하는데 얘도   
-      //                                                             //1)함수로 만들면 입력변수로 조절 2)부모자식요소로 접근 (위에처럼)  3)세개! 수작업 헤헤
-      //               editOption();                                    // editOption은 걍 위에 그 어제 해논 함수명 바꿔가지고 ! 그거 실행됨
-      //     },          
-      //     function(){$("#pt_detail").removeClass('select'); }                 //  마우스아웃 때, select 제거! 
-      // ); 
-      // $('.numb3 .bottom').hover(                                        //bottom은 아래 생기는 흰 박스 (내부에는 그 폰트변경요소들) + 마우스 오버 되면
-      //     function(){$("#pt_address").addClass('select');
-      //             //select가 추가됨 (이 때, 첫번째bottom- pt_tile / 두번째-pt_detail) 연결해야하는데 얘도   
-      //                   },                                               //1)함수로 만들면 입력변수로 조절 2)부모자식요소로 접근 (위에처럼)  3)세개! 수작업 헤헤
-      //               editOption();                                    // editOption은 걍 위에 그 어제 해논 함수명 바꿔가지고 ! 그거 실행됨
-                              
-      //     function(){$("#pt_address").removeClass('select'); }                 //  마우스아웃 때, select 제거! 
-      // ); 
+      $('.numb1 .top').on('click', function(){                                  //bottom은 아래 생기는 흰 박스 (내부에는 그 폰트변경요소들) + 마우스 오버 되면
+        $("#pt_title").addClass('select');                                    //select가 추가됨 (이 때, 첫번째bottom- pt_tile / 두번째-pt_detail) 연결해야하는데 얘도   
+                                                                                //1)함수로 만들면 입력변수로 조절 2)부모자식요소로 접근 (위에처럼)  3)세개! 수작업 헤헤
+                    editOption();                                               // editOption은 걍 위에 그 어제 해논 함수명 바꿔가지고 ! 그거 실행됨
+        $("#pt_title").removeClass('select');   
+        
+      }); 
       
+      $('.numb2 .top').on('click', function(){                                  //bottom은 아래 생기는 흰 박스 (내부에는 그 폰트변경요소들) + 마우스 오버 되면
+        $("#pt_detail").addClass('select');                                    //select가 추가됨 (이 때, 첫번째bottom- pt_tile / 두번째-pt_detail) 연결해야하는데 얘도   
+                                                                                //1)함수로 만들면 입력변수로 조절 2)부모자식요소로 접근 (위에처럼)  3)세개! 수작업 헤헤
+                    editOption();                                               // editOption은 걍 위에 그 어제 해논 함수명 바꿔가지고 ! 그거 실행됨
+        $("#pt_detail").removeClass('select');   
+        
+      });
+      
+      $('.numb3 .top').on('click', function(){                                  //bottom은 아래 생기는 흰 박스 (내부에는 그 폰트변경요소들) + 마우스 오버 되면
+        $("#pt_address").addClass('select');                                    //select가 추가됨 (이 때, 첫번째bottom- pt_tile / 두번째-pt_detail) 연결해야하는데 얘도   
+                                                                                //1)함수로 만들면 입력변수로 조절 2)부모자식요소로 접근 (위에처럼)  3)세개! 수작업 헤헤
+                    editOption();                                               // editOption은 걍 위에 그 어제 해논 함수명 바꿔가지고 ! 그거 실행됨
+        $("#pt_address").removeClass('select');   
+        
+      });
+     
       
 // 밍.. numb3는 address에 추가해논 class값 / address를 기준으로 실행시켜보면, 마우스오버에 따라 select 클래스가 추가/제거되는 거는 작동을 하는데,
 // address에 나타난 버튼에 의해서는 변화가 안 나타남 ㅠㅠ
@@ -159,8 +160,6 @@
 //          아마 이건 이 위에서 addClass하고 바로 editOption을 실행시켜서, 그 어제 우리 문제겪었떤거처럼 얘는 또 바로 클래스가 있는 상태로 인식하고 없어진건 인식못하고 그래서 이러는듯?
       
   });
-
-      
     </script>
 </head>
 
@@ -178,7 +177,7 @@
               <label class="sr-only" for="title">Title</label>
               <input type="text" class="top form-control" id="title" placeholder="Title" name="title" autocomplete="off">
               <div class="bottom">
-                    시험용1 <%= render "option" %>
+                  <%= render "option" %>
               </div>
           </div>
         
@@ -186,7 +185,7 @@
               <label class="sr-only" for="detail">Detail</label>
               <textarea type="text" class="top form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
               <div class="bottom">
-                    시험용2/ 렌더한 뷰는 _option.html.erb임니단 <%= render "option" %>
+                  <%= render "option" %>
               </div>
           </div>
           
@@ -216,8 +215,6 @@
       </div> <!-- input_form row -->
   </div> <!-- child -->
     
-    
-
   <!-- 오른쪽 poster -->
   <div class="child" id="here">
     <div class="poster" id="html-content-holder"> 
