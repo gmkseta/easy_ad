@@ -71,6 +71,7 @@ var y; //#y
 //1: div 생성
 // pre_set 에 있는 내용을 읽어와서 처리
     var div = document.createElement('div');
+    $(div).addClass('btm');
     div.innerHTML = document.getElementById('pre_set').innerHTML;
     document.getElementById('field').appendChild(div); //field는 y값 내부에 이쓴 field로 줘야하니까 이 부분도 변경해야함☆
     // alert('알림창이 뜨면 딴하고 아래 옵션창이 생김!');
@@ -154,15 +155,25 @@ var y; //#y
           <div class="numb2 form-group box">
               <label class="sr-only" for="detail">Detail</label>
               <textarea type="text" class="top form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
-              <!--<div id="field"> <!-- 여기 생성되는 것 -->
-              <!--</div>-->
+              <input type="button" value=" 추가2 " onclick="changeOption('#pt_detail')"><br>
+              <div id="field"> <!-- 여기 생성되는 것 --> 
+              </div>
+              <div id="pre_set" class="bottom" style="display:none">
+                 확인 <%= render "option" %>
+                 <input type="button" value="삭제" onclick="remove_item(this)">
+              </div>
           </div>
           
           <div class="numb3 form-group box">
               <label class="sr-only" for="address">Address</label>
               <input type="text" class="top form-control" id="address" placeholder="Address" name="address" autocomplete="off">
-              <!--<div id="field"> <!-- 여기 생성되는 것 --> 
-              <!--</div>-->
+              <input type="button" value=" 추가3" onclick="changeOption('#pt_address')"><br>
+              <div id="field"> <!-- 여기 생성되는 것 --> 
+              </div>
+              <div id="pre_set" class="bottom" style="display:none">
+                 확인 <%= render "option" %>
+                 <input type="button" value="삭제" onclick="remove_item(this)">
+              </div>
           </div>
           
           <div class="form-group">
