@@ -39,13 +39,13 @@
 
 
 <script>
-    //일단 html 태그 넣으시고요~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //일단 html 태그 넣으시고요
     
      var tag = "<%=escape_javascript(@hpost.htmltag)%>";
     
      $("#here").html(tag.replace(/&lt;/gi,"<").replace(/&gt;/gi,">").replace(/&quot;/gi,"\""));
     
-    //그다음은 이미지 넣으시고요~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+    //그다음은 이미지 넣으시고요
     
     $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>');
     
@@ -62,8 +62,8 @@
     }
     
     //일단 키업이벤트를 인덱스로 받아온다면???
-    <%for ind in 0..3%>
-        $(".text_input:eq(<%=ind%>)").keyup(function(){
+    <%for ind in 0...@text_contents_count%>
+        $('.text_input:eq(<%=ind%>)').keyup(function(){
             $('.text_content:eq(<%=ind%>)').empty();
             $('.text_content:eq(<%=ind%>)').append("<div>"+$(".text_input:eq(<%=ind%>)").val()+"</div>");
         });
