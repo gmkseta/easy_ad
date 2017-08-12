@@ -1,5 +1,6 @@
 <head>
   <!-- ajax -->
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    <!--이미지 변환/저장 -->
   <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script> 
@@ -34,153 +35,136 @@
       //<!-- 실시간으로 input 값이 입력 되는 script -->
       
         $('#title').keyup(function (){
-        $('#pt_title' , "div" ).empty();
-        $('#pt_title').append("<div>"+document.getElementById("title").value+"</div>")});
+            $('#pt_title' , "div" ).empty();
+            $('#pt_title').append("<div>"+document.getElementById("title").value+"</div>")});
         
         $('#detail').keyup(function (){
-        $('#pt_detail' , "div" ).empty();
-        $('#pt_detail').append("<div>"+document.getElementById("detail").value+"</div>")});
+            $('#pt_detail' , "div" ).empty();
+            $('#pt_detail').append("<div>"+document.getElementById("detail").value+"</div>")});
         
         $('#address').keyup(function (){
-        $('#pt_address' , "div" ).empty();
-        $('#pt_address').append("<div>"+document.getElementById("address").value+"</div>")});
+            $('#pt_address' , "div" ).empty();
+            $('#pt_address').append("<div>"+document.getElementById("address").value+"</div>")});
     // ?
         $("#hpost_picture").change(function(){
-        $('#submit_poster').trigger('click');
+            $('#submit_poster').trigger('click');
         });
    });  
 //이미지저장+실시간입력 끝
-
-// function add_item(){
-//     // pre_set 에 있는 내용을 읽어와서 처리..
-//     var div = document.createElement('div');
-//     div.innerHTML = document.getElementById('pre_set').innerHTML;
-//     document.getElementsByClassName(obj)[0]document.getElementById('field').appendChild(div);
-// }
-
-function remove_item(obj, del){ //remove_item(obj, #pt_title) 이런 식으로 사용해야함
-    // obj.parentNode 를 이용하여 삭제
-    var del;
-    //document.getElementById('field').removeChild(obj.parentNode); 
-    //var a = document.getElementsByClassName(obj);
-    // alert(obj);
-   document.getElementsByClassName(obj)[0].removeChild(document.getElementById("field"));
-    //div 제거될 때, class 값 제거
-    $(del).removeClass('select');
-    //alert(obj.parentNode.getElementById('field'));
-}
-    
-
-function changeOption(x, y) { // x = input항목, y = #poster요소 -> 1:1매칭 --> x 온클릭시 changeOption(x,y) 이 형태로 실행시킬 거임
-var x;
-var y; //#y
-
-//1: div 생성
-// pre_set 에 있는 내용을 읽어와서 처리
-
-    
-    var div = document.createElement('div');
-    $(div).addClass('btm');
-    div.innerHTML = document.getElementById('pre_set').innerHTML;
-    div.style.cssText = 'display: none;'
-    // var inputfield = $('.numb1 .field2');
-    //  inputfield.appendChild(div);
-    //  $('.numb1 .field2').appendChild(div);
-//    document.getElementById('field').appendChild(div); //field는 y값 내부에 있는 field로 줘야하니까 이 부분도 변경해야함☆   x로 받고  ->  
     
     
-    $(x).append(div);
-    $(div).slideToggle(1000,'swing');                    //option div 부드럽게 내려옴
+//div 창 + 클래스 제거 
+    // function remove_item(obj, del){ //remove_item(obj, #pt_title) 이런 식으로 사용해야함
+    //     // obj.parentNode 를 이용하여 삭제
+    //     var del;
+    //   $(obj).remove();
+    //     //div 제거될 때, class 값 제거
+    
+    //     $(del).removeClass('select');
+    // }
+    
+    function remove_item(obj,del){
+        var del;
+        var d = document.getElementById('numb1');
+        d.removeChild(document.getElementsByClassName('btm')[0]);
+        //document.getElementById(field).removeChild('.btm');
+        //obj= numb1 or numb2 or numb3 --> numb1의 자식 요소 중
+        //document.getElementById('field').removeChild(obj.parentNode);  //remove_item('#field1','#pt_title') 로 사용했음 -> field1에 있는 
+        $(del).removeClass('select'); //del = #poster, 뭐 이런것들!
+        
+    }
 
 
-//2: div생성되면서, y에 select 추가 (hover되면서 말고!)
-    $(y).addClass('select');
+
+    function changeOption(x, y) { // x는 field 위치 (몇번째 항목인지) y는 포스터 항목
+    var x; var y; 
+    
+    //1: div 생성
+    // pre_set 에 있는 내용을 읽어와서 처리
+        var div = document.createElement('div');
+        $(div).addClass('btm');
+        div.innerHTML = document.getElementById('pre_set').innerHTML;
+        div.style.cssText = 'display: none;'
+        $(x).append(div);
+        $(div).slideToggle(1000,'swing');   
     
     
-        // //X 2: div에 hover될 경우, y에 select 추가
-        //       $('.option').hover(                                        //마우스 오버 되면
-        //           function(){$(y).addClass('select');
-        //           // alert('이게 보인다면 추가가 된걸껄..아마?!');
-        //           },             
-        //           function(){$(y).removeClass('select');                        //마우스 아웃 시
-        //       });  
-      
-//3: 글자 옵션
-//3-1준비요소    
-    var el = document.getElementsByClassName('select'); //select 클래스 명으로 el을 받아옴
-    var style = window.getComputedStyle(el[0], null).getPropertyValue('font-size');
-    var size = parseFloat(style); 
-
-    var select=$("div.select"); 
-
-//3-2크기변경
-      $(".zoom button").on("click",function(){  // 글자 크기의 버튼들을 클릭했을 때 (폰트 크기)
-          var btn_index=$(this).val();  //클릭한 버튼의 인덱스 반환
-          if(btn_index=="btn_plus"){ //"+"를 클릭했을 경우
-             size++; //size가 1씩 증가
-             select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. 
-          }else if(btn_index=="btn_minus"){ //"-"를 클릭했을 경우
-             size--; //size가 1씩 감소
-             select.css("font-size",size+"px"); //글자 크기 속성이 변경됨.
-          }else if(btn_index=="btn_default"){ //"0"를 클릭했을 경우
-             size=12; //디폴트로 다시 세팅
-             select.css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
-          }
-          $("#lbl_fontsize").text(size); //글자크기 출력
-      });
-      
-//3-3글꼴변경
-      $("#fs").on("change",function(){       // 글자 모양을 선택했을 때 (폰트 변경)
-        select.css("font-family",$(this).val()); //글자 모양 변경
-      });
-      
-//3-4색상
-
+    //2: div생성되면서, y에 select 추가 (hover되면서 말고!)
+        $(y).addClass('select');
+        
+    //3: 글자 옵션
+    //3-1준비요소    
+        var el = document.getElementsByClassName('select'); 
+        var style = window.getComputedStyle(el[0], null).getPropertyValue('font-size');
+        var size = parseFloat(style); 
     
-};
-//옵션 설정 스크립트 changeOption 끝 와 핵지저분..으에에응ㅇ
-//onclick시, 입력값 넣어서 실행시켜봅시다!
+        var select=$("div.select"); 
+    
+    //3-2크기변경
+          $(".zoom button").on("click",function(){  // 글자 크기의 버튼들을 클릭했을 때 (폰트 크기)
+              var btn_index=$(this).val();  //클릭한 버튼의 인덱스 반환
+              if(btn_index=="btn_plus"){ //"+"를 클릭했을 경우
+                 size++; //size가 1씩 증가
+                 select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. 
+              }else if(btn_index=="btn_minus"){ //"-"를 클릭했을 경우
+                 size--; //size가 1씩 감소
+                 select.css("font-size",size+"px"); //글자 크기 속성이 변경됨.
+              }else if(btn_index=="btn_default"){ //"0"를 클릭했을 경우
+                 size=12; //디폴트로 다시 세팅
+                 select.css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
+              }
+              $("#lbl_fontsize").text(size); //글자크기 출력
+          });
+          
+    //3-3글꼴변경
+          $("#fs").on("change",function(){       // 글자 모양을 선택했을 때 (폰트 변경)
+            select.css("font-family",$(this).val()); //글자 모양 변경
+          });
+          
+    //3-4색상
+        
+    };
+    //changeOption 끝
     </script>
 </head>
 
+<!--onclick 시 생성되는 div!!-->
+<div id="pre_set" class="bottom" style="display:none">
+ 확인 <%= render "option" %>
+</div>
 
-
+<!--화면구성요소 시작-->
 <div class="parent">
   <div class="child">
       <header>
         <h1>Make Your Poster</h1>
       </header>
-<div id="field"></div>      //test용
+      
       <div class="input_form row">
-          
-<!--생성되는 div!!-->
-<div id="pre_set" class="bottom" style="display:none">
- 확인 <%= render "option" %>
-</div>
-          <div class="numb1 form-group box"> <!-- form group은 한 줄 / for inline은 같은 줄 -->
+          <div class="form-group box" id="numb1"> <!-- form group은 한 줄 / for inline은 같은 줄 -->
               <label class="sr-only" for="title">Title</label>
               <input type="text" class="form-control" id="title" placeholder="Title" name="title" autocomplete="off">
               <input type="button" value=" 추가 " onclick="changeOption('#field1','#pt_title')">
-              <input type="button" value=" 삭제 " onclick="remove_item('#field1','#pt_title')"><br>
+              <input type="button" value=" 삭제 " onclick="remove_item(this,'#pt_title')"><br>
               <div id="field1"> <!-- 여기 생성되는 것 --> 
               </div>
           </div>
         
-          <div class="numb2 form-group box">
+          <div class="form-group box" id="numb2">
               <label class="sr-only" for="detail">Detail</label>
               <textarea type="text" class="top form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
               <input type="button" value=" 추가2 " onclick="changeOption('#field2','#pt_detail')">
-              <input type="button" value=" 삭제2" onclick="remove_item(numb2,'#pt_detail')"><br>
-              <div id="field2"> <!-- 여기 생성되는 것 --> 
+              <input type="button" value=" 삭제2" onclick="remove_item('numb2','#pt_detail')"><br>
+              <div id="field2">  
               </div>
           </div>
           
-          <div class="numb3 form-group box">
+          <div class="form-group box" id="numb3">
               <label class="sr-only" for="address">Address</label>
               <input type="text" class="top form-control" id="address" placeholder="Address" name="address" autocomplete="off">
               <input type="button" value=" 추가3" onclick="changeOption('#field3','#pt_address')">
-              <input type="button" value=" 삭제3 " onclick="remove_item(numb3,'#pt_address')"><br>              
-              <div id="field3"> <!-- 여기 생성되는 것 --> 
+              <input type="button" value=" 삭제3 " onclick="remove_item('numb3','#pt_address')"><br>              
+              <div id="field3">
               </div>
           </div>
           
