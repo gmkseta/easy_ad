@@ -7,7 +7,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   <!-- 폰트 색상 script--> 
-  <script src="jscolor.js"></script>  
+  <script src="/assets/jscolor.js"></script>  
   
   <script>
 //이미지저장 + 실시간입력
@@ -46,7 +46,7 @@
         $('#pt_address').append("<div>"+document.getElementById("address").value+"</div>")});
     // ?
         $("#hpost_picture").change(function(){
-          $('#submit_poster').trigger('click');
+        $('#submit_poster').trigger('click');
         });
    });  
 //이미지저장+실시간입력 끝
@@ -58,9 +58,11 @@ function add_item(){
     document.getElementById('field').appendChild(div);
 }
 
-function remove_item(obj){
+function remove_item(obj){ //remove_item(obj, #pt_title) 이런 식으로 사용해야함
     // obj.parentNode 를 이용하여 삭제
-    document.getElementById('field').removeChild(obj.parentNode);
+    document.getElementById('field').removeChild(obj.parentNode); 
+    //div 제거될 때, class 값 제거
+    // $(y).removeClass('select');    
 }
     
 
@@ -70,19 +72,27 @@ var y; //#y
 
 //1: div 생성
 // pre_set 에 있는 내용을 읽어와서 처리
+
+    
     var div = document.createElement('div');
     $(div).addClass('btm');
     div.innerHTML = document.getElementById('pre_set').innerHTML;
-    document.getElementById('field').appendChild(div); //field는 y값 내부에 이쓴 field로 줘야하니까 이 부분도 변경해야함☆
-    // alert('알림창이 뜨면 딴하고 아래 옵션창이 생김!');
+    div.style.cssText = 'display: none;'
+    document.getElementById('field').appendChild(div); //field는 y값 내부에 있는 field로 줘야하니까 이 부분도 변경해야함☆
+     $(div).slideToggle(1000,'swing');                    //option div 부드럽게 내려옴
+
+
+//2: div생성되면서, y에 select 추가 (hover되면서 말고!)
+    $(y).addClass('select');
     
-//2: div에 hover될 경우, y에 select 추가
-      $('.option').hover(                                        //마우스 오버 되면
-          function(){$(y).addClass('select');
-          // alert('이게 보인다면 추가가 된걸껄..아마?!');
-          },             
-          function(){$(y).removeClass('select');                        //마우스 아웃 시
-      });  
+    
+        // //X 2: div에 hover될 경우, y에 select 추가
+        //       $('.option').hover(                                        //마우스 오버 되면
+        //           function(){$(y).addClass('select');
+        //           // alert('이게 보인다면 추가가 된걸껄..아마?!');
+        //           },             
+        //           function(){$(y).removeClass('select');                        //마우스 아웃 시
+        //       });  
       
 //3: 글자 옵션
 //3-1준비요소    
@@ -117,14 +127,28 @@ var y; //#y
 
     
 };
-//옵션 설정 스크립트 와 핵지저분..으에에응ㅇ
+//옵션 설정 스크립트 changeOption 끝 와 핵지저분..으에에응ㅇ
+//onclick시, 입력값 넣어서 실행시켜봅시다!
 
+$(document).ready(function(){
+    $('#title').on("click",function(){
+      changeOption('#pt_title')
+    });
+    
+    $('#detail').on("click",function(){
+      changeOption('#pt_detail')
+    });
+});
 
-
-// //onclick시, 입력값 넣어서 실행시켜봅시다!
-// $('#title').on("click",function(){
-//   alert(gg);
-//   changeOption('#pt_title')
+// $(document).ready(function()
+// {
+//     $('.top').on('click',function()
+//     {
+        
+//     //     $('#title').on("click",function(){
+//     //     changeOption('#pt_title')
+//     // });
+//     })
 // });
 
     </script>
@@ -148,7 +172,7 @@ var y; //#y
               </div>
               <div id="pre_set" class="bottom" style="display:none">
                  확인 <%= render "option" %>
-                 <input type="button" value="삭제" onclick="remove_item(this)">
+                 <input type="button" value="삭제" onclick="remove_item(this, #pt_title)">
               </div>
           </div>
         
@@ -156,24 +180,22 @@ var y; //#y
               <label class="sr-only" for="detail">Detail</label>
               <textarea type="text" class="top form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
               <input type="button" value=" 추가2 " onclick="changeOption('#pt_detail')"><br>
-              <div id="field"> <!-- 여기 생성되는 것 --> 
-              </div>
               <div id="pre_set" class="bottom" style="display:none">
                  확인 <%= render "option" %>
-                 <input type="button" value="삭제" onclick="remove_item(this)">
+                 <input type="button" value="삭제" onclick="remove_item(this, #pt_detail)">
               </div>
+
           </div>
           
           <div class="numb3 form-group box">
               <label class="sr-only" for="address">Address</label>
               <input type="text" class="top form-control" id="address" placeholder="Address" name="address" autocomplete="off">
               <input type="button" value=" 추가3" onclick="changeOption('#pt_address')"><br>
-              <div id="field"> <!-- 여기 생성되는 것 --> 
-              </div>
               <div id="pre_set" class="bottom" style="display:none">
                  확인 <%= render "option" %>
-                 <input type="button" value="삭제" onclick="remove_item(this)">
+                 <input type="button" value="삭제" onclick="remove_item(this, #pt_address)">
               </div>
+
           </div>
           
           <div class="form-group">
