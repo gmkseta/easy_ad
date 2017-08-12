@@ -1,0 +1,38 @@
+   <div class="form-group input_option">
+       <input type="text" class="form-control text_input">
+    <div class="option" id="f_wrap">
+        <dl>
+          <dt>글자크기 (<span id="lbl_fontsize">12</span>px) </dt>
+          <dd class="zoom">
+            <button value = "btn_plus">+</button>
+            <button value = "btn_default">X</button>
+            <button value = "btn_minus">-</button>
+          </dd>
+          <dt>글자모양</dt>
+          <dd class="f_style">
+              <select name="fs" id="fs">
+                <option value="dotum,'돋움',sans-serif">돋움</option>
+                <option value="Nanum Brush Script, '나눔손글씨붓', serif">나눔손글씨붓</option>
+                <option value="Nanum Pen Script, '나눔손글씨펜', serif">나눔손글씨펜</option>
+                <option value="Nanum Myeongjo, '나눔명조', serif">나눔명조</option>
+                <option value="Nanum Gothic, '나눔고딕', serif">나눔고딕</option>
+                <option value="Sedgwick Ave, 'Sedgwick Ave', cursive">Sedgwick Ave</option>
+                <option value="Acme, 'Acme', sans-serif">Acme</option>
+                <option value="Godo, '고도', serif">고도</option>
+                <option value="daehan, '대한체', serif">대한체</option>
+              </select>
+          </dd>
+          
+        	<button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+        	    Color
+        	</button>
+            <input id="chosen-value" value="000000">
+        	
+        	<br>
+        	<input type="button" class="boldText" value="Bold">
+            <input type="button" class="italicText" value="Italic">
+            <input type="button" class="underlineText" value="Underline">
+        	
+        </dl>
+     </div>
+    </div>

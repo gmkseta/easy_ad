@@ -20,6 +20,7 @@ class HpostsController < ApplicationController
 
   # GET /hposts/1/edit
   def edit
+    @text_contents_count = count_em(@hpost.htmltag, "text_content")
   end
 
   # POST /hposts
@@ -66,6 +67,9 @@ class HpostsController < ApplicationController
   end
 
   private
+    def count_em(string, substring)
+      string.scan(/(?=#{substring})/).count
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_hpost
       @hpost = Hpost.find(params[:id])
