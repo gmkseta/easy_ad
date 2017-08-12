@@ -3,7 +3,11 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
-
+<style>
+    .text_content{
+        z-index:1;
+    }
+</style>
 <div class="parent">
     
     <div class="child">
@@ -47,7 +51,7 @@
     
     //그다음은 이미지 넣으시고요
     
-    $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>');
+    $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>').css("z-index","-99");
     
     //그다음 html 태그 로부터 텍스트 컨텐츠가 몇개 있는지 확인 하시고요~~~~~~~~~~~~~
     
@@ -109,6 +113,7 @@
         })
         
         $(".input_option:eq(<%=ind%>) .fs").on("selectmenuchange",function(){
+          target=$('.text_content:eq(<%=ind%>)');
           target.css("font-family",$(this).val()); //글자 모양 변경
         });
         
