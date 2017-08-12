@@ -71,25 +71,42 @@
             target.append("<div>"+$(".text_input:eq(<%=ind%>)").val()+"</div>");
         });
         
-        
-        $(".input_option  .zoom:eq(<%=ind%>) button").on("click",function(){
+        $(".input_option:eq(<%=ind%>) button").on("click",function(){
             
             target=$('.text_content:eq(<%=ind%>)');
-            
-            if(this.value=="btn_plus"){ //"+"를 클릭했을 경우
-                target.css("font-size", target.css("font-size").replace(/px/g, '')*1+1+"px"); //글자 크기 속성이 변경됨. //select --> 나중에 변경ㅎ
-            }else if(this.value=="btn_minus"){ //"-"를 클릭했을 경우
-              target.css("font-size", target.css("font-size").replace(/px/g, '')*1-1+"px");
-            }else{ //"0"를 클릭했을 경우
-             target.css("font-size","12px");
+            switch (this.value) {
+                case "btn_plus"     : target.css("font-size", target.css("font-size").replace(/px/g, '')*1+1+"px");break;
+                case "btn_minus"    : target.css("font-size", target.css("font-size").replace(/px/g, '')*1-1+"px");break;
+                case "btn_default"  : target.css("font-size","12px");break;
+                case "Bold"         : 
+                    if (target.css("font-weight")=="bold")
+                        target.css("font-weight","");
+                    else 
+                        target.css("font-weight","bold");
+                    break;
+                case "Italic"       : 
+                    if(target.css("font-style")=="italic")
+                        target.css("font-style","");
+                    else
+                        target.css("font-style","italic");
+                    break;
+                case "Underline"    :
+                    if( target.css("text-decoration").match('underline')=='underline')
+                        target.css("text-decoration","none");
+                    else
+                        target.css("text-decoration","underline");
+                    break;
+                default             : alert("유효하지않은 작업");break;
             }
             
+         
             $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"))//글자크기 출력
         });
         
         $(".input_option:eq(<%=ind%>) .fs").on("change",function(){
           target.css("font-family",$(this).val()); //글자 모양 변경
         });
+        
         
         
     <%end%>
