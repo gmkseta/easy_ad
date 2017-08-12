@@ -6,21 +6,22 @@
     
        //초기 설정
        var size=12;
-       var select=$("div.select"); //class나 id값 이용해서 바꾸면 됨! 나중에 해결되면 selected로 바꾸면 될듯ㅇㅇ
+       //class나 id값 이용해서 바꾸면 됨! 나중에 해결되면 selected로 바꾸면 될듯ㅇㅇ
     
         //① 글자 크기의 버튼들을 클릭했을 때
         $(".zoom button").on("click",function(){
+            
             var btn_index=$(".zoom button").index(this);  //클릭한 버튼의 인덱스 반환
             
             if(btn_index==0){ //"+"를 클릭했을 경우
                size++; //size가 1씩 증가
-               select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. //select --> 나중에 변경ㅎ
+               $(".select").css("font-size",size+"px"); //글자 크기 속성이 변경됨. //select --> 나중에 변경ㅎ
             }else if(btn_index==2){ //"-"를 클릭했을 경우
                size--; //size가 1씩 감소
-               select.css("font-size",size+"px"); //글자 크기 속성이 변경됨.
+               $("div.select").css("font-size",size+"px"); //글자 크기 속성이 변경됨.
             }else{ //"0"를 클릭했을 경우
                size=12; //디폴트로 다시 세팅
-               select.css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
+               $("div.select").css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
             }
             $("#lbl_fontsize").text(size); //글자크기 출력
         });
