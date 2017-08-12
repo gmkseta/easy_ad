@@ -40,7 +40,7 @@
 
 <script>
     //일단 html 태그 넣으시고요
-    
+       
      var tag = "<%=escape_javascript(@hpost.htmltag)%>";
     
      $("#here").html(tag.replace(/&lt;/gi,"<").replace(/&gt;/gi,">").replace(/&quot;/gi,"\""));
@@ -111,10 +111,14 @@
         
     <%end%>
     
+     $( function() {
+        $("button").button();
+      } );
+    
      
-      $("body").mousedown(function(){    
+    $("body").mousedown(function(){    
         $("#htmltag").val($("#here").html())
-      });
+    });
       
   
     $("#hpost_picture").change(function(){
