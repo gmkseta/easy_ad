@@ -75,9 +75,9 @@
             
             target=$('.text_content:eq(<%=ind%>)');
             switch (this.value) {
-                case "btn_plus"     : target.css("font-size", target.css("font-size").replace(/px/g, '')*1+1+"px");break;
-                case "btn_minus"    : target.css("font-size", target.css("font-size").replace(/px/g, '')*1-1+"px");break;
-                case "btn_default"  : target.css("font-size","12px");break;
+                // case "btn_plus"     : target.css("font-size", target.css("font-size").replace(/px/g, '')*1+1+"px");break;
+                // case "btn_minus"    : target.css("font-size", target.css("font-size").replace(/px/g, '')*1-1+"px");break;
+                // case "btn_default"  : target.css("font-size","12px");break;
                 case "Bold"         : 
                     if (target.css("font-weight")=="bold")
                         target.css("font-weight","");
@@ -100,10 +100,15 @@
             }
             
          
-            $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"))//글자크기 출력
         });
         
-        $(".input_option:eq(<%=ind%>) .fs").on("change",function(){
+        $(".input_option:eq(<%=ind%>) .slider").on("slide",function(){
+            target=$('.text_content:eq(<%=ind%>)');
+            target.css("font-size", $(".input_option:eq(<%=ind%>) .slider").slider("option","value")+"px");
+            $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"))
+        })
+        
+        $(".input_option:eq(<%=ind%>) .fs").on("selectmenuchange",function(){
           target.css("font-family",$(this).val()); //글자 모양 변경
         });
         
@@ -111,8 +116,12 @@
         
     <%end%>
     
-     $( function() {
+     $( function jquery_ui_apply() {
         $("button").button();
+        $( ".slider" ).slider({
+            animate:"fast"
+        });
+        $(".fs").selectmenu();
       } );
     
      
