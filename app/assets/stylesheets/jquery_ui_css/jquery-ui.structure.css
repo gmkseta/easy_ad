@@ -721,7 +721,7 @@ button.ui-button::-moz-focus-inner {
 .ui-selectmenu-button.ui-button {
 	text-align: left;
 	white-space: nowrap;
-	width: 14em;
+	width: 10em;
 }
 .ui-selectmenu-icon.ui-icon {
 	float: right;
@@ -730,6 +730,7 @@ button.ui-button::-moz-focus-inner {
 .ui-slider {
 	position: relative;
 	text-align: left;
+	/*width:14em;*/
 }
 .ui-slider .ui-slider-handle {
 	position: absolute;
@@ -741,7 +742,7 @@ button.ui-button::-moz-focus-inner {
 	touch-action: none;
 }
 .ui-slider .ui-slider-range {
-	position: absolute;
+	position: relative;
 	z-index: 1;
 	font-size: .7em;
 	display: block;

@@ -1,18 +1,22 @@
 <div class="form-group input_option">
-        <input type="text" class="form-control text_input" > <button class="toggle_on" value="toggle_on" style="margin-top:20px;margin-bottom:20px">+</button>
+        <input type="text" class="form-control text_input" > 
+        
+        <button class="toggle_on" value="toggle_on" style="margin-top:20px;margin-bottom:20px">+</button>
         <div class="option f_wrap pt-page-moveFromTopFade " style="display:none;">
-                <dl>
-                        <dt style="color:white">글자크기 (<span class="lbl_fontsize" >14px</span>) </dt>
+                <dl class="dlmargin" stlye="margin-bottom:0px;">
+                        
+                        <dt class="p2">크기 (<span class="lbl_fontsize" >14px</span>) </dt>
                                 <dd class="zoom">
                                            <div class="slider"></div>
                                 </dd>
-                        <hr>
-                        <dt>글자모양</dt>
-                        <dd class="f_style">
+                        <hr style="border:solid 0.02em #606060">
+                                                
+                        <span class="p2">글꼴</span> <!--껙! margin도 안먹고, float로 배치하려해도 문제생김 밍 -->
+                        <span class="f_style">
                                 <select class="fs">
                                         <option value="dotum,'돋움',sans-serif">돋움</option>
                                         <option value="Nanum Brush Script, '나눔손글씨붓', serif">나눔손글씨붓</option>
-                                        <option value="Nanum Pen Script, '나눔손글씨펜', serif">나눔손글씨펜</option>
+                                        <option value="Nanum Pen Script, '나눔손글씨펜', serif" class="fnanump">나눔손글씨펜</option>
                                         <option value="Nanum Myeongjo, '나눔명조', serif">나눔명조</option>
                                         <option value="Nanum Gothic, '나눔고딕', serif">나눔고딕</option>
                                         <option value="Godo, '고도', serif">고도</option>
@@ -21,17 +25,22 @@
                                         <option value="Acme, 'Acme', sans-serif">Acme</option>
 
                                 </select>
-                        </dd>
-                          
+                        </span>
+                        <hr style="border:solid 0.02em #606060">
+                        
+                        
+                        
+                        <span class="p2">색상</span>  
                         <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
-                        	    Color
+                        	    껙 <!-- 아이콘 같은거로 대체 -->
                         </button>
-                        <input class="chosen-value" value="000000">
+                        <input class="chosen-value" value="000000" style="color:black">
                         	
-                        <br>
-                        <button  class="boldText" value="Bold">B</button>
-                        <button  class="italicText" value="Italic">I</button>
-                        <button  class="underlineText" value="Underline">U</button>
+                        <hr style="border:solid 0.02em #606060">
+                        
+                        <button class="boldText" value="Bold">B</button>
+                        <button class="italicText" value="Italic">I</button>
+                        <button class="underlineText" value="Underline">U</button>
                         	
                 </dl>
         </div>

@@ -2,3 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.boldText{
+    font-weight:bold;
+}
+.italicText{
+    font-style:italic;
+}
+.underlineText{
+    text-decoration:underline;
+}
+
+.option{
+    background-color:#333;
+    opacity:0.7;
+    padding:2.5em;
+    border-radius: 25px;
+    color:white;
+    .dlmargin{
+        margin-bottom:0px;
+    }
+    .p2{
+        font-family:daehan,serif;
+        font-size:14px;
+        font-weight:400;
+        margin-bottom:1em;
+    }
+    
+    .fdotum{
+        font-family:dotum;
+    }
+    .fnanump{
+        font-family:Nanum Pen Script;
+    }
+}
