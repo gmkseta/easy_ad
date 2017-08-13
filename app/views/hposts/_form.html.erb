@@ -1,10 +1,7 @@
-<head>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
-  
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-</head>
 
 <div class="parent">
     <div class="child">
@@ -92,42 +89,21 @@
   
   
   
+
+      //<!-- 실시간으로 input 값이 입력 되는 script -->
+        <%for ind in 0..3%>
+        $(".text_input:eq(<%=ind%>)").keyup(function(){
+            $('.text_content:eq(<%=ind%>)').empty();
+            $('.text_content:eq(<%=ind%>)').append("<div>"+$(".text_input:eq(<%=ind%>)").val()+"</div>");
+        });
+        
+      <%end%>
+        $("#hpost_picture").change(function(){
+          $('#submit_poster').trigger('click');
+        });
+   });  //이미지저장 끄읏
   
   
+    </script>
 
 
-// <!-- 실시간으로 input 값이 입력 되는 script -->
-      $('#content1').keyup(function (){
-        $('#pt_content1' , "div" ).empty();
-        $('#pt_content1').append("<div>"+document.getElementById("content1").value+"</div>");
-      });
-      
-      $('#content2').keyup(function (){
-        $('#pt_content2' , "div" ).empty();
-        $('#pt_content2').append("<div>"+document.getElementById("content2").value+"</div>");
-      });
-      
-      $('#content3').keyup(function (){
-        $('#pt_content3' , "div" ).empty();
-        $('#pt_content3').append("<div>"+document.getElementById("content3").value+"</div>");
-      });
-      $("body").mousedown(function(){    
-        $("#htmltag").val($("#here").html())
-      });
-      
-  
-    $("#hpost_picture").change(function(){
-      $('#submit_poster').trigger('click');
-    });
-    
-    
-    // if (input.files && input.files[0]) {
-    //     var reader = new FileReader();
-    //     reader.onload = function (e) {
-    //         $('#pt_picture_input').attr('src', e.target.result);
-    //     }
-    //     reader.readAsDataURL(input.files[0]);
-    //     }
-    //   }
-
-</script>

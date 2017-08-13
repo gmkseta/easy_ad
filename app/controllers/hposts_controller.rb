@@ -1,6 +1,9 @@
 class HpostsController < ApplicationController
   before_action :set_hpost, only: [:show, :edit, :update, :destroy]
 
+  def testkk
+  end
+
   # GET /hposts
   # GET /hposts.json
   def index

@@ -52,16 +52,15 @@ html body{
   }
 }
 
-.poster div{
-  border:1px solid gray;
-}
+// .poster div{
+//   border:1px solid gray;
+// }
 
 .poster div:nth-child(1){
   width:100%;
   height:10%;
   text-align : center;
 }
-
 .poster div:nth-child(2){
   width:100%;
   height:40%;
@@ -81,11 +80,6 @@ html body{
 .previewImage{
   margin: 0 auto;  
 }
-
-// Fonts for English
-@import url(https://fonts.googleapis.com/css?family=PT+Sans);
-// Fonts for Korean
-@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 // input_form
 .input_form{
@@ -140,3 +134,24 @@ html body{
 // file input customizing
   input[type='file'] {
   }
+
+  #title_effect, ,#detail_effect, #address_effect {
+    position : relative;
+    float : left;
+    width: 100%;
+    height: 170px;
+    padding: 0.4em;
+    background-color : white;
+    display : none;
+  }
+  
+  
+.bottom {
+  position : relative;
+  float : left;
+  width: 100%;
+  height: 170px;
+  padding: 0.4em;
+  background-color : white;
+  display: none;
+}  

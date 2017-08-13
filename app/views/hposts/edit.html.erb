@@ -9,31 +9,47 @@
     }
 </style>
 <div class="parent">
-    
     <div class="child">
         <header>
             <h1>Makeddddddd Your </h1>
         </header>
-
+        
         <div class="input_form row" id="in_here">
             
             <div class="form-group">
+                
                 <label class="sr-only" for="pic">pic</label>
+                
                 <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
+                
                     <div class="field">
+                        
                         <%= f.input :picture, as: :file %>
+                        
                         <%= f.hidden_field :picture_cache %>
+                        
                     </div>
+                    
                 <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
+                
                     <br>
+                    
                     <div class="actions">
+                        
                         <%= f.submit id:"submit_poster" %>
+                        
                     </div>
+                    
                     <a href="/hposts/<%=@hpost.id%>">완 료</a>
+                    
                 <% end %>
+                
             </div>
+            
         </div>
+        
     </div>
+    
     
   <!-- 오른쪽 poster -->
   <!--여기에 디비에 있는 html tag를 넣을꺼임-->
@@ -43,32 +59,35 @@
 
 
 <script>
-    //일단 html 태그 넣으시고요
-       
+
+    //일단 html 태그 
      var tag = "<%=escape_javascript(@hpost.htmltag)%>";
-    
      $("#here").html(tag.replace(/&lt;/gi,"<").replace(/&gt;/gi,">").replace(/&quot;/gi,"\""));
     
-    //그다음은 이미지 넣으시고요
     
+    //그다음은 이미지 넣으시고요
     $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>').css("z-index","-99");
     
-    //그다음 html 태그 로부터 텍스트 컨텐츠가 몇개 있는지 확인 하시고요~~~~~~~~~~~~~
     
-    //그 갯수만큼 반복문 돌려서 왼쪽에 인풋태그 넣으시고요
-    
-    
-    // var ss="<#%=render "option"%>";
+    //그다음 html 태그 로부터 텍스트 컨텐츠가 몇개 있는지 확인 하시고
+    //늕 그냥 컨트롤러에서 처리함
     for(var i=0;i < <%=@text_contents_count%>;i++){
-    //이벤트 연결을 인덱스로해야하나 아니면 그냥 .... 클래스명으로해야하나 ..하. 
-    //이렇게 인풋 먼저 만들어줘야함
+    //이렇게 인풋 먼저 text contents만큼 만듬
           $("#in_here").prepend("<%=escape_javascript(render "option")%>");
+          
     }
     
-    //일단 키업이벤트를 인덱스로 받아온다면???
+    
+    
     <%for ind in 0...@text_contents_count%>
-    target=$('.text_content:eq(<%=ind%>)');
-        $('.text_input:eq(<%=ind%>)').val($('.text_content:eq(<%=ind%>)').text())
+    
+        target=$('.text_content:eq(<%=ind%>)');//자주쓰니까 변수에넣음
+        
+        
+        //오른쪽에 있는 text_content의 내용을 일단 왼쪽에 인풋 기본 베이직 값으로 넣어준는거임
+        $('.text_input:eq(<%=ind%>)').val(target.text())
+        
+        //키업 이벤트 발생시 오른쪽에 ㅇㅇ
         $('.text_input:eq(<%=ind%>)').keyup(function(){
             target=$('.text_content:eq(<%=ind%>)');
             target.empty();
@@ -102,7 +121,6 @@
                     break;
                 default             : alert("유효하지않은 작업");break;
             }
-            
          
         });
         
@@ -127,6 +145,8 @@
             animate:"fast"
         });
         $(".fs").selectmenu();
+        $(".option").toggle();
+        
       } );
     
      
