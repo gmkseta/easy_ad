@@ -119,8 +119,15 @@
                     else
                         target.css("text-decoration","underline");
                     break;
-                default             : alert("유효하지않은 작업");break;
+                    case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)
+                        if($(".input_option:eq(<%=ind%>) .toggle_sw").html()=="+")
+                            $(".input_option:eq(<%=ind%>) .toggle_sw").html("-")
+                        else
+                            $(".input_option:eq(<%=ind%>) .toggle_sw").html("+")
+                                
+                break;
             }
+         
          
         });
         
@@ -146,7 +153,7 @@
             animate:"fast"
         });
         $(".fs").selectmenu();
-        $(".option").toggle();
+        
         
       } );
     
