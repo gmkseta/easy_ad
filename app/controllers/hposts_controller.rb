@@ -17,6 +17,7 @@ class HpostsController < ApplicationController
 
   # GET /hposts/new
   def new
+    
     @hpost = Hpost.new
     render :_form
   end

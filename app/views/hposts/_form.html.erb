@@ -4,61 +4,47 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <div class="parent">
-    <div class="child">
+     <div class="child">
         <header>
-            <h1>Make Your Pssoster</h1>
+            <h1>Make Your Poster</h1>
         </header>
-  
-        <div class="input_form row">
-            
-            <div class="form-group"> 
-            
-                <input type="text" class="form-control" id="content1" placeholder="Title">
-            
-            </div>
-            
-            <div class="form-group">
-            
-                <textarea type="text" class="form-control" id="content2" placeholder="Detail" ></textarea>
-            
-            </div>
-            
-            <div class="form-group">
-            
-                <input type="text" class="form-control" id="content3" placeholder="Address">
-            
-            </div>
-            
-            <div class="form-group">
-            
-                <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
-            
-                    <div class="field">
-            
-                        <%= f.input :picture, as: :file %>
-            
-                        <%= f.hidden_field :picture_cache %>
-            
-                    </div>
-            
-                    <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
-            
-                    <br>
-            
-                    <div class="actions">
-            
-                        <%= f.submit id:"submit_poster" %>
-            
-                    </div>
-            
-                    <a href="/hposts/<%=@hpost.id%>">완 료</a>
-                <% end %>
-            
-            </div>
         
+        <div class="input_form row" id="in_here">
+            
+            <div class="form-group">
+                
+                <label class="sr-only" for="pic">pic</label>
+                
+                <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
+                
+                    <div class="field">
+                        
+                        <%= f.input :picture, as: :file %>
+                        
+                        <%= f.hidden_field :picture_cache %>
+                        
+                    </div>
+                    
+                <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
+                
+                    <br>
+                    
+                    <div class="actions">
+                        
+                        <%= f.submit id:"submit_poster" %>
+                        
+                    </div>
+                    
+                    <a href="/hposts/<%=@hpost.id%>">완 료</a>
+                    
+                <% end %>
+                
+            </div>
+            
         </div>
-    
+        
     </div>
+    
     
 
   <!-- 오른쪽 poster -->
@@ -80,30 +66,103 @@
 <button type="submit" class="btn-EditSubmit">Submit</button>
 
  
-
 <script>
-  
-  
-  
-  
-  
-  
-  
 
-      //<!-- 실시간으로 input 값이 입력 되는 script -->
-        <%for ind in 0..3%>
-        $(".text_input:eq(<%=ind%>)").keyup(function(){
-            $('.text_content:eq(<%=ind%>)').empty();
-            $('.text_content:eq(<%=ind%>)').append("<div>"+$(".text_input:eq(<%=ind%>)").val()+"</div>");
+   
+    
+    //그다음은 이미지 넣으시고요
+    $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>').css("z-index","-99");
+    
+    
+    //그다음 html 태그 로부터 텍스트 컨텐츠가 몇개 있는지 확인 하시고
+    //늕 그냥 컨트롤러에서 처리함
+    for(var i=0;i < 3;i++){
+    //이렇게 인풋 먼저 text contents만큼 만듬
+          $("#in_here").prepend("<%=escape_javascript(render "option")%>");
+          
+    }
+    
+    
+    
+    <%for ind in 0...3%>
+    
+        target=$('.text_content:eq(<%=ind%>)');//자주쓰니까 변수에넣음
+        
+        
+        //오른쪽에 있는 text_content의 내용을 일단 왼쪽에 인풋 기본 베이직 값으로 넣어준는거임
+        $('.text_input:eq(<%=ind%>)').val(target.text())
+        
+        //키업 이벤트 발생시 오른쪽에 ㅇㅇ
+        $('.text_input:eq(<%=ind%>)').keyup(function(){
+            target=$('.text_content:eq(<%=ind%>)');
+            target.empty();
+            target.append("<div>"+$(".text_input:eq(<%=ind%>)").val()+"</div>");
         });
         
-      <%end%>
-        $("#hpost_picture").change(function(){
-          $('#submit_poster').trigger('click');
+        $(".input_option:eq(<%=ind%>) button").on("click",function(){
+            
+            target=$('.text_content:eq(<%=ind%>)');
+            switch (this.value) {
+                // case "btn_plus"     : target.css("font-size", target.css("font-size").replace(/px/g, '')*1+1+"px");break;
+                // case "btn_minus"    : target.css("font-size", target.css("font-size").replace(/px/g, '')*1-1+"px");break;
+                // case "btn_default"  : target.css("font-size","12px");break;
+                case "Bold"         : 
+                    if (target.css("font-weight")=="bold")
+                        target.css("font-weight","");
+                    else 
+                        target.css("font-weight","bold");
+                    break;
+                case "Italic"       : 
+                    if(target.css("font-style")=="italic")
+                        target.css("font-style","");
+                    else
+                        target.css("font-style","italic");
+                    break;
+                case "Underline"    :
+                    if( target.css("text-decoration").match('underline')=='underline')
+                        target.css("text-decoration","none");
+                    else
+                        target.css("text-decoration","underline");
+                    break;
+                default             : alert("유효하지않은 작업");break;
+            }
+         
         });
-   });  //이미지저장 끄읏
+        
+        $(".input_option:eq(<%=ind%>) .slider").on("slide",function(){
+            target=$('.text_content:eq(<%=ind%>)');
+            target.css("font-size", $(".input_option:eq(<%=ind%>) .slider").slider("option","value")+"px");
+            $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"))
+        })
+        
+        $(".input_option:eq(<%=ind%>) .fs").on("selectmenuchange",function(){
+          target=$('.text_content:eq(<%=ind%>)');
+          target.css("font-family",$(this).val()); //글자 모양 변경
+        });
+        
+        
+        
+    <%end%>
+    
+     $( function jquery_ui_apply() {
+        $("button").button();
+        
+        $( ".slider" ).slider({
+            animate:"fast"
+        });
+        $(".fs").selectmenu();
+        $(".option").toggle();
+        
+      } );
+    
+     
+    $("body").mousedown(function(){    
+        $("#htmltag").val($("#here").html())
+    });
+      
   
-  
-    </script>
+    $("#hpost_picture").change(function(){
+      $('#submit_poster').trigger('click');
+    });
 
-
+</script>
