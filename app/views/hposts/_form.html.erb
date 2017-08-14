@@ -6,9 +6,18 @@
 <div class="parent">
      <div class="child">
         <header>
+<<<<<<< HEAD
             <h1>Makeddddddd Your </h1>
         </header>
         
+=======
+            <h1>Make Your Poster</h1>
+        </header>
+        
+        Background Color :
+        <button class="roundbt jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor(this)'}"> </button>
+        
+>>>>>>> kimm96
         <div class="input_form row" id="in_here">
             
             <div class="form-group">
@@ -160,4 +169,16 @@
       $('#submit_poster').trigger('click');
     });
 
+
+    function setBodyColor(jscolor) {
+
+    document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#FFFFFF, #' + jscolor + ')';
+    
+    }
+    
+    // $( function() {
+    // $( ".text_content" ).draggable({ containment: "#html-content-holder", scroll: false });
+    // $( "#pt_picture" ).draggable({ containment: "#html-content-holder", scroll: false });
+    // //$( "#pt_picture" ).resizable({ghost: true});
+  })
 </script>

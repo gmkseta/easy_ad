@@ -60,8 +60,8 @@
 works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-	border: 1px solid #666666;
-	background: #555555 url("ui-bg_glass_20_555555_1x400.png") 50% 50% repeat-x;
+	border: 1px solid #232323;
+	background: #333  50% 50% repeat-x; /*url("ui-bg_glass_20_555555_1x400.png") 555555 */
 	font-weight: bold;
 	color: #eeeeee;
 }
@@ -83,8 +83,8 @@ a:visited.ui-button,
 .ui-widget-header .ui-state-focus,
 .ui-button:hover,
 .ui-button:focus {
-	border: 1px solid #59b4d4;
-	background: #0078a3 url("ui-bg_glass_40_0078a3_1x400.png") 50% 50% repeat-x;
+	border: 1px solid #ba7276; 
+	background: #ba7276 50% 50% repeat-x; /* url("ui-bg_glass_40_0078a3_1x400.png") */
 	font-weight: bold;
 	color: #ffffff;
 }
@@ -111,8 +111,8 @@ a.ui-button:focus {
 a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
-	border: 1px solid #ffaf0f;
-	background: #f58400 url("ui-bg_inset-soft_30_f58400_1x100.png") 50% 50% repeat-x;
+	border: 1px solid #ba7276; /*ffaf0f*/
+	background: #ba7276 50% 50% repeat-x; /*f58400   url("ui-bg_inset-soft_30_f58400_1x100.png") */
 	font-weight: bold;
 	color: #ffffff;
 }

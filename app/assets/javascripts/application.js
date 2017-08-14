@@ -18,5 +18,3 @@
 
 //= require jscolor
 //= require jscolor.min
-//= require jquery.textfill
-//= require jquery.textfill.min

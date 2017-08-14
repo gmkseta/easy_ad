@@ -1,0 +1,147 @@
+<script>
+
+function add_item(){
+    // pre_set 에 있는 내용을 읽어와서 처리..
+    var div = document.createElement('div');
+    div.innerHTML = document.getElementById('pre_set').innerHTML;
+    document.getElementById('field').appendChild(div);
+}
+
+function remove_item(obj){
+    // obj.parentNode 를 이용하여 삭제
+    document.getElementById('field').removeChild(obj.parentNode);
+}
+    
+
+function changeOption(x,y) { // x = input항목, y = #poster요소 -> 1:1매칭 --> x 온클릭시 changeOption(x,y) 이 형태로 실행시킬 거임
+var x;
+var y; //#y
+
+//1: div 생성
+// pre_set 에 있는 내용을 읽어와서 처리
+    var div = document.createElement('div');
+    div.innerHTML = document.getElementById('pre_set').innerHTML;
+    document.getElementById('field').appendChild(div); //field는 y값 내부에 이쓴 field로 줘야하니까 이 부분도 변경해야함☆
+    alert(휴);
+    
+//2: div에 hover될 경우, y에 select 추가
+      $('.bottom2').hover(                                        //마우스 오버 되면
+          function(){$(y).addClass('select');},             
+          function(){$(y).removeClass('select');                        //마우스 아웃 시
+      });  
+      
+//3: 글자 옵션
+//3-1준비요소    
+    var el = document.getElementsByClassName('select'); //select 클래스 명으로 el을 받아옴
+    var style = window.getComputedStyle(el[0], null).getPropertyValue('font-size');
+    var size = parseFloat(style); 
+
+    var select=$("div.select"); 
+
+//3-2크기변경
+      $(".zoom button").on("click",function(){  // 글자 크기의 버튼들을 클릭했을 때 (폰트 크기)
+          var btn_index=$(this).val();  //클릭한 버튼의 인덱스 반환
+          if(btn_index=="btn_plus"){ //"+"를 클릭했을 경우
+             size++; //size가 1씩 증가
+             select.css("font-size",size+"px"); //글자 크기 속성이 변경됨. 
+          }else if(btn_index=="btn_minus"){ //"-"를 클릭했을 경우
+             size--; //size가 1씩 감소
+             select.css("font-size",size+"px"); //글자 크기 속성이 변경됨.
+          }else if(btn_index=="btn_default"){ //"0"를 클릭했을 경우
+             size=12; //디폴트로 다시 세팅
+             select.css("font-size","12px"); //글자 크기 속성이 12px로 변경됨.
+          }
+          $("#lbl_fontsize").text(size); //글자크기 출력
+      });
+      
+//3-3글꼴변경
+      $("#fs").on("change",function(){       // 글자 모양을 선택했을 때 (폰트 변경)
+        select.css("font-family",$(this).val()); //글자 모양 변경
+      });
+      
+//3-4색상
+
+    
+};
+  
+  
+</script>
+
+
+
+<div class="parent">
+  <div class="child">
+      <header>
+        <h1>Make Your Poster</h1>
+      </header>
+      
+      <div class="input_form row">
+        
+          <div class="numb1 form-group box"> <!-- form group은 한 줄 / for inline은 같은 줄 -->
+              <label class="sr-only" for="title">Title</label>
+              <input type="text" class="top form-control" id="title" placeholder="Title" name="title" autocomplete="off">
+              <div id="field"> <!-- 여기 생성되는 것 --> 
+              </div>
+              <div id="pre_set" class="bottom2" style="display:none">
+                 확인 <%= render "option" %>
+                 <input type="button" value="삭제" onclick="remove_item(this)">
+              </div>
+          </div>
+        
+          <div class="numb2 form-group box">
+              <label class="sr-only" for="detail">Detail</label>
+              <textarea type="text" class="top form-control" id="detail" placeholder="Detail" name="detail" autocomplete="off"></textarea>
+              <!--<div id="field"> <!-- 여기 생성되는 것 --> -->
+              <!--</div>-->
+          </div>
+          
+          <div class="numb3 form-group box">
+              <label class="sr-only" for="address">Address</label>
+              <input type="text" class="top form-control" id="address" placeholder="Address" name="address" autocomplete="off">
+              <!--<div id="field"> <!-- 여기 생성되는 것 --> -->
+              <!--</div>-->
+          </div>
+          
+          <div class="form-group">
+               <label class="sr-only" for="pic">pic</label>
+                <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
+                  <div class="field">
+                      <%= f.input :picture, as: :file %>
+                      <%= f.hidden_field :picture_cache %>
+                  </div>
+                <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
+                  <br>
+                  <div class="actions">
+                    <%= f.submit value:"헤헿" ,id:"submit_poster" %>
+                  </div>
+                <% end %>
+           </div>
+         
+      </div> <!-- input_form row -->
+  </div> <!-- child -->
+    
+  <!-- 오른쪽 poster -->
+  <div class="child" id="here">
+    <div class="poster" id="html-content-holder"> 
+        <div id = "pt_title">
+        </div>
+        
+        <div id = "pt_picture">
+           <form runat="server">
+            <img id="pt_picture_input" src="#"/>
+           </form>
+        </div>
+          
+        <div id = "pt_detail">
+        </div>
+        
+        <div id = "pt_address">
+        </div>
+    </div>
+  
+    <a id="btn-Convert-Html2Image" href="#" >이미지 저장</a>
+    <button type="submit" class="btn-EditSubmit">Submit</button>
+  </div> <!-- child -->
+
+</div>  <!-- parent / end -->
+

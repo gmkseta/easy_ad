@@ -11,13 +11,16 @@
 <div class="parent">
     <div class="child">
         <header>
-            <h1>Makeddddddd Your </h1>
+            <h1>Make Your Poster</h1>
         </header>
-        
+
+        Background Color :
+        <button class="roundbt jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor(this)'}"> </button>
+
         <div class="input_form row" id="in_here">
             
             <div class="form-group">
-                
+
                 <label class="sr-only" for="pic">pic</label>
                 
                 <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
@@ -102,22 +105,34 @@
                 // case "btn_minus"    : target.css("font-size", target.css("font-size").replace(/px/g, '')*1-1+"px");break;
                 // case "btn_default"  : target.css("font-size","12px");break;
                 case "Bold"         : 
-                    if (target.css("font-weight")=="bold")
+                    if (target.css("font-weight")=="bold"){
                         target.css("font-weight","");
-                    else 
+                        this.style.backgroundColor = "#333"
+                        }
+                    else{
                         target.css("font-weight","bold");
+                        this.style.backgroundColor="#ba7276"
+                       }
                     break;
                 case "Italic"       : 
-                    if(target.css("font-style")=="italic")
+                    if(target.css("font-style")=="italic"){
                         target.css("font-style","");
-                    else
+                        this.style.backgroundColor = "#333"
+                       }
+                    else{
                         target.css("font-style","italic");
+                        this.style.backgroundColor = "#ba7276"
+                       }
                     break;
                 case "Underline"    :
-                    if( target.css("text-decoration").match('underline')=='underline')
+                    if( target.css("text-decoration").match('underline')=='underline'){
                         target.css("text-decoration","none");
-                    else
+                        this.style.backgroundColor = "#333"
+                        }
+                    else{
                         target.css("text-decoration","underline");
+                        this.style.backgroundColor = "#ba7276"
+                       }
                     break;
                     case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)
                         if($(".input_option:eq(<%=ind%>) .toggle_sw").html()=="+")
@@ -126,6 +141,7 @@
                             $(".input_option:eq(<%=ind%>) .toggle_sw").html("+")
                                 
                 break;
+
             }
          
          
@@ -143,6 +159,7 @@
         });
         
         
+        //색상
         
     <%end%>
     
@@ -166,5 +183,12 @@
     $("#hpost_picture").change(function(){
       $('#submit_poster').trigger('click');
     });
+
+
+    function setBodyColor(jscolor) {
+
+    document.getElementById('html-content-holder').style.backgroundColor = '#' + jscolor
+
+    }
 
 </script>
