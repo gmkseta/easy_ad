@@ -13,6 +13,7 @@
 }
 
 .option{
+    width:80%;
     background-color:#333;
     opacity:0.7;
     padding:2.5em;
@@ -33,5 +34,12 @@
     }
     .fnanump{
         font-family:Nanum Pen Script;
+    }
+    
+    .roundbt{
+        border-radius: 50%;
+        overflow:hidden;
+        margin:0em;
+        padding:0.8em;
     }
 }
