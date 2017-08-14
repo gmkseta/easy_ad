@@ -1,4 +1,5 @@
 <% if remotipart_submitted? %>
+  $("#here span:eq(0)").css("background-image","url(<%=@hpost.picture.url%>)");
   $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>');
 <% else %>
   $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>');

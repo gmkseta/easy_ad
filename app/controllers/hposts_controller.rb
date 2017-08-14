@@ -17,14 +17,13 @@ class HpostsController < ApplicationController
 
   # GET /hposts/new
   def new
-    
     @hpost = Hpost.new
     render :_form
   end
 
   # GET /hposts/1/edit
   def edit
-    @text_contents_count = count_em(@hpost.htmltag, "text_content")
+    @text_contents_count = count_em(@hpost.htmltag,"text_content")
   end
 
   # POST /hposts

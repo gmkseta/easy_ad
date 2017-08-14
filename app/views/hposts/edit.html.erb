@@ -62,7 +62,6 @@
 
 
 <script>
-
     //일단 html 태그 
      var tag = "<%=escape_javascript(@hpost.htmltag)%>";
      $("#here").html(tag.replace(/&lt;/gi,"<").replace(/&gt;/gi,">").replace(/&quot;/gi,"\""));
@@ -187,7 +186,7 @@
 
     function setBodyColor(jscolor) {
 
-    document.getElementById('html-content-holder').style.backgroundColor = '#' + jscolor
+    document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#FFFFFF, #' + jscolor + ')';
 
     }
 
