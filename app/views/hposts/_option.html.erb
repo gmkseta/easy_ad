@@ -1,7 +1,7 @@
 <div class="form-group input_option">
         <input type="text" class="form-control text_input" > 
         
-        <button class="toggle_on" value="toggle_on" style="margin-top:20px;margin-bottom:20px">+</button>
+        <button class="toggle_on" value="toggle_on" style="margin-top:20px;margin-bottom:20px;">+</button>
         <div class="option f_wrap pt-page-moveFromTopFade " style="display:none;">
                 <dl class="dlmargin" stlye="margin-bottom:0px;">
                         
@@ -11,7 +11,7 @@
                                 </dd>
                         <hr style="border:solid 0.02em #606060">
                                                 
-                        <span class="p2">글꼴</span> <!--껙! margin도 안먹고, float로 배치하려해도 문제생김 밍 -->
+                        <span class="p2" style="margin-right:10em">글꼴</span> <!--껙! margin도 안먹고, float로 배치하려해도 문제생김 밍 -->
                         <span class="f_style">
                                 <select class="fs">
                                         <option value="dotum,'돋움',sans-serif">돋움</option>
@@ -29,12 +29,10 @@
                         <hr style="border:solid 0.02em #606060">
                         
                         
-                        <span class="p2">색상</span>  
+                        <span class="p2" style="margin-right:10em">색상</span>  
                         <button class="roundbt jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
                         </button>
-                        
-                        
-                        <!--<input class="chosen-value" value="000000" style="color:black">-->
+                        <input class="chosen-value" value="000000">
                         
 <!--// <script>-->
 <!--//     function setTextColor(picker) {-->
@@ -45,10 +43,10 @@
 <!--                       껙 몰라 --> 
 
                         <hr style="border:solid 0.02em #606060">
-                        
-                        <button class="boldText" value="Bold">B</button>
-                        <button class="italicText" value="Italic">I</button>
-                        <button class="underlineText" value="Underline">U</button>
+                        <span class="p2" style="margin-right:10em">기타</span>
+                        <button class="boldText" value="Bold" style="width:3em;height:3em;">B</button>
+                        <button class="italicText" value="Italic" style="width:3em;height:3em;">I</button>
+                        <button class="underlineText" value="Underline" style="width:3em;height:3em;">U</button>
                 </dl>
         </div>
 </div>

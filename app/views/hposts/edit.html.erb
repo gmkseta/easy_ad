@@ -13,13 +13,14 @@
         <header>
             <h1>Make Your Poster</h1>
         </header>
-        
-        <button class="roundbt jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}"> </button>
-        
+
+        Background Color :
+        <button class="roundbt jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor(this)'}"> </button>
+
         <div class="input_form row" id="in_here">
             
             <div class="form-group">
-                
+
                 <label class="sr-only" for="pic">pic</label>
                 
                 <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
@@ -161,5 +162,12 @@
     $("#hpost_picture").change(function(){
       $('#submit_poster').trigger('click');
     });
+
+
+    function setBodyColor(jscolor) {
+
+    document.getElementById('html-content-holder').style.backgroundColor = '#' + jscolor
+
+    }
 
 </script>

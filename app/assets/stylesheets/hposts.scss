@@ -22,19 +22,6 @@
     .dlmargin{
         margin-bottom:0px;
     }
-    .p2{
-        font-family:daehan,serif;
-        font-size:14px;
-        font-weight:400;
-        margin-bottom:1em;
-    }
-    
-    .fdotum{
-        font-family:dotum;
-    }
-    .fnanump{
-        font-family:Nanum Pen Script;
-    }
     
     .roundbt{
         border-radius: 50%;
@@ -42,4 +29,41 @@
         margin:0em;
         padding:0.8em;
     }
+    .p2{
+        font-family:daehan,serif;
+        font-size:14px;
+        font-weight:400;
+        margin-bottom:1em;
+    }
+    .p3{
+        font-family:daehan,serif;
+        font-size:9px;
+        font-weight:400;
+        margin-bottom:1em;
+    }
+    .chosen-value{
+        border-radius:5px;
+        border:1px solid #232323;
+        background:#333;
+        font-weight:400;
+        color:white;
+        font-family:daeuhan,serif;
+        font-size:12px;
+        width:10em;
+        height:2.5em;
+        text-align:center;
+           &:focus{
+            outline:none;
+            border: none;
+            border-radius:5px;
+            border:1px solid #232323;
+            background-color: transparent;
+          }
+    }
+    // .fdotum{
+    //     font-family:dotum;
+    // }
+    // .fnanump{
+    //     font-family:Nanum Pen Script;
+    // }
 }
