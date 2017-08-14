@@ -6,12 +6,10 @@
                 <dl class="dlmargin" stlye="margin-bottom:0px;">
                         
                         <dt class="p2">크기 (<span class="lbl_fontsize" >14px</span>) </dt>
-                                <dd class="zoom">
-                                           <div class="slider"></div>
-                                </dd>
+                           <div class="zoom slider"></div>
                         <hr style="border:solid 0.02em #606060">
-                                                
-                        <span class="p2" style="margin-right:10em">글꼴</span> <!--껙! margin도 안먹고, float로 배치하려해도 문제생김 밍 -->
+                        
+                        <span class="p2" style="margin-right:10em">글꼴</span> 
                         <span class="f_style">
                                 <select class="fs">
                                         <option value="dotum,'돋움',sans-serif">돋움</option>
@@ -44,9 +42,22 @@
 
                         <hr style="border:solid 0.02em #606060">
                         <span class="p2" style="margin-right:10em">기타</span>
-                        <button class="boldText" value="Bold" style="width:3em;height:3em;">B</button>
-                        <button class="italicText" value="Italic" style="width:3em;height:3em;">I</button>
-                        <button class="underlineText" value="Underline" style="width:3em;height:3em;">U</button>
-                </dl>
+                        <button class="boldText" value="Bold">B</button>
+                        <button class="italicText" value="Italic">I</button>
+                        <button class="underlineText" value="Underline">U</button>
+                        
+                        
+                        <!--test용 Y_Y-->
+                        <hr style="border:solid 0.02em #606060"> <!-- 굳이 checkbox로 바꿀게 아니라, B/I/U 한번 택하면 -> 컬러 pink로 / 한번더하면 -> 원상태로 이게 더 적합.. -->
+                        <div>
+                            <input class="boldText obutton" value="Bold" type="checkbox" placeholder="B"/>
+                            <label for="check" class="ui-widget">Bold</label>
+                            
+                            <input class="italicText" value="Italic" type="checkbox"/>
+                            <label for="check" class="ui-widget">Italic</label>
+                            
+                            <input class="underlineText" value="Underline" type="checkbox"/>
+                            <label for="check" class="ui-widget">Underline</label>
+                        </div>
         </div>
 </div>

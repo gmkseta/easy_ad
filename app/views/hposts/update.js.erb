@@ -1,21 +1,6 @@
 <% if remotipart_submitted? %>
-  <!--alert('submitted via remotipart')-->
-  
-  $("#here").empty;
-  $("#here").html(<%=@hpost.htmltag%>
-  
-  
   $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>');
-  
-  
-  
 <% else %>
-
-  $("#here").empty;
-  $("#here").html(<%=@hpost.htmltag%>
-  
-  
   $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>');
-  
   alert('실패냐')
 <% end %>

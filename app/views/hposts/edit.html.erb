@@ -105,22 +105,34 @@
                 // case "btn_minus"    : target.css("font-size", target.css("font-size").replace(/px/g, '')*1-1+"px");break;
                 // case "btn_default"  : target.css("font-size","12px");break;
                 case "Bold"         : 
-                    if (target.css("font-weight")=="bold")
+                    if (target.css("font-weight")=="bold"){
                         target.css("font-weight","");
-                    else 
+                        this.style.backgroundColor = "#333"
+                        }
+                    else{
                         target.css("font-weight","bold");
+                        this.style.backgroundColor="#ba7276"
+                       }
                     break;
                 case "Italic"       : 
-                    if(target.css("font-style")=="italic")
+                    if(target.css("font-style")=="italic"){
                         target.css("font-style","");
-                    else
+                        this.style.backgroundColor = "#333"
+                       }
+                    else{
                         target.css("font-style","italic");
+                        this.style.backgroundColor = "#ba7276"
+                       }
                     break;
                 case "Underline"    :
-                    if( target.css("text-decoration").match('underline')=='underline')
+                    if( target.css("text-decoration").match('underline')=='underline'){
                         target.css("text-decoration","none");
-                    else
+                        this.style.backgroundColor = "#333"
+                        }
+                    else{
                         target.css("text-decoration","underline");
+                        this.style.backgroundColor = "#ba7276"
+                       }
                     break;
                 default             : alert("유효하지않은 작업");break;
             }
