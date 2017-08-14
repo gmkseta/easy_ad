@@ -211,3 +211,8 @@ body.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+
+.poster_list {
+  margin : 1em 1em 1em 1em;
+}

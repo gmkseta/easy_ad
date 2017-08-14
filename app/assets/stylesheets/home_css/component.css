@@ -1,7 +1,26 @@
 /*// Place all the styles related to the home controller here.*/
 /*// They will automatically be included in application.css.*/
 /*// You can use Sass (SCSS) here: http://sass-lang.com/*/
-html, body { height: 100%; }
+
+html, body { 
+	height: 100%;
+
+	
+}
+span {
+   	color:white;
+   	background-size: 100% 100%;
+}
+   	
+#rect {
+	width: 50%;
+	height: 70%;
+	position: fixed;
+  	top: 40%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+	font-family:'Armata', sans-serif;
+}
 
 .pt-perspective {
 	position: relative;
@@ -47,61 +66,26 @@ html, body { height: 100%; }
 
 /* Text Styles, Colors, Backgrounds */
 
-.pt-page h1 {
-	position: absolute;
-	font-weight: 300;
+.pt-page-1, .pt-page-2, .pt-page-3{
 	font-size: 4.4em;
-	line-height: 1;
-	letter-spacing: 6px;
-	margin: 0;
 	top: 12%;
-	width: 100%;
-	text-align: center;
 	text-transform: uppercase;
-	word-spacing: -0.3em;
+	word-spacing:0.5em;
+	letter-spacing: 0.3em;
 }
 
-.pt-page h1 span {
-	font-family: 'Satisfy', serif;
-	font-weight: 400;
-	font-size: 40%;
-	text-transform: none;
-	word-spacing: 0;
-	letter-spacing: 0;
-	display: block;
-	opacity: 0.4;
+.pt-page-1{
+	background: #f7b9bc;
 }
-
-.pt-page h1 strong {
-	color: rgba(0,0,0,0.1);
-}
-
-.pt-page-1 {
-	background-image: url("http://cfile22.uf.tistory.com/image/246D6C5057D07F932062EE");
-	background-size:100%;
-}
-
 .pt-page-2 {
-	background-image: url("http://cfile1.uf.tistory.com/image/2369EB3E57E2127B030226");
-	background-size:100%;
+	background : #f7e4b5;
+	/*background: #fdc162;*/
 }
 
-.pt-page-3 {	
-	background-image: url("http://cfile22.uf.tistory.com/image/2356F73D57D08C58360C7B");
-	background-size:100%;
+.pt-page-3 {
+	background: #8ebcfa;
 }
 
-.pt-page-4 {
-	background: #fdc162;
-}
-
-.pt-page-5 {
-	background: #fd6a62;
-}
-
-.pt-page-6 {
-	background: #f68dbb;
-}
 
 /* Triggers (menu and button) */
 
@@ -109,7 +93,7 @@ html, body { height: 100%; }
 	position: absolute;
 	width: 300px;
 	z-index: 999999;
-	top: 12%;
+	top: 75%;
 	left: 50%;
 	margin-top: 130px;
 	-webkit-transform: translateX(-50%);
@@ -163,27 +147,27 @@ html, body { height: 100%; }
 	display: none;
 }
 
-.pt-message {
-	display: none;
-	position: absolute;
-	z-index: 99999;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	background: #da475c;
-	color: #fff;
-	text-align: center;
-}
+/*.pt-message {*/
+/*	display: none;*/
+/*	position: absolute;*/
+/*	z-index: 99999;*/
+/*	bottom: 0;*/
+/*	left: 0;*/
+/*	width: 100%;*/
+/*	background: #da475c;*/
+/*	color: #fff;*/
+/*	text-align: center;*/
+/*}*/
 
-.pt-message p {
-	margin: 0;
-	line-height: 60px;
-	font-size: 26px;
-}
+/*.pt-message p {*/
+/*	margin: 0;*/
+/*	line-height: 60px;*/
+/*	font-size: 26px;*/
+/*}*/
 
-.no-cssanimations .pt-message {
-	display: block;
-}
+/*.no-cssanimations .pt-message {*/
+/*	display: block;*/
+/*}*/
 
 @media screen and (max-width: 47.4375em) {
 	.pt-page h1 {
@@ -210,3 +194,5 @@ html, body { height: 100%; }
 		display: none;
 	}
 }
+
+

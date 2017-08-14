@@ -7,67 +7,28 @@
   <%= javascript_include_tag 'application'%> <!--,'data-turbolinks-track' => true %>-->
   <%= csrf_meta_tags %>
   
-    
-    <!-- Bootstrap CDN -->
-       <!--합쳐지고 최소화된 최신 CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-       <!--부가적인 테마 -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-       <!--합쳐지고 최소화된 최신 자바스크립트 -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-      
 </head>
-<body>
-     <nav class="navbar navbar-default navbar-inverse" style="margin-bottom: 0px;border-bottom-width: 0px;"role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                            <span class="sr-only">Tssoggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                    </button>
-              <a class="navbar-brand" href="/">HOME</a>
-            </div>
-    
-      <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                        <li><a href="/home/list">LIST</a></li>
-                        <li><a href="/hposts">EDIT</a></li>
-                        <!--<li class="dropdown">-->
-                        <!--    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
-                        <!--    <ul class="dropdown-menu">-->
-                        <!--          <li><a href="#">Action</a></li>-->
-                        <!--          <li><a href="#">Another action</a></li>-->
-                        <!--          <li><a href="#">Something else here</a></li>-->
-                        <!--          <li><a href="#">Separated link</a></li>-->
-                        <!--          <li><a href="#">One more separated link</a></li>-->
-                        <!--    </ul>-->
-                        <!--</li>-->
-                        
-                </ul>
-            <form class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                        <input type=  "text" class="form-control" placeholder="Search">
-                  </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-            <!--<ul class="nav navbar-nav navbar-right">-->
-            <!--      <li><a href="#">Link</a></li>-->
-            <!--      <li class="dropdown">-->
-            <!--        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
-            <!--            <ul class="dropdown-menu">-->
-            <!--                <li><a href="#">Action</a></li>-->
-            <!--                <li><a href="#">Another action</a></li>-->
-            <!--                <li><a href="#">Something else here</a></li>-->
-            <!--                <li><a href="#">Separated link</a></li>-->
-            <!--            </ul>-->
-            <!--      </li>-->
-            <!--</ul>-->
-          </div><!-- /.navbar-collapse -->
-    </nav>
-
+<body class = "nav_body">
+    <div class="wrapper">      
+      <ul class="nav-list">
+        <li class="nav_home selected"><a href="/">Home</a></li>
+        <li class="nav_poster"><a href="/home/list">Poster</a></li>
+        <li class="nav_edit"><a href="/hposts">Edit</a></li>
+        <li class="nav_about"><a href="/">About</a></li>
+      </ul> 
+      <!--<footer>-->
+      <!--  Inspired by <a href="http://www.youneedabudget.com/">YNAB</a> created by: <a href="https://twitter.com/FWeinb" class="red">Fabrice Weinberg</a>-->
+      <!--</footer>-->
+    </div>
 <%= yield %>
 
 </body>
 </html>
+
+<script>
+    var $navList = $('.nav-list');
+    $navList.on('click', 'li:not(.selected)', function(e){
+    $navList.find(".selected").removeClass("selected");
+    $(e.currentTarget).addClass("selected");
+    });
+</script>
