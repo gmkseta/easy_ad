@@ -8,15 +8,11 @@
         <header>
             <h1>Make Your Poster</h1>
         </header>
-        
-        Background Color :
-        <button class="roundbt jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor(this)'}"> </button>
-     
      
         <div class="input_form row" id="in_here">
             
             <div class="form-group">
-                
+            
                 <label class="sr-only" for="pic">pic</label>
                 
                 <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
@@ -53,40 +49,48 @@
 
   <!-- 오른쪽 poster -->
     <div class="child" id="here">
-        <div class = "poster" id = "html-content-holder" style = "background-image: url('../back1.jpg'); background-size: 100% 100%; background-repeat: no-repeat;">
-            <span class="text_content" style="position: relative; font-size: 1.5rem; top: 30px; text-align: left; left: 10px;">제 4회 청소년을 위한 영화학교 졸업작품 상영회</span>
-                <span class="text_content" id="title" style="position: relative; width: 400px;
-                                                            font-family: 'Nanum Gothic', cursive;
-                                                            font-size: 10rem;
-                                                            height: auto;
-                                                            border:0;
-                                                            left:59px;
-                                                            top: 10px;
-                                                            text-align:left;
-                                                            background:transparent;">
-                    Pony<br>Film<br>Festival<br>
-                </span>
-                    <span class="text_content" style="font-size: 3rem; font-family: 'Allan', cursive; ">
-                        Play On Neverending Youth
-                    </span>
-                    <span class = "text_content" stype = "top : 16px;">
-                        일시: 2017년 8월 30일 (수) 오후 2시
-                    </span>
-                    <br>
-                    <span class = "text_content">
-                        장소: 한국영화진흥위원회
-                    </span>
-                    <br>
-                        <img src="../logo1.PNG" style="width:170px; height:40px;">
-                        <img src="../logo2.PNG" style="width:150px; height:40px;">
-                        <img src="../logo3.jpg" style="width:150px; height:40px;">
-                        <img src="../logo4.jpg" style="width:200px; height:40px;">
+        <div class = "poster" id = "html-content-holder">
+            <span id="title" class = "text_content" style = "background: transparent; width: 400px; font-family: Lobster, cursive; font-weight: bold; font-size: 6rem; color: white; height: 250px; border: 0px; text-align: center; overflow-y: hidden; left: 2px; top: -50; position: relative;">
+                YangYang Surfing Festival<br>
+            </span>                
+            
+            <span class = "text_content" style = "background: transparent; color: white; font-size: 7rem; font-weight: bold; font-family: "Architects Daughter", cursive; text-align: center; left: 1477.96px; top: 657.957px; position: relative;">
+                 2018
+            </span>
+            <span class = "text_content" style = "background: transparent; color: white; font-size: 3rem; font-weight: bold; font-family: "Architects Daughter", cursive; text-align: center; left: 1498.98px; top: 657.977px; position: relative;">
+               FRIDAY
+            </span>
+            <span class = "text_content" style = "background: transparent; color: white; font-size: 3rem; font-weight: bold; font-family: "Architects Daughter", cursive; text-align: center; left: 1504.99px; top: 657.961px; position: relative;">
+               2018/1/1
+            </span>
+            <span class = "text_content" style = "background: transparent; color: white; font-size: 3rem; font-weight: bold; font-family: "Architects Daughter", cursive; text-align: center; left: 1539.96px; top: 800.977px; position: relative;">
+               주소
+            </span>
         </div>
     </div>
 </div>
 <a id="btn-Convert-Html2Image" href="#" ></a>
 
 <script>
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+   $("#in_here").prepend("<%=escape_javascript(render "background")%>");
+   
+        $(".input_bg .toggle_sw").on("click",function(){
+            switch (this.value) {
+               
+                case "toggle_sw": $(".background").toggle("blind",1000)
+                        if($(".input_bg .toggle_sw").html()=="+")
+                            $(".input_bg .toggle_sw").html("-")
+
+                        else
+                            $(".input_bg .toggle_sw").html("+")
+                                
+                break;
+            }
+        });
+    ///////////////////////background options////////////////////////////////////////////////////////////////////
 
    
     //그다음 html 태그 로부터 텍스트 컨텐츠가 몇개 있는지 확인 하시고
@@ -127,17 +131,17 @@
                     else{
                         target.css("font-weight","bold");
                         this.style.backgroundColor="#ba7276"
-                       }
+                      }
                     break;
                 case "Italic"       : 
                     if(target.css("font-style")=="italic"){
                         target.css("font-style","");
                         this.style.backgroundColor = "#333"
-                       }
+                      }
                     else{
                         target.css("font-style","italic");
                         this.style.backgroundColor = "#ba7276"
-                       }
+                      }
                     break;
                 case "Underline"    :
                     if( target.css("text-decoration").match('underline')=='underline'){
@@ -147,9 +151,9 @@
                     else{
                         target.css("text-decoration","underline");
                         this.style.backgroundColor = "#ba7276"
-                       }
+                      }
                     break;
-                    case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)
+                case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)
                         if($(".input_option:eq(<%=ind%>) .toggle_sw").html()=="+")
                             $(".input_option:eq(<%=ind%>) .toggle_sw").html("-")
                         else
@@ -201,11 +205,7 @@
     });
     $("span").draggable();
 
-    function setBodyColor(jscolor) {
 
-    document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#FFFFFF, #' + jscolor + ')';
-    
-    }
     
     // $( function() {
     // $( ".text_content" ).draggable({ containment: "#html-content-holder", scroll: false });

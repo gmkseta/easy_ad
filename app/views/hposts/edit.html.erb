@@ -13,10 +13,7 @@
         <header>
             <h1>Make Your Poster</h1>
         </header>
-
-        Background Color :
-        <button class="roundbt jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor(this)'}"> </button>
-
+        
         <div class="input_form row" id="in_here">
             
             <div class="form-group">
@@ -79,7 +76,23 @@
           
     }
     
-    
+    //////////////////////////////////////////////////////////////////////////////////////////
+   $("#in_here").prepend("<%=escape_javascript(render "background")%>");
+   
+        $(".input_bg .toggle_sw").on("click",function(){
+            switch (this.value) {
+               
+                case "toggle_sw": $(".background").toggle("blind",1000)
+                        if($(".input_bg .toggle_sw").html()=="+")
+                            $(".input_bg .toggle_sw").html("-")
+
+                        else
+                            $(".input_bg .toggle_sw").html("+")
+                                
+                break;
+            }
+        });
+    ///////////////////////background options////////////////////////////////////////////////////////////////////
     
     <%for ind in 0...@text_contents_count%>
     
@@ -183,11 +196,5 @@
       $('#submit_poster').trigger('click');
     });
 
-
-    function setBodyColor(jscolor) {
-
-    document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#FFFFFF, #' + jscolor + ')';
-
-    }
 
 </script>

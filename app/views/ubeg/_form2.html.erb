@@ -53,28 +53,23 @@
 
   <!-- 오른쪽 poster -->
     <div class="child" id="here">
-        <div style = "padding-top: 40px; position: relative; width: 568px; height:781px; border:2px solid #ccc; background-position: center top; background-image: url('../back1.jpg'); background-color: #FFFFFF; background-repeat: no-repeat;">
-            <span class="text_content" style="position: absolute; font-size: 1.5rem; top: 5%; text-align:left; left:15%;">제 4회 청소년을 위한 영화학교 졸업작품 상영회</span>
-                <span class="text_content" id="title" style="position: absolute;
-                            width: 400px;
-                            /*overflow: visible;*/
-                            font-family: 'Nanum Gothic', cursive;
-                            font-size: 10rem;
-                            height: auto;
-                            border:0;
-                            left:15%;
-                            top: 10%;
-                            text-align:left;
-                            /*overflow-y:hidden;*/
-                            background:transparent;">
+        <div class = "poster" id = "html-content-holder" style = "background-image: url('../back1.jpg'); background-size: 100% 100%; background-repeat: no-repeat;">
+            <span class="text_content" style="position: relative; font-size: 1.5rem; top: 30px; text-align: left; left: 10px;">제 4회 청소년을 위한 영화학교 졸업작품 상영회</span>
+                <span class="text_content" id="title" style="position: relative; width: 400px;
+                                                            font-family: 'Nanum Gothic', cursive;
+                                                            font-size: 10rem;
+                                                            height: auto;
+                                                            border:0;
+                                                            left:59px;
+                                                            top: 10px;
+                                                            text-align:left;
+                                                            background:transparent;">
                     Pony<br>Film<br>Festival<br>
                 </span>
-    
-                <span class="text_content" style = "background: transparent; text-align: left; font-family: 'Domine', serif; cursive; position: absolute; left: 15%; top: 65%;">
                     <span class="text_content" style="font-size: 3rem; font-family: 'Allan', cursive; ">
                         Play On Neverending Youth
                     </span>
-                    <span class = "text_content">
+                    <span class = "text_content" stype = "top : 16px;">
                         일시: 2017년 8월 30일 (수) 오후 2시
                     </span>
                     <br>
@@ -86,10 +81,9 @@
                         <img src="../logo2.PNG" style="width:150px; height:40px;">
                         <img src="../logo3.jpg" style="width:150px; height:40px;">
                         <img src="../logo4.jpg" style="width:200px; height:40px;">
-                </span>
-            </span>
         </div>
     </div>
+</div>
 <a id="btn-Convert-Html2Image" href="#" ></a>
 
 <script>
@@ -205,7 +199,7 @@
     $("#hpost_picture").change(function(){
       $('#submit_poster').trigger('click');
     });
-
+    $("span").draggable();
 
     function setBodyColor(jscolor) {
 
