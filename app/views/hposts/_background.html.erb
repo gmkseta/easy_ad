@@ -2,9 +2,7 @@
         <div class = "form-control" style = "width : 92%">Background</div>
             <button class="toggle_sw" value="toggle_sw" style="margin-top:20px;margin-bottom:20px;width:7%;font-size:2em;padding:0px">+</button>
             <div class="background f_wrap " style="display:none;">
-                
-                
-            <h2>How many bg colors</h2>
+            <h2>How many colors?</h2>
                     <input type="radio" id="1-option" name = "selector" class="bg_cnt" checked="checked">
                     <label for="f-option">1</label>
     
@@ -14,33 +12,36 @@
                     <input type="radio" id="3-option" name = "selector" class="bg_cnt">
                     <label for="t-option">3</label>
                     <hr style="border:solid 0.02em #606060">
-                            <span class="p2" style="margin-right:10em">choose color : </span> 
-                            
-                            <button class="roundbt bg1 jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor1(this)'}"></button>
-                            <button class="roundbt bg2 jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor2(this)'}" style="display:none;"></button>
-                            <button class="roundbt bg3 jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor3(this)'}" style="display:none;"></button>
+                        <span class="p2" style="margin-right:10em">choose color : </span> 
+                        
+                        <button class="roundbt bg1 jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor1(this)'}"></button>
+                        <button class="roundbt bg2 jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor2(this)'}" style="display:none;"></button>
+                        <button class="roundbt bg3 jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor3(this)'}" style="display:none;"></button>
                             
             </div>
         </div>
 </div>
 
 <script>
+    gra1 = '#FFFFFF';
+    gra2 = '#FFFFFF';
+    
     function setBodyColor1(jscolor) {
 
     gra1 = jscolor;
-    document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#' + gra1 + ', #' + gra1 + ')';
+    document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#' + gra2 + ', #' + gra1 + ')';
     
     }
     
     function setBodyColor2(jscolor) {
-
+    
     gra2 = jscolor;
     document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#' + gra1 + ', #' + gra2 + ')';
     
     }
     
     function setBodyColor3(jscolor) {
-
+        
     gra3 = jscolor
     document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#' + gra1 + ', #' + gra2 + ', #' + gra3 + ')';
     
@@ -48,10 +49,10 @@
     $(".bg_cnt").on("click",function(){
             switch (this.id) {
                 case "1-option" :
-                    gra1 = '#FFFFFF';
                    $('.bg1').css("display","");
                    $('.bg2').css("display","none");
                    $('.bg3').css("display","none");
+                   gra2 = gra1;
                 break;
                 case "2-option" :
                    $('.bg1').css("display","");
