@@ -8,15 +8,15 @@
         z-index:1;
     }
 </style>
-<div class="parent">
-    <div class="child">
+<div class="row">
+    <div class="col-md-4 col-md-offset-1">
         <header>
             <h1>Make Your Poster</h1>
         </header>
         
         <div class="input_form row" id="in_here">
             
-            <div class="form-group">
+            <!--<div class="form-group">-->
 
                 <label class="sr-only" for="pic">pic</label>
                 
@@ -44,16 +44,14 @@
                     
                 <% end %>
                 
-            </div>
-            
+            <!--</div>-->
         </div>
-        
     </div>
     
-    
+     <div class="col-md-1"></div>     <!-- 간격 맞추기용 -->
   <!-- 오른쪽 poster -->
   <!--여기에 디비에 있는 html tag를 넣을꺼임-->
-  <div class="child" id="here"></div>
+  <div class="col-md-5 col-sm-12" id="here"></div>
 
 </div>
 
@@ -197,4 +195,27 @@
     });
 
 
+    $(document).ready(function() {
+
+    	// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+    	var floatPosition = parseInt($("#html-content-holder").css('top'));
+    	// 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
+        
+    	$(window).scroll(function() {
+    		// 현재 스크롤 위치를 가져온다.
+    		var scrollTop = $(window).scrollTop();
+    		var newPosition = scrollTop + floatPosition + "px";
+
+    		/* 애니메이션 없이 바로 따라감
+    		 $("#floatMenu").css('top', newPosition);
+    		 */
+    		 
+    
+    		$("#html-content-holder").stop().animate({
+    			"top" : newPosition
+    		}, 500);
+    
+    	}).scroll();
+
+});
 </script>

@@ -17,7 +17,6 @@
                         <button class="roundbt bg1 jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor1(this)'}"></button>
                         <button class="roundbt bg2 jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor2(this)'}" style="display:none;"></button>
                         <button class="roundbt bg3 jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor3(this)'}" style="display:none;"></button>
-                            
             </div>
         </div>
 </div>
@@ -46,6 +45,7 @@
     document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#' + gra1 + ', #' + gra2 + ', #' + gra3 + ')';
     
     }
+    
     $(".bg_cnt").on("click",function(){
             switch (this.id) {
                 case "1-option" :

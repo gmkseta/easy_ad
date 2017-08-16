@@ -1,17 +1,17 @@
 <div class="form-group input_option">
 
         <input type="text" class="form-control text_input" style="width:91%" > 
-        <button class="toggle_sw" value="toggle_sw" style="color:#b5b5b5;background:#191919;margin-top:25px;margin-bottom:50px;width:7%;font-size:1.5em;padding:0.1em;font-family:Nanum Pen Script, cursive;">+</button>
+        <button class="toggle_sw" value="toggle_sw" style="color:#b5b5b5;background:#191919;margin-top:0.5em;margin-bottom:0.5em;width:7%;font-size:1.5em;padding:0.1em;font-family:Nanum Pen Script, cursive;">+</button>
         <div class="option f_wrap " style="display:none;">
                 
                 <dl class="dlmargin" stlye="margin-bottom:0px;">
                         
                         <dt class="p2">크기 (<span class="lbl_fontsize" >14px</span>) </dt>
                            <div class="zoom slider"></div>
-                        <hr style="border:solid 0.02em #606060">
-                        
-                        <span class="p2" style="margin-right:10em;">글꼴</span> 
-                        <span class="f_style">
+                        <hr style="border:solid 0.02em #606060;margin:1em 0">
+                        <!--margin-right:6em-->
+                        <span class="p2" style="margin-bottom:0;width:45%;display:inline-block;">글꼴</span> 
+                        <span class="f_style" style="width:45%;display:inline-block;">
 
                                 <select class="fs">
                                         <option value="dotum,'돋움',sans-serif">돋움</option>
@@ -26,21 +26,23 @@
                                         <option value="Shadows Into Light,'Shadows Into Light', cursive">ShadowIntoLight</option>
                                 </select>
                         </span>
-                        <hr style="border:solid 0.02em #606060">
+                        <hr style="border:solid 0.02em #606060;margin:1em 0">
                         
                         
                         
                         <!--모르게써오..ㅠ_ㅠ....계속 해봐도 안돼오..ㅠ_ㅠ-->
-                        <span class="p2" style="margin-right:10em">색상</span>  
+                        <span class="p2" style="margin-bottom:0;width:45%;display:inline-block;">색상</span>  
                         <button class="color roundbt jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
                         </button>
                         <input class="chosen-value" value="000000">
-                        <hr style="border:solid 0.02em #606060">
+                        <hr style="border:solid 0.02em #606060;margin:1em 0">
                         
-                        <span class="p2" style="margin-right:10em">기타</span>
-                        <button class="boldText" value="Bold">B</button>
-                        <button class="italicText" value="Italic" stlye="margin-right:1em;margin-left:1em;">I</button>
-                        <button class="underlineText" value="Underline">U</button>
+                        <span class="p2" style="margin-bottom:0;width:45%;display:inline-block;">기타</span>
+                        <span  style="width:45%;display:inline-block;">
+                                <button class="boldText" value="Bold">B</button>
+                                <button class="italicText" value="Italic" stlye="margin-right:1em;margin-left:1em;">I</button>
+                                <button class="underlineText" value="Underline">U</button>
+                        </span>
                         
         </div>
 </div>
