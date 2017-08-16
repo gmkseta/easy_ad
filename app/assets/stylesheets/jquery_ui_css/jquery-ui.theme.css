@@ -16,7 +16,8 @@
 ----------------------------------*/
 .ui-widget {
 	font-family: Segoe UI,Arial,sans-serif;
-	font-size: 1.1em;
+	font-size: 0.8em;
+	font-weight:400;
 }
 .ui-widget .ui-widget {
 	font-size: 1em;
