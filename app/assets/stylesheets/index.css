@@ -1,6 +1,9 @@
 .nav-list{
   list-style:none;
   letter-spacing: .7em;
+  padding:0px;
+  margin-top:0.2em;
+  margin-bottom:3em;
 }
 
 .nav-list a{
@@ -114,10 +117,10 @@ body{
   color: white;
 }
 
-.wrapper{
-  width:500px;
-  margin:0 auto;
-}
+/*.wrapper{*/
+/*  width:300px;*/
+/*  margin:0 auto;*/
+/*}*/
 
 /*footer{*/
 /*	width:100%;*/

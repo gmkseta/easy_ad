@@ -1,22 +1,23 @@
-
+<head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<div class="parent">
-     <div class="child">
+</head>
+<style>
+    .text_content{
+        z-index:1;
+    }
+</style>
+<div class="row">
+    <div class="col-md-4 col-md-offset-1">
         <header>
             <h1>Make Your Poster</h1>
         </header>
         
-        Background Color :
-        <button class="roundbt jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor(this)'}"> </button>
-     
-     
         <div class="input_form row" id="in_here">
             
-            <div class="form-group">
-                
+            <!--<div class="form-group">-->
+
                 <label class="sr-only" for="pic">pic</label>
                 
                 <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
@@ -29,62 +30,71 @@
                         
                     </div>
                     
-                <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
-                
-                    <br>
+                <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %><br>
                     
                     <div class="actions">
-                        
                         <%= f.submit id:"submit_poster" %>
-                        
                     </div>
                     
                     <a href="/hposts/<%=@hpost.id%>">완 료</a>
                     
                 <% end %>
                 
+            <!--</div>-->
+        </div>
+    </div>
+    
+     <div class="col-md-2"></div>     <!-- 간격 맞추기용 -->
+  <!-- 오른쪽 poster -->
+ 
+  
+  <!--여기에 디비에 있는 html tag를 넣을꺼임-->
+  <div class="col-md-4 col-sm-12" id="here">
+     <div class = "poster" id = "html-content-holder" style = "position: relative; width: 568px; height:781px; border:2px solid #ccc; background-color: LightSkyBlue;">
+        <div style="position: absolute; width: 0; height: 0; border-top: 781px solid pink; border-right: 568px solid transparent; text-align: center;">     
+            <span class="text_content" style="position: absolute; width: 568px; font-weight: bold; font-size: 3rem; font-family: 'Montserrat', sans-serif; color: #000000; text-align: center; left: initial; top: -700px;">
+                THE D SHACK<br>
+            </span>
+            <span class="text_content" style="position: absolute; width: 568px; font-size: 1.5rem; font-family: 'Montserrat', sans-serif; color: #000000; text-align: center; left: initial; top: -652px;">
+                <br>NEVER BEFORE SEEN DISCOUNTS!
+             </span>
+             <br>
+            
+            <div style="position: absolute; top: -570px; width: 568px; height: 350px; background-color: #FFFFFF; padding-top: 15px; padding-bottom: 15px; text-align: center;">
+                <img src="../summer_sale.png" style="width: 300px;">
+                <span class="text_content" style="color: #000000; font-family: 'Lobster', cursive; font-size: 8rem; border:0;">
+                    <br>40% OFF!<br>
+                </span>
+                <span class="text_content" style="font-size: 2rem; font-weight: bold; font-family: 'Montserrat', sans-serif; color: #000000">27 OF AUGUST</span>
+                <span class="text_content" style="font-size: 2rem; font-weight: bold; font-family: 'Montserrat', sans-serif; color: #FF8C00">
+                    <br>15 MARCUS RD, BRENTMOORE<br>
+                </span>
             </div>
+            <br>
+            </div>
+            <span class="text_content" style="position: absolute; background: transparent; font-size: 1.5rem; font-weight: bold; text-align: center; font-family: 'Montserrat', sans-serif; color: #E9967A; left: initial; top:600px;">
+                EPIC BLACK SUNDAY SALE
+                <br><br>
+                <img src="https://image.flaticon.com/icons/svg/122/122698.svg" style="width:30px; height: 30px; padding-right: 5px;">
+                <img src="https://image.flaticon.com/icons/svg/122/122770.svg" style="width:30px; height: 30px; padding-right: 5px;">
+                <img src="https://image.flaticon.com/icons/svg/122/122707.svg" style="width:30px; height: 30px; padding-right: 5px;">
+                <img src="https://image.flaticon.com/icons/svg/122/122762.svg" style="width:30px; height: 30px; padding-right: 5px;">
+                <img src="https://image.flaticon.com/icons/svg/122/122734.svg" style="width:30px; height: 30px; padding-right: 5px;">
+                <br>
+            </span>
+             
+                <span class="text_content" style="position: absolute; color: #000000; font-weight: bold; font-family: 'Armata', sans-serif; top: 680px;">
+                    COME DIRECTLY TO THE<br>
+                    WAREHOUSE OR OUTLET<br>
+                </span>
+                <span class="text_content" style="position: absolute; color: #000000; font-family: 'Armata', sans-serif; font-size: 1.5rem; top: 730px;">
+                    02)000-0000
+                </span>
             
         </div>
-        
-    </div>
-    
-    
+   </div>
 
-  <!-- 오른쪽 poster -->
-    <div class="child" id="here">
-        <div class = "poster" id = "html-content-holder" style = "background-image: url('../back1.jpg'); background-size: 100% 100%; background-repeat: no-repeat;">
-            <span class="text_content" style="position: relative; font-size: 1.5rem; top: 30px; text-align: left; left: 10px;">제 4회 청소년을 위한 영화학교 졸업작품 상영회</span>
-                <span class="text_content" id="title" style="position: relative; width: 400px;
-                                                            font-family: 'Nanum Gothic', cursive;
-                                                            font-size: 10rem;
-                                                            height: auto;
-                                                            border:0;
-                                                            left:59px;
-                                                            top: 10px;
-                                                            text-align:left;
-                                                            background:transparent;">
-                    Pony<br>Film<br>Festival<br>
-                </span>
-                    <span class="text_content" style="font-size: 3rem; font-family: 'Allan', cursive; ">
-                        Play On Neverending Youth
-                    </span>
-                    <span class = "text_content" style = "top : 16px;">
-                        일시: 2017년 8월 30일 (수) 오후 2시
-                    </span>
-                    <br>
-                    <span class = "text_content">
-                        장소: 한국영화진흥위원회
-                    </span>
-                    <br>
-                        <img src="../logo1.PNG" style="width:170px; height:40px;">
-                        <img src="../logo2.PNG" style="width:150px; height:40px;">
-                        <img src="../logo3.jpg" style="width:150px; height:40px;">
-                        <img src="../logo4.jpg" style="width:200px; height:40px;">
-        </div>
-    </div>
-</div>
-<a id="btn-Convert-Html2Image" href="#" ></a>
+
 
 <script>
 

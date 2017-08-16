@@ -14,7 +14,7 @@ html body{
 //   flex-direction:row;
 //   flex-wrap:wrap;
 //   width:100%;
-// }
+// }  
 
 .row{
     margin:0px;
@@ -53,8 +53,6 @@ html body{
   align-items: center;
   justify-content: center;
   border-radius:4px;
-  background-color: #fff;
-  top:0;
   height: 45vw;
   img{
       max-width:100%;
@@ -95,5 +93,48 @@ html body{
 }
 
 // file input customizing
-  input[type='file'] {
+
+
+#html-content-holder{
+  position : absolute;
+  width: 100%;
+  top : 0px;
+}
+
+.file{
+    input{
+      background-color:#191919;
+    }
+}
+#hpost_picture{
+  width:95%;
+  border: 0;
+  border-radius:2px;
+  border-bottom: 0.05em dashed #434951;
+  background-color: transparent;
+  color: #e6eaef;
+  font-family: 'Nanum Gothic';
+  // font-family: 'Nanum Gothic', serif; 
+  font-size: 15px;
+  font-weight:300;
+  padding:.4em 1em;
+  text-align:center;
+
+}
+
+#submit_poster{
+  background-color:#333;
+  border-radius:2px;
+  border:1px solid #232323;
+  font-family: 'Nanum Gothic';
+  font-weight:300;
+  padding:.4em 1em;
+  text-align:center;
+  float:right;
+}
+  #submit_poster:focus{
+	border: 1px solid #ba7276; 
+	background-color: #ba7276;
+	font-weight: bold;
+	color: #ffffff;
   }
