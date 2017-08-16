@@ -15,10 +15,15 @@ ActiveRecord::Schema.define(version: 20170805131122) do
 
   create_table "hposts", force: :cascade do |t|
     t.text     "htmltag"
-    t.string   "picture"
+    t.string   "picture1"
+    t.string   "picture2"
+    t.string   "picture3"
+    t.string   "picture4"
+    t.string   "picture5"
+    t.string   "back_ground"
     t.string   "result"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "posts", force: :cascade do |t|

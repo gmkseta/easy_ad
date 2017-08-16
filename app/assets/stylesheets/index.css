@@ -1,12 +1,14 @@
 .nav-list{
   list-style:none;
-  letter-spacing: .7em;
+  letter-spacing: 2em;
   padding:0px;
   margin-top:0.2em;
   margin-bottom:3em;
 }
 
 .nav-list a{
+  
+  font-size : 1.5em;
   text-decoration:none;
   transition:color 0.3s ease-out;
   color:inherit;
@@ -113,7 +115,7 @@
 /* Booring stuff*/
 
 body{
-  font-family: 'Karla', sans-serif;
+  font-family: 'Armata', sans-serif;
   color: white;
 }
 
