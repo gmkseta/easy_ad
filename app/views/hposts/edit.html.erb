@@ -30,7 +30,7 @@
                         
                     </div>
                     
-                <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
+                    <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
                 
                     <br>
                     
@@ -107,6 +107,9 @@
             target.append("<div>"+$(".text_input:eq(<%=ind%>)").val()+"</div>");
         });
         
+        $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"));
+        //$(".input_option:eq(<%=ind%>) .color").css("background-color", "#" + target.css("color"));
+        
         $(".input_option:eq(<%=ind%>) button").on("click",function(){
             
             target=$('.text_content:eq(<%=ind%>)');
@@ -157,29 +160,41 @@
          
         });
         
-        $(".input_option:eq(<%=ind%>) .slider").on("slide",function(){
+        $(".input_option:eq(<%=ind%>) .slider").on("slidechange",function(){
+                
             target=$('.text_content:eq(<%=ind%>)');
             target.css("font-size", $(".input_option:eq(<%=ind%>) .slider").slider("option","value")+"px");
-            $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"))
+            $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"));
         })
         
-        $(".input_option:eq(<%=ind%>) .fs").on("selectmenuchange",function(){
-          target=$('.text_content:eq(<%=ind%>)');
-          target.css("font-family",$(this).val()); //글자 모양 변경
-        });
+         $(".input_option:eq(<%=ind%>) .slider").on("slide",function(){
+                
+            target=$('.text_content:eq(<%=ind%>)');
+            target.css("font-size", $(".input_option:eq(<%=ind%>) .slider").slider("option","value")+"px");
+            $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"));
+        })
         
         
-        //색상
-        
+
     <%end%>
     
      $( function jquery_ui_apply() {
+         
+        <%for ind in 0...@text_contents_count%>
+            target=$('.text_content:eq(<%=ind%>)');
+            
+            $( ".slider:eq(<%=ind%>)" ).slider({
+                animate:"fast",
+                value: parseInt(target.css("font-size"))
+            });
+            
+            $(".fs:eq(<%=ind%>)").selectmenu({
+                value : target.css("font-family")
+            });
+        <% end %> 
+        
         $("button").button();
         
-        $( ".slider" ).slider({
-            animate:"fast"
-        });
-        $(".fs").selectmenu();
         
         
       } );
@@ -193,8 +208,15 @@
     $("#hpost_picture").change(function(){
       $('#submit_poster').trigger('click');
     });
-
-
+    $('button.color').click(function(){
+        $('div.color_area').click(function(){
+            <%for i in 0...@text_contents_count%>
+              target=$('.text_content:eq(<%=i%>)');
+               target.css("color",$(".option:eq(<%=i%>) .color").css("background-color")); 
+            <%end%>
+        });
+    })
+    
     $(document).ready(function() {
 
     	// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
@@ -217,5 +239,23 @@
     
     	}).scroll();
 
-});
+    });
+    
+    
+    
+    //font family option
+    <%for ind in 0...@text_contents_count%> //0부터 text_content_count ~개까지
+        //.fs가 오픈되면 실행
+        $( ".fs:eq(<%=ind%>)" ).selectmenu({
+          open: function() { //event, ui 
+              fonts = ['dotum', 'Nanum Brush Script','Nanum Pen Script','Nanum Myeongjo','Nanum Gothic','Godo','daehan','Sedgwick Ave','Acme','Shadows Into Light'] //0-9까지 헤헤
+              //font배열이랑 연결 에에~~ㅠ_ㅠ
+              <% for i in 0...9 %>
+                  $(".fs:eq(<%=ind%>)").selectmenu("menuWidget").children("li:eq(<%=i%>)").css("font-family",fonts[<%=i%>]);
+              <%end%>
+          }
+    });
+    <%end%>
+
+    
 </script>

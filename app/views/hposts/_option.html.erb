@@ -14,8 +14,8 @@
                         <span class="f_style" style="width:45%;display:inline-block;">
 
                                 <select class="fs">
-                                        <option value="dotum,'돋움',sans-serif">돋움</option>
-                                        <option value="Nanum Brush Script, '나눔손글씨붓', serif">나눔손글씨붓</option>
+                                        <option class="ft1" value="dotum,'돋움',sans-serif">돋움</option>
+                                        <option class="ft2" value="Nanum Brush Script, '나눔손글씨붓', serif">나눔손글씨붓</option>
                                         <option value="Nanum Pen Script, '나눔손글씨펜', serif" class="fnanump">나눔손글씨펜</option>
                                         <option value="Nanum Myeongjo, '나눔명조', serif">나눔명조</option>
                                         <option value="Nanum Gothic, '나눔고딕', serif">나눔고딕</option>
@@ -29,12 +29,11 @@
                         <hr style="border:solid 0.02em #606060;margin:1em 0">
                         
                         
-                        
-                        <!--모르게써오..ㅠ_ㅠ....계속 해봐도 안돼오..ㅠ_ㅠ-->
                         <span class="p2" style="margin-bottom:0;width:45%;display:inline-block;">색상</span>  
                         <button class="color roundbt jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
                         </button>
-                        <input class="chosen-value" value="000000">
+
+	                <input id="chosen-value" class="fuck" value="000000" style="display:none;"></input>
                         <hr style="border:solid 0.02em #606060;margin:1em 0">
                         
                         <span class="p2" style="margin-bottom:0;width:45%;display:inline-block;">기타</span>
@@ -48,10 +47,9 @@
 </div>
 
 <script>
-
-    function setTextColor(jscolor) {
-            
-    document.getElementById('html-content-holder').style.color = '#' + jscolor;
+   function setTextColor(jscolor) {
 
     }
 </script>
+
+

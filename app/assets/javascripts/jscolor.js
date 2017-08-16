@@ -1432,7 +1432,7 @@ var jsc = {
 				THIS.borderRadius,
 				Math.round(THIS.padding * Math.PI)); // px
 			var padCursor = 'crosshair';
-
+			
 			// wrap
 			p.wrap.style.clear = 'both';
 			p.wrap.style.width = (dims[0] + 2 * THIS.borderWidth) + 'px';
@@ -1490,7 +1490,7 @@ var jsc = {
 			p.padM.style.width = (THIS.padding + 2 * THIS.insetWidth + THIS.width + padToSliderPadding / 2) + 'px';
 			p.padM.style.height = dims[1] + 'px';
 			p.padM.style.cursor = padCursor;
-
+			p.padM.className ="color_area";
 			// pad cross
 			p.cross.style.position = 'absolute';
 			p.cross.style.left =

@@ -1,10 +1,39 @@
 <style>
 		html body{
-			/*background-image: url('../posters.jpg');*/
-			background-color : #c7c7c9;
+			background-color : #2c2d31;
 		}
 </style>
-
+	
+	
+	<div class="pt-page-0" style="padding-left: 5px; padding-right: 5px; text-align: center;">
+			<div class="mv">
+				<img class="mp" src="/assets/home_img/1.png" >
+				<img class="mp" src="/assets/home_img/2.jpg" >
+				<img class="mp" src="/assets/home_img/3.jpg" >
+				<img class="mp" src="/assets/home_img/4.jpg" >
+				<img class="mp" src="/assets/home_img/5.jpg" >
+				<img class="mp" src="/assets/home_img/6.jpg" >
+				<img class="mp" src="/assets/home_img/7.jpg" >
+				<img class="mp" src="/assets/home_img/8.jpg" >
+				<img class="mp" src="/assets/home_img/9.jpg" >
+				<img class="mp" src="/assets/home_img/10.jpg" >
+				<img class="mp" src="/assets/home_img/11.jpg" >
+				<img class="mp" src="/assets/home_img/12.jpg" >
+				<img class="mp" src="/assets/home_img/13.jpg" >
+				<img class="mp" src="/assets/home_img/14.jpg" >
+				<img class="mp" src="/assets/home_img/15.jpg" >
+				<img class="mp" src="/assets/home_img/16.jpg" >
+				<img class="mp" src="/assets/home_img/17.jpg" >
+				<img class="mp" src="/assets/home_img/18.jpg" >
+				<img class="mp" src="/assets/home_img/19.jpg" >
+				<img class="mp" src="/assets/home_img/20.jpg" >
+				<img class="mp" src="/assets/home_img/21.jpg" >
+				<img class="mp" src="/assets/home_img/22.jpg" >
+				<img class="mp" src="/assets/home_img/23.jpg" >
+				<img class="mp" src="/assets/home_img/24.jpg" >
+			</div>
+		</div>
+	
 	<div id = "rect">
 		
 		<div id="pt-main" class="pt-perspective">
@@ -40,6 +69,12 @@
 	<script src="/assets/home_js/ityped.js"></script>
 	
 	<script>
+	// $(".")
+	// $(".pt-page-1").addClass( 'pt-page-current pt-page-scaleUp pt-page-delay300' )
+
+	setTimeout(function() { 
+		// Code here }, 지연시간) 
+	$(".pt-page-1").addClass( 'pt-page-current pt-page-scaleUpCenter pt-page-delay300' )
 		window.ityped.init(document.querySelector('.first_page'), {
 			strings : ['Easy Ad is an awsome website that provides easy, fast, practical tools to create ones own poster. Each templates are very simple but also unique. Anyone can design their own poster. '],
 			loop : true
@@ -54,6 +89,9 @@
 		strings : ['Anyone can design their own poster.'],
 			loop : true
 		});
+	},6500)
+		
+	
 	</script>
 	
 	

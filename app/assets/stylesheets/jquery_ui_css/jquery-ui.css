@@ -212,9 +212,14 @@
 	/* support: IE10, see #8844 */
 	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
 }
-.ui-menu .ui-menu-item-wrapper {
+.ui-menu .ui-menu-item-wrapper{
 	position: relative;
 	padding: 3px 1em 3px .4em;
+}
+.ui-menu .ui-menu-item-wrapper .ft1{
+	position: relative;
+	padding: 3px 1em 3px .4em;
+	font-size:40px;
 }
 .ui-menu .ui-menu-divider {
 	margin: 5px 0;
