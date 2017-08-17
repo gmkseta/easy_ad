@@ -3,11 +3,13 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
+
 <style>
     .text_content{
         z-index:1;
     }
 </style>
+
 <div class="row">
     <div class="col-md-4 col-md-offset-1">
         <header>
@@ -23,14 +25,12 @@
                 <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
                 
                     <div class="field">
-                        
-                        <%= f.input :picture, as: :file %>
-                        
-                        <%= f.hidden_field :picture_cache %>
+                        <%= f.input :picture1, as: :file %>
+                        <%= f.hidden_field :picture1_cache %>
                         
                     </div>
+                    <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %><br>
                     
-                <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %><br>
                     
                     <div class="actions">
                         <%= f.submit id:"submit_poster" %>
@@ -39,12 +39,11 @@
                     <a href="/hposts/<%=@hpost.id%>">완 료</a>
                     
                 <% end %>
-                
             <!--</div>-->
         </div>
     </div>
     
-     <div class="col-md-2"></div>     <!-- 간격 맞추기용 -->
+<div class="col-md-2"></div>     <!-- 간격 맞추기용 -->
   <!-- 오른쪽 poster -->
  
   
@@ -53,19 +52,29 @@
      <div class = "poster" id = "html-content-holder"  style="  background-color: #222222;
                                                                 background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 0%, #222222 50%) 0 / 15px 15px;"> 
           
-                  <!--<h2 style="-->
-                  <!--            font-size: 100px;-->
-                  <!--            text-shadow: 0px 0px 3px #eee, 5px 5px 2px teal, -5px -2px 2px mix(black,red,50);-->
-                  <!--            -webkit-text-shadow: 0px 0px 3px #eee, 5px 5px 2px teal, -5px -2px 2px mix(black,red,50);-->
-                  <!--            font-weight: 400;">GLITCHY</h2>-->
+          <!--<h2 style="-->
+          <!--            font-size: 100px;-->
+          <!--            text-shadow: 0px 0px 3px #eee, 5px 5px 2px teal, -5px -2px 2px mix(black,red,50);-->
+          <!--            -webkit-text-shadow: 0px 0px 3px #eee, 5px 5px 2px teal, -5px -2px 2px mix(black,red,50);-->
+          <!--            font-weight: 400;">GLITCHY</h2>-->
                   
-            <span class="text_content" style="font-family: 'Lobster', cursive;">AAAAAAAaldkasdsd</span>                                  
-            
+            <span class="text_content" style="font-family: 'Lobster', cursive;
+                                                text-shadow: 0 0 5px #fff,
+                                                 0 0 10px #000000,
+                                                 0 0 20px #1c6ad8,
+                                                 0 0 40px #1c6ad8,
+                                                 0 0 60px #1c6ad8,
+                                                 0 0 80px #1c6ad8,
+                                                 0 0 100px #1c6ad8,
+                                                 0 0 120px #1c6ad8;
+                                                 font-size:4rem;">NIGHT<br>PARTY</span>                                  
+            <img id = "pt_picture1_input" class = "drag_picture" style = "width:100px; height:100px"></img>
+            <!--<img id = "pt_picture2_input" class = "drag_picture" style = "width:100px; height:100px"></img>-->
+            <!--<img id = "pt_picture3_input" class = "hpost_picture" style = "width:100px; height:100px"></img>-->
+            <!--<img id = "pt_picture4_input" class = "hpost_picture" style = "width:100px; height:100px"></img>-->
+            <!--<img id = "pt_picture5_input" class = "hpost_picture" style = "width:100px; height:100px"></img>-->
  
       </div>
-
-
-     
                 <!--<span class="text_content" style="position: absolute; color: #000000; font-weight: bold; font-family: 'Armata', sans-serif; top: 100px;">-->
                 <!--    COME DIRECTLY TO THE<br>-->
                 <!--    WAREHOUSE OR OUTLET<br>   text-shadow: 0px 0px 3px #eee, 5px 5px 2px #008080, -5px -2px 2px #a0291e;  -->
@@ -73,10 +82,7 @@
                 <!--<span class="text_content" style="position: absolute; color: #000000; font-family: 'Armata', sans-serif; font-size: 1.5rem; top: 200px;">-->
                 <!--    02)000-0000-->
                 <!--</span>-->
-            
    </div>
-
-
 
 <script>
 
@@ -141,24 +147,21 @@
                         this.style.backgroundColor = "#ba7276"
                        }
                     break;
-                    case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)
-                        if($(".input_option:eq(<%=ind%>) .toggle_sw").html()=="+")
-                            $(".input_option:eq(<%=ind%>) .toggle_sw").html("-")
-                        else
-                            $(".input_option:eq(<%=ind%>) .toggle_sw").html("+")
-                                
+                case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)    
+                    if($(".input_option:eq(<%=ind%>) .toggle_sw").html()=="+")
+                        $(".input_option:eq(<%=ind%>) .toggle_sw").html("-")
+                    else
+                        $(".input_option:eq(<%=ind%>) .toggle_sw").html("+")
                 break;
 
             }
-         
-         
         });
         
         $(".input_option:eq(<%=ind%>) .slider").on("slide",function(){
             target=$('.text_content:eq(<%=ind%>)');
             target.css("font-size", $(".input_option:eq(<%=ind%>) .slider").slider("option","value")+"px");
             $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"))
-        })
+        });
         
         $(".input_option:eq(<%=ind%>) .fs").on("selectmenuchange",function(){
           target=$('.text_content:eq(<%=ind%>)');
@@ -169,29 +172,35 @@
         //색상
         
     <%end%>
-    
-    
+
      $( function jquery_ui_apply() {
+         
         $("button").button();
         
         $( ".slider" ).slider({
             animate:"fast"
         });
+        
         $(".fs").selectmenu();
         $(".option").toggle();
         
-      } );
+      });
     
-     
     $("body").mousedown(function(){    
         $("#htmltag").val($("#here").html())
     });
       
-  
-    $("#hpost_picture").change(function(){
-      $('#submit_poster').trigger('click');
+    $("#hpost_picture1").change(function(){
+          $('#submit_poster').trigger('click');
     });
+    
+    // $("#hpost_picture2").change(function(){
+    //       $('#submit_poster').trigger('click');
+    // });
+
     $("span").draggable();
+    
+    $(".drag_picture").draggable();
 
     function setBodyColor(jscolor) {
 
@@ -205,3 +214,4 @@
     // //$( "#pt_picture" ).resizable({ghost: true});
 //   })
 </script>
+

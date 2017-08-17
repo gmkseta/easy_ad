@@ -73,6 +73,7 @@ class HpostsController < ApplicationController
     def count_em(string, substring)
       string.scan(/(?=#{substring})/).count
     end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_hpost
       @hpost = Hpost.find(params[:id])
@@ -80,6 +81,6 @@ class HpostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hpost_params
-      params.require(:hpost).permit(:htmltag, :picture, :picture_cache,:result)
+      params.require(:hpost).permit(:htmltag, :picture1, :picture1_cache, :result)
     end
 end

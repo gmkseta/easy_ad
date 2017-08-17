@@ -24,9 +24,9 @@
                 
                     <div class="field">
                         
-                        <%= f.input :picture, as: :file %>
+                        <%= f.input :picture1, as: :file %>
                         
-                        <%= f.hidden_field :picture_cache %>
+                        <%= f.hidden_field :picture1_cache %>
                         
                     </div>
                     
@@ -63,7 +63,7 @@
     
     
     //그다음은 이미지 넣으시고요
-    $('#pt_picture_input').attr('src','<%=@hpost.picture.url%>').css("z-index","-99");
+    $('#pt_picture1_input').attr('src','<%=@hpost.picture1.url%>').css("z-index","1");
     
     
     //그다음 html 태그 로부터 텍스트 컨텐츠가 몇개 있는지 확인 하시고
@@ -74,7 +74,7 @@
           
     }
     
-    //////////////////////////////////////////////////////////////////////////////////////////
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
    $("#in_here").prepend("<%=escape_javascript(render "background")%>");
    
         $(".input_bg .toggle_sw").on("click",function(){
@@ -83,10 +83,8 @@
                 case "toggle_sw": $(".background").toggle("blind",1000)
                         if($(".input_bg .toggle_sw").html()=="+")
                             $(".input_bg .toggle_sw").html("-")
-
                         else
                             $(".input_bg .toggle_sw").html("+")
-                                
                 break;
             }
         });
@@ -257,5 +255,7 @@
     });
     <%end%>
 
+    $("span").draggable();
     
+    $(".drag_picture").draggable();
 </script>
