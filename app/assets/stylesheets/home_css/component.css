@@ -15,7 +15,6 @@ span {
 	width: 120px;
 	margin-left: 20px;
 	margin-bottom: 20px;
-	opacity: 0;
  	transform: scale(0);
  	transition: .3s all ease-in-out;
 	box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
@@ -32,7 +31,7 @@ span {
 $percent: 1%;
 @for $i from 1 through 24 {
    .mp:nth-of-type(#{$i}) {
-     animation: 3s intro 2;
+     animation: 3s intro 2 both;
      transition-delay: random() + s;
      animation-delay: random() + s;
    }
@@ -41,6 +40,7 @@ $percent: 1%;
 @keyframes intro{
   from{
     opacity: 0;
+    grayscale: 0;
     transform: scale(0);
   } to {
     opacity: 1;
@@ -48,14 +48,22 @@ $percent: 1%;
   }
 }
 
+/*@keyframes turn{
+	from{
+		transform: grayscale(0);
+	} to {
+		transform: grayscale(1) opacity(30%);
+	}
+}*/
 
 #rect {
-	width: 50%;
-	height: 70%;
+	width: 90%;
+	height: 80%;
 	position: fixed;
   	top: 40%;
   	left: 50%;
   	transform: translate(-50%, -50%);
+  	font-size: 1.1rem;
 	font-family:'Armata', sans-serif;
 }
 
@@ -117,15 +125,15 @@ $percent: 1%;
 
 }
 .pt-page-1{
-	background: #f7b9bc;
+	background: transparent;
 }
 .pt-page-2 {
-	background : #f7e4b5;
+	background: transparent;
 	/*background: #fdc162;*/
 }
 
 .pt-page-3 {
-	background: #8ebcfa;
+	background: transparent;
 }
 
 
