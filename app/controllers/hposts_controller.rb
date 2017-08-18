@@ -23,6 +23,7 @@ class HpostsController < ApplicationController
     
     if i == 1
       @text_contents_count=10
+      
       render :"/ubeg/form8(night_market)"
     elsif i==2
       @text_contents_count=5

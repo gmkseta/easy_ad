@@ -9666,7 +9666,7 @@ return jQuery;
 
     this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {//생준
     
-     $(".lb-number:eq(0)").append("<input type='button' value='Edit Poster' style = 'font-family:Paytone One'>")
+     $(".lb-number:eq(0)").append("<input type='button' value='Edit Poster' style = 'background-color: #555555; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; position : absolute; left: 50%'>");
      num = $(".lb-number:eq(0)").text().split(" ")[1];
      $("input:eq(0)").on("click",function(){ location.href='/new/'+num });
       return self.sizeOverlay();
