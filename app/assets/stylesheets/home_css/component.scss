@@ -80,7 +80,7 @@ span {
 $percent: 1%;
 @for $i from 1 through 27 {
    .mp:nth-of-type(#{$i}) {
-     animation: 3s intro 2 both;
+     animation: 3s intro 1 both;
      transition-delay: random() + s;
      animation-delay: random() + s;
    }

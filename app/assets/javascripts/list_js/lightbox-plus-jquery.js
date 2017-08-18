@@ -9666,7 +9666,7 @@ return jQuery;
 
     this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {//생준
     
-     $(".lb-number:eq(0)").append("<input type='button' value='만들어버리기'>")
+     $(".lb-number:eq(0)").append("<input type='button' value='Edit Poster' style = 'font-family:Paytone One'>")
      num = $(".lb-number:eq(0)").text().split(" ")[1];
      $("input:eq(0)").on("click",function(){ location.href='/new/'+num });
       return self.sizeOverlay();

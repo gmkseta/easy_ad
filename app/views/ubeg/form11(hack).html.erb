@@ -20,20 +20,20 @@
             
             <!--<div class="form-group">-->
 
-                <label class="sr-only" for="pic">pic</label>
+                <!--<label class="sr-only" for="pic">pic</label>-->
                 
-                <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
+                <!--<%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>-->
                 
-                    <div class="field">
-                        <%= f.input :picture1, as: :file %>
-                        <%= f.hidden_field :picture1_cache %>
+                <!--    <div class="field">-->
+                <!--        <%= f.input :picture1, as: :file %>-->
+                <!--        <%= f.hidden_field :picture1_cache %>-->
                         
-                    </div>
+                <!--    </div>-->
                     <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %><br>
                     
                     
                     <div class="actions">
-                        <%= f.submit id:"submit_poster" %>
+                        <%= f.submit id:"submit_poster",value:"UPLOAD" %>
                     </div>
                     
                     <a href="/hposts/<%=@hpost.id%>">완 료</a>
@@ -49,8 +49,7 @@
   
   <!--여기에 디비에 있는 html tag를 넣을꺼임-->
   <div class="col-md-4 col-sm-12" id="here" >
-     <div class = "poster" id = "html-content-holder"  style="background-color:#f39800;display:flex;"> 
-     
+<div class="poster" id="html-content-holder" style="background-color:#f39800;display:flex;">
             <ul class="Words" style="  margin: 0;
                                       padding: 80px 0;
                                       font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
@@ -62,74 +61,84 @@
                                       -webkit-font-smoothing: antialiased;
                                       -webkit-font-kerning: normal;
                                       -webkit-text-size-adjust: 100%;">
-                
-              <li class="Words-line" style=" 
-                                              overflow: hidden;
+              <li class="Words-line" style=" overflow: hidden;
                                               position: relative;
                                             
                                             transform: skew(0deg, -30deg) scaleY(1.33333);
                                             left:-50px;
                                             ">
-                  <!--left:29px;-->
-                <span class="text_content"  stlye="  height: 50px;
+                  
+                <span class="text_content ui-draggable ui-draggable-handle" style="  height: 50px;
                                                   line-height: 45px;
                                                   padding: 0 10px;
                                                   transition: all .4s ease-in-out;
                                                   transform: translate3d(0, 0, 0);
                                                   vertical-align: top;
-                                                  white-space: nowrap;">HACK               </span>
+                                                  white-space: nowrap;" style="position: relative; left: -8px; top: 16px;">HACK               </span>
               </li>
   
-             <li class="Words-line" style="
-                                              overflow: hidden;
+             <li class="Words-line" style=" overflow: hidden;
                                               position: relative;
                                             
                                             transform: skew(60deg, -30deg) scaleY(.66667);
                                             left:30px;">
-                <span class="text_content"  stlye="  height: 50px;
+                <span class="text_content ui-draggable ui-draggable-handle" style="  height: 50px;
                                                   line-height: 45px;
                                                   padding: 0 10px;
                                                   transition: all .4s ease-in-out;
                                                   transform: translate3d(0, 0, 0);
                                                   vertical-align: top;
-                                                  white-space: nowrap;">YOUR</span>
+                                                  white-space: nowrap;" style="position: relative; left: -6px; top: -20px;">YOUR</span>
               </li>
               
-              <li class="Words-line" style=" 
-                                              overflow: hidden;
+              <li class="Words-line" style="overflow: hidden;
                                               position: relative;
                                             
                                             transform: skew(0deg, -30deg) scaleY(1.33333);
                                             left:40px;
                                             ">
-                  <!--left:29px;-->
-                <span class="text_content"  stlye="  height: 50px;
+                <span class="text_content ui-draggable ui-draggable-handle" style="height: 50px;
                                                   line-height: 45px;
                                                   padding: 0 10px;
                                                   transition: all .4s ease-in-out;
                                                   transform: translate3d(0, 0, 0);
                                                   vertical-align: top;
-                                                  white-space: nowrap;">LIFE !</span>
-              </li>   
+                                                  white-space: nowrap;" style="position: relative; left: 12px; top: -26px;">LIFE !</span>
+              </li>       
             </ul>
                   
-          <img src="http://kut-likelion.herokuapp.com/img/about/likelion_logo_flat.png" style="width:20%;">                   
+        <img src="http://kut-likelion.herokuapp.com/img/about/likelion_logo_flat.png" style="width:20%;">                   
 
       </div>
    </div>
-
+</div>
 <script>
 
-   
-    //그다음 html 태그 로부터 텍스트 컨텐츠가 몇개 있는지 확인 하시고
+      //그다음 html 태그 로부터 텍스트 컨텐츠가 몇개 있는지 확인 하시고
     //늕 그냥 컨트롤러에서 처리함
-    for(var i=0;i < 5;i++){
+    for(var i=0;i < <%=@text_contents_count%>;i++){
     //이렇게 인풋 먼저 text contents만큼 만듬
           $("#in_here").prepend("<%=escape_javascript(render "option")%>");
           
     }
-
-     <%for ind in 0...5%>
+    
+   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   $("#in_here").prepend("<%=escape_javascript(render "background")%>");
+   
+        $(".input_bg .toggle_sw").on("click",function(){
+            switch (this.value) {
+               
+                case "toggle_sw": $(".background").toggle("blind",1000)
+                        if($(".input_bg .toggle_sw").html()=="+")
+                            $(".input_bg .toggle_sw").html("-")
+                        else
+                            $(".input_bg .toggle_sw").html("+")
+                break;
+            }
+        });
+    ///////////////////////background options////////////////////////////////////////////////////////////////////
+    
+    <%for ind in 0...@text_contents_count%>
     
         target=$('.text_content:eq(<%=ind%>)');//자주쓰니까 변수에넣음
         
@@ -143,6 +152,9 @@
             target.empty();
             target.append("<div>"+$(".text_input:eq(<%=ind%>)").val()+"</div>");
         });
+        
+        $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"));
+        //$(".input_option:eq(<%=ind%>) .color").css("background-color", "#" + target.css("color"));
         
         $(".input_option:eq(<%=ind%>) button").on("click",function(){
             
@@ -181,72 +193,123 @@
                         this.style.backgroundColor = "#ba7276"
                        }
                     break;
-                case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)    
-                    if($(".input_option:eq(<%=ind%>) .toggle_sw").html()=="+")
-                        $(".input_option:eq(<%=ind%>) .toggle_sw").html("-")
-                    else
-                        $(".input_option:eq(<%=ind%>) .toggle_sw").html("+")
+                    case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)
+                        if($(".input_option:eq(<%=ind%>) .toggle_sw").html()=="+")
+                            $(".input_option:eq(<%=ind%>) .toggle_sw").html("-")
+                        else
+                            $(".input_option:eq(<%=ind%>) .toggle_sw").html("+")
+                                
                 break;
 
             }
+         
+         
         });
         
-        $(".input_option:eq(<%=ind%>) .slider").on("slide",function(){
+        $(".input_option:eq(<%=ind%>) .slider").on("slidechange",function(){
+                
             target=$('.text_content:eq(<%=ind%>)');
             target.css("font-size", $(".input_option:eq(<%=ind%>) .slider").slider("option","value")+"px");
-            $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"))
-        });
+            $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"));
+        })
         
-        $(".input_option:eq(<%=ind%>) .fs").on("selectmenuchange",function(){
-          target=$('.text_content:eq(<%=ind%>)');
-          target.css("font-family",$(this).val()); //글자 모양 변경
-        });
+         $(".input_option:eq(<%=ind%>) .slider").on("slide",function(){
+                
+            target=$('.text_content:eq(<%=ind%>)');
+            target.css("font-size", $(".input_option:eq(<%=ind%>) .slider").slider("option","value")+"px");
+            $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"));
+        })
         
         
-        //색상
-        
-    <%end%>
 
+    <%end%>
+    
      $( function jquery_ui_apply() {
          
+        <%for ind in 0...@text_contents_count%>
+            target=$('.text_content:eq(<%=ind%>)');
+            
+            $( ".slider:eq(<%=ind%>)" ).slider({
+                animate:"fast",
+                value: parseInt(target.css("font-size"))
+            });
+            
+            $(".fs:eq(<%=ind%>)").selectmenu({
+                value : target.css("font-family")
+            });
+        <% end %> 
+        
         $("button").button();
         
-        $( ".slider" ).slider({
-            animate:"fast"
-        });
         
-        $(".fs").selectmenu();
-        $(".option").toggle();
         
-      });
+      } );
     
+     
+    // $("body").mousedown(function(){    
+    //     $("#htmltag").val($("#here").html())
+    // });
+      
     $("body").mousedown(function(){    
         ////////////////////////////폰트 적용 안되는거 빠구기 //////////////////////////
         $("#htmltag").val($("#here").html().replace(/&quot;/gi,"\'"))
     });
       
-    $("#hpost_picture1").change(function(){
-          $('#submit_poster').trigger('click');
+        
+    $("#hpost_picture").change(function(){
+      $('#submit_poster').trigger('click');
+    });
+    $('button.color').click(function(){
+        $('div.color_area').click(function(){
+            <%for i in 0...@text_contents_count%>
+              target=$('.text_content:eq(<%=i%>)');
+               target.css("color",$(".option:eq(<%=i%>) .color").css("background-color")); 
+            <%end%>
+        });
+    })
+    
+    $(document).ready(function() {
+
+    	// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+    	var floatPosition = parseInt($("#html-content-holder").css('top'));
+    	// 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
+        
+    	$(window).scroll(function() {
+    		// 현재 스크롤 위치를 가져온다.
+    		var scrollTop = $(window).scrollTop();
+    		var newPosition = scrollTop + floatPosition + "px";
+
+    		/* 애니메이션 없이 바로 따라감
+    		 $("#floatMenu").css('top', newPosition);
+    		 */
+    		 
+    
+    		$("#html-content-holder").stop().animate({
+    			"top" : newPosition
+    		}, 500);
+    
+    	}).scroll();
+
     });
     
-    // $("#hpost_picture2").change(function(){
-    //       $('#submit_poster').trigger('click');
-    // });
+    
+    
+    //font family option
+    <%for ind in 0...@text_contents_count%> //0부터 text_content_count ~개까지
+        //.fs가 오픈되면 실행
+        $( ".fs:eq(<%=ind%>)" ).selectmenu({
+          open: function() { //event, ui 
+              fonts = ['dotum', 'Nanum Brush Script','Nanum Pen Script','Nanum Myeongjo','Nanum Gothic','Godo','daehan','Sedgwick Ave','Acme','Shadows Into Light'] //0-9까지 헤헤
+              //font배열이랑 연결 에에~~ㅠ_ㅠ
+              <% for i in 0...9 %>
+                  $(".fs:eq(<%=ind%>)").selectmenu("menuWidget").children("li:eq(<%=i%>)").css("font-family",fonts[<%=i%>]);
+              <%end%>
+          }
+    });
+    <%end%>
 
     $("span").draggable();
     
     $(".drag_picture").draggable();
-
-    function setBodyColor(jscolor) {
-
-    document.getElementById('html-content-holder').style.backgroundImage = 'linear-gradient(#FFFFFF, #' + jscolor + ')';
-    
-    }
-    
-    // $( function() {
-    // $( ".text_content" ).draggable({ containment: "#html-content-holder", scroll: false });
-    // $( "#pt_picture" ).draggable({ containment: "#html-content-holder", scroll: false });
-    // //$( "#pt_picture" ).resizable({ghost: true});
-//   })
 </script>
 
