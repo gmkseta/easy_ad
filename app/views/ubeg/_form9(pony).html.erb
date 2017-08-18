@@ -35,7 +35,7 @@
                     <div class="actions">
                         <%= f.submit id:"submit_poster" %>
                     </div>
-                     
+                    
                     <a href="/hposts/<%=@hpost.id%>">완 료</a>
                     
                 <% end %>
@@ -49,23 +49,21 @@
   
   <!--여기에 디비에 있는 html tag를 넣을꺼임-->
     <div class="col-md-4 col-sm-12" id="here" >
-        <div class="poster" id="html-content-holder" style = "background-color:gray">
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Asap Condensed'; font-size: 1.5em;">EASY AD PRESENTS</span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Asap Condensed'; font-size: 1.5em;">18.08.2017</span>
-            <span class = "text_content" style= "position: relative; left: 6px; top: 335px; font-family: 'Cinzel'; font-size: 6em; transform: rotate(-15deg);">Winter</span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Cinzel'; font-size: 5em; transform: rotate(-15deg);">Snow</span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Cinzel'; font-size: 5em; transform: rotate(-15deg);">Night</span>
-            <img src="../ribbon.png" class = "drag_picture" style="width: 600px; height: 600px; position: relative; left: 4px; top: -148px;">
-            
-            
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Asap Condensed'; font-size: 1.5em; text-align : center">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                
-            </span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'lobster'; font-size: 1.5em;">Summer</span>
-
+        <div class="poster" id="html-content-holder" style="background-image: url('../back1.jpg'); background-size: 100% 100%; background-repeat: no-repeat;">
+            <span class="text_content ui-draggable ui-draggable-handle" style="position: relative; font-size: 1.5rem; top: -10px; text-align: left; left: 6px; font-family: Raleway;">5th Movie Festival</span>
+                <span class="text_content ui-draggable ui-draggable-handle" style="position: relative; width: 400px; font-size: 6rem; height: auto; border: 0px; left: 8px; top: -5px; background: transparent; text-align: center;">
+                    Pony<br>Festival
+                </span>
+                    <span class="text_content ui-draggable ui-draggable-handle" style="font-size: 3rem; font-family: Allan, cursive; position: relative;">
+                        Play On Neverending Youth
+                    </span>
+                    <span class="text_content ui-draggable ui-draggable-handle" style="top: 16px; position: relative;">
+                        2017 August 30 (Wed) 2pm
+                    </span>
+                    <br>
+                    <span class="text_content ui-draggable ui-draggable-handle" style="position: relative;">
+                        location : City Hall
+                    </span>
         </div>
     </div>
 

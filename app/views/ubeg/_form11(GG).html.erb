@@ -35,7 +35,7 @@
                     <div class="actions">
                         <%= f.submit id:"submit_poster" %>
                     </div>
-                     
+                    
                     <a href="/hposts/<%=@hpost.id%>">완 료</a>
                     
                 <% end %>
@@ -48,26 +48,75 @@
  
   
   <!--여기에 디비에 있는 html tag를 넣을꺼임-->
-    <div class="col-md-4 col-sm-12" id="here" >
-        <div class="poster" id="html-content-holder" style = "background-color:gray">
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Asap Condensed'; font-size: 1.5em;">EASY AD PRESENTS</span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Asap Condensed'; font-size: 1.5em;">18.08.2017</span>
-            <span class = "text_content" style= "position: relative; left: 6px; top: 335px; font-family: 'Cinzel'; font-size: 6em; transform: rotate(-15deg);">Winter</span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Cinzel'; font-size: 5em; transform: rotate(-15deg);">Snow</span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Cinzel'; font-size: 5em; transform: rotate(-15deg);">Night</span>
-            <img src="../ribbon.png" class = "drag_picture" style="width: 600px; height: 600px; position: relative; left: 4px; top: -148px;">
-            
-            
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Asap Condensed'; font-size: 1.5em; text-align : center">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+  <div class="col-md-4 col-sm-12" id="here" >
+     <div class = "poster" id = "html-content-holder"  style="background-color:#f39800;display:flex;"> 
+     
+            <ul class="Words" style="  margin: 0;
+                                      padding: 80px 0;
+                                      font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+                                      font-size: 70px;
+                                      font-weight: 900;
+                                      letter-spacing: -2px;
+                                      text-transform: uppercase;
+                                      transform: translate3d(0, 0, 0);
+                                      -webkit-font-smoothing: antialiased;
+                                      -webkit-font-kerning: normal;
+                                      -webkit-text-size-adjust: 100%;">
                 
-            </span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'lobster'; font-size: 1.5em;">Summer</span>
+              <li class="Words-line" style=" 
+                                              overflow: hidden;
+                                              position: relative;
+                                            
+                                            transform: skew(0deg, -30deg) scaleY(1.33333);
+                                            left:-50px;
+                                            ">
+                  <!--left:29px;-->
+                <span class="text_content"  stlye="  height: 50px;
+                                                  line-height: 45px;
+                                                  padding: 0 10px;
+                                                  transition: all .4s ease-in-out;
+                                                  transform: translate3d(0, 0, 0);
+                                                  vertical-align: top;
+                                                  white-space: nowrap;">HACK               </span>
+              </li>
+  
+             <li class="Words-line" style="
+                                              overflow: hidden;
+                                              position: relative;
+                                            
+                                            transform: skew(60deg, -30deg) scaleY(.66667);
+                                            left:30px;">
+                <span class="text_content"  stlye="  height: 50px;
+                                                  line-height: 45px;
+                                                  padding: 0 10px;
+                                                  transition: all .4s ease-in-out;
+                                                  transform: translate3d(0, 0, 0);
+                                                  vertical-align: top;
+                                                  white-space: nowrap;">YOUR</span>
+              </li>
+              
+              <li class="Words-line" style=" 
+                                              overflow: hidden;
+                                              position: relative;
+                                            
+                                            transform: skew(0deg, -30deg) scaleY(1.33333);
+                                            left:40px;
+                                            ">
+                  <!--left:29px;-->
+                <span class="text_content"  stlye="  height: 50px;
+                                                  line-height: 45px;
+                                                  padding: 0 10px;
+                                                  transition: all .4s ease-in-out;
+                                                  transform: translate3d(0, 0, 0);
+                                                  vertical-align: top;
+                                                  white-space: nowrap;">LIFE !</span>
+              </li>   
+            </ul>
+                  
+          <img src="http://kut-likelion.herokuapp.com/img/about/likelion_logo_flat.png" style="width:20%;">                   
 
-        </div>
-    </div>
+      </div>
+   </div>
 
 <script>
 

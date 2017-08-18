@@ -45,7 +45,7 @@
 			
 			<div class="pt-page pt-page-1">
 				<div class="container">
-					<span class="first_page"></span>
+					<span class="txt anim-text-flow first_page" ></span>
 				</div>
 			</div>
 				
@@ -80,7 +80,8 @@
 	setTimeout(function() { 
 		// Code here }, 지연시간) 
 /*	$(".pt-page-0").grayscale(1);*/
-	$(".pt-page-0").fadeTo("slow", 0.1);
+	$(".pt-page-0").fadeTo("slow", 0.08);
+	
 	$(".pt-page-1").addClass( 'pt-page-current pt-page-scaleUpCenter pt-page-delay300' )
 		window.ityped.init(document.querySelector('.first_page'), {
 			strings : ['Easy Ad is an awesome website that provides easy, fast, practical tools to create ones own poster. Each templates are very simple but also unique. Anyone can design their own poster. '],

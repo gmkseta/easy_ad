@@ -156,7 +156,7 @@ function increment(element, word) {
  * @param {String} word The string that will be appended
  */
 function appendWord(element, word) {
-  element.innerHTML += word;
+  element.innerHTML += "<span>" + word +"</span>";
 }
 
 /**
