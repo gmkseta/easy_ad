@@ -172,7 +172,10 @@
             $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"));
         })
         
-        
+         $(".input_option:eq(<%=ind%>) .fs").on("selectmenuchange",function(){
+          target=$('.text_content:eq(<%=ind%>)');
+          target.css("font-family",$(this).val()); //글자 모양 변경
+        });
 
     <%end%>
     
@@ -185,10 +188,10 @@
                 animate:"fast",
                 value: parseInt(target.css("font-size"))
             });
-            
             $(".fs:eq(<%=ind%>)").selectmenu({
                 value : target.css("font-family")
             });
+            
         <% end %> 
         
         $("button").button();
@@ -239,8 +242,6 @@
 
     });
     
-    
-    
     //font family option
     <%for ind in 0...@text_contents_count%> //0부터 text_content_count ~개까지
         //.fs가 오픈되면 실행
@@ -254,6 +255,8 @@
           }
     });
     <%end%>
+    
+    
 
     $("span").draggable();
     

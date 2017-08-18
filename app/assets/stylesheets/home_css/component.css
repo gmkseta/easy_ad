@@ -11,25 +11,72 @@ span {
    	background-size: 100% 100%;
 }
 
-.mp {
-	width: 120px;
-	margin-left: 20px;
-	margin-bottom: 20px;
- 	transform: scale(0);
- 	transition: .3s all ease-in-out;
-	box-shadow: 0 0 5px 2px rgba(0,0,0,.2);
+.wrapper {
+    width: 100%;
+    margin: 0;
 }
 
 .mv {
-	overflow: hidden;
-	display: inline-table;
-	text-align: center;
-	padding-left: 20px;
-	padding-right: 20px;
+    margin: 0;
+    padding: 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+    font-size: .85em;
+}
+
+.mp {
+    display: inline-block;
+    background: #2c2d31;
+    padding: 0;
+    margin: 0 0 0.3em;
+    width: 100%;
+    width: 3em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+@media only screen and (min-width: 400px) {
+    .mv {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .mv {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .mv {
+        -moz-column-count: 6;
+        -webkit-column-count: 6;
+        column-count: 6;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .mv {
+        -moz-column-count: 7;
+        -webkit-column-count: 7;
+        column-count: 7;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .wrapper {
+        width: 1260px;
+    }
 }
 
 $percent: 1%;
-@for $i from 1 through 24 {
+@for $i from 1 through 27 {
    .mp:nth-of-type(#{$i}) {
      animation: 3s intro 2 both;
      transition-delay: random() + s;
@@ -60,7 +107,7 @@ $percent: 1%;
 	width: 90%;
 	height: 80%;
 	position: fixed;
-  	top: 40%;
+  	top: 37%;
   	left: 50%;
   	transform: translate(-50%, -50%);
   	font-size: 1.1rem;
@@ -69,6 +116,7 @@ $percent: 1%;
 
 .pt-perspective {
 	position: relative;
+	top: 12%;
 	width: 100%;
 	height: 100%;
 	-webkit-perspective: 1200px;
@@ -120,10 +168,6 @@ $percent: 1%;
 	letter-spacing: 0.3em;
 }
 
-.pt-page-0{
-	background-color: #2c2d31;
-
-}
 .pt-page-1{
 	background: transparent;
 }

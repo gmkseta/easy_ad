@@ -48,61 +48,21 @@
  
   
   <!--여기에 디비에 있는 html tag를 넣을꺼임-->
-  <div class="col-md-4 col-sm-12" id="here" >
-     <div class = "poster" id = "html-content-holder"  style="background-color: #000000;"> 
-          <!--222222 background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #191919 0%, #191919 50%) 0 / 15px 15px;-->
-          <!--<h2 style="-->
-          <!--            font-size: 100px;-->
-          <!--            text-shadow: 0px 0px 3px #eee, 5px 5px 2px teal, -5px -2px 2px mix(black,red,50);-->
-          <!--            -webkit-text-shadow: 0px 0px 3px #eee, 5px 5px 2px teal, -5px -2px 2px mix(black,red,50);-->
-          <!--            font-weight: 400;">GLITCHY</h2>-->
-                  
-            <span class="text_content" style="text-shadow: 0 0 5px #fff,
-                                                 0 0 10px #000000,
-                                                 0 0 20px #1c6ad8,
-                                                 0 0 40px #1c6ad8;
-                                                 font-size:74px;
-                                                 font-family:'Monoton',cursive;">NIGHT</span>
-            <span class="text_content" style="text-shadow: 0 0 5px #fff,
-                                                 0 0 10px #000000,
-                                                 0 0 20px #1c6ad8,
-                                                 0 0 40px #1c6ad8;
-                                                 font-size:77px;
-                                                 font-family:'Monoton',cursive;">PARTY</span> 
-                                                 
-            <!--<img id = "pt_picture1_input" class="drag_picture" style="width:95%;"></img>-->
-            <img src="https://img.buzzfeed.com/buzzfeed-static/static/2013-09/campaign_images/webdr06/30/14/22-animated-neon-posters-from-classic-movies-1-10267-1380565662-25_big.jpg" style="width:95%">
-
-            <span class="text_content" style="font-family:'Acme';
-                                              font-size:18px;
-                                              color:#d9e0e2">OUR SPECIAL GUEST</span>            
-            
-            <span class="text_content" style="font-family:'Acme';
-                                              font-size:45px;
-                                              color:#afccd6;">DJ JUNNY and DJ SUP</span>
-                                              
-            <span class="text_content" style="font-family:'Acme';
-                                              font-size:18px;
-                                              color:#d9e0e2">Free Before Midnight W/ Free Drink</span>
-                                              
-            <span class="text_content" style="height:50px"></span>                                  
-                                              
-
-                                              
-            <!--<img id = "pt_picture2_input" class = "drag_picture" style = "width:100px; height:100px"></img>-->
-            <!--<img id = "pt_picture3_input" class = "hpost_picture" style = "width:100px; height:100px"></img>-->
-            <!--<img id = "pt_picture4_input" class = "hpost_picture" style = "width:100px; height:100px"></img>-->
-            <!--<img id = "pt_picture5_input" class = "hpost_picture" style = "width:100px; height:100px"></img>-->
- 
-      </div>
-                <!--<span class="text_content" style="position: absolute; color: #000000; font-weight: bold; font-family: 'Armata', sans-serif; top: 100px;">-->
-                <!--    COME DIRECTLY TO THE<br>-->
-                <!--    WAREHOUSE OR OUTLET<br>   text-shadow: 0px 0px 3px #eee, 5px 5px 2px #008080, -5px -2px 2px #a0291e;  -->
-                <!--</span>-->
-                <!--<span class="text_content" style="position: absolute; color: #000000; font-family: 'Armata', sans-serif; font-size: 1.5rem; top: 200px;">-->
-                <!--    02)000-0000-->
-                <!--</span>-->
-   </div>
+    <div class="col-md-4 col-sm-12" id="here" >
+        <div class = "poster" id = "html-content-holder" style = "background-color: gray">
+            <span class = "text_content" style= "font-family: Montserrat; position: relative; left: -105px; top: -92px; font-family: Raleway;">PRESENTING SPONSOR</span>
+            <span class = "text_content" style = "font-family: 'Open Sans Condensed';position: relative; left: -105px; top: -91px;">DONGGUK UNI</span> 
+            <span class = "text_content" style = "font-family: Montserrat;position: relative; left: 101px; top: -133px; font-family: Raleway;">FEATURING MUSIC BY</span> 
+            <span class = "text_content" style = "font-family: 'Open Sans Condensed';position: relative; left: 96px; top: -132px;">COLD PLAY</span> 
+            <span class = "text_content" style = "font-family: lobster; font-size: 4em; position: relative; left: -4px; top: -62px; color: rgba(255, 255, 255, 0.5);">The</span>
+            <span class = "text_content" style = "font-family: lobster; font-size: 4em; position: relative; left: -3px; top: -81px; color: rgba(255, 255, 255, 0.5);">Night Market</span>
+            <span class = "text_content" style = "font-family: Montserrat; position: relative; left: 1px; top: -79px;">GIVE INTO THE GROOVE EDITION</span>
+            <span class = "text_content" style = "font-family: Montserrat; position: relative; left: -2px; top: -76px;">EASY AD EDITION</span>
+            <img src="../light.png" style="width:100%; height:50px;">
+            <span class = "text_content" style = "font-family: Montserrat; position: relative; left: 1px; top: 45px;">AUGUST 18 | 2-8PM</span>
+            <span class = "text_content" style = "font-family: Montserrat; position: relative; left: 1px; top: 97px;">PRESENTED BY EASY AD DEVELOPER COMMUNITY </span>
+        </div>
+    </div>
 
 <script>
 
@@ -207,7 +167,8 @@
       });
     
     $("body").mousedown(function(){    
-        $("#htmltag").val($("#here").html())
+        ////////////////////////////폰트 적용 안되는거 빠구기 //////////////////////////
+        $("#htmltag").val($("#here").html().replace(/&quot;/gi,"\'"))
     });
       
     $("#hpost_picture1").change(function(){

@@ -3,11 +3,13 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
+
 <style>
     .text_content{
         z-index:1;
     }
 </style>
+
 <div class="row">
     <div class="col-md-4 col-md-offset-1">
         <header>
@@ -23,14 +25,12 @@
                 <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
                 
                     <div class="field">
-                        
-                        <%= f.input :picture, as: :file %>
-                        
-                        <%= f.hidden_field :picture_cache %>
+                        <%= f.input :picture1, as: :file %>
+                        <%= f.hidden_field :picture1_cache %>
                         
                     </div>
+                    <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %><br>
                     
-                <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %><br>
                     
                     <div class="actions">
                         <%= f.submit id:"submit_poster" %>
@@ -39,18 +39,17 @@
                     <a href="/hposts/<%=@hpost.id%>">완 료</a>
                     
                 <% end %>
-                
             <!--</div>-->
         </div>
     </div>
     
-     <div class="col-md-2"></div>     <!-- 간격 맞추기용 -->
+<div class="col-md-2"></div>     <!-- 간격 맞추기용 -->
   <!-- 오른쪽 poster -->
  
   
   <!--여기에 디비에 있는 html tag를 넣을꺼임-->
   <div class="col-md-4 col-sm-12" id="here" >
-     <div class = "poster" id = "html-content-holder"  style="width:100%; border:1px solid #191919; background-color:black;"> 
+     <div class = "poster" id = "html-content-holder"  style="background-color: #000000;"> 
           
                   <!--<h2 style="-->
                   <!--            font-size: 100px;-->
@@ -58,40 +57,36 @@
                   <!--            -webkit-text-shadow: 0px 0px 3px #eee, 5px 5px 2px teal, -5px -2px 2px mix(black,red,50);-->
                   <!--            font-weight: 400;">GLITCHY</h2>-->
                   
-            <span class="text_content" style="font-family:Give You Glory, cursive; font-weiht: bold; 
+            <span class="text_content" style="font-family:'Give You Glory', cursive; font-weiht: bold; 
                                             text-shadow: 0px 0px 3px #eee, 5px 5px 2px #008080, -5px -2px 2px #a0291e;
-                                            font-size:6rem;">HORROR MAZE</span>
+                                            font-size:52px;">HORROR MAZE</span>
                                             
            <span class="text_content" style="font-family: 'Just Me Again Down Here', cursive;
                                    color:#3d0702;
-                                font-size:6rem;">! WARNING !</span>                                
-                                            
-            <img src="https://i.ytimg.com/vi/URumfeL5r7s/maxresdefault.jpg" style="width:100%; height:400px;">
+                                font-size:37px;">! WARNING !</span>                                
+                                            '
+            <img src="https://i.ytimg.com/vi/URumfeL5r7s/maxresdefault.jpg" style="width:100%;">
+            
+
+            <span class="text_content"  style="width:20%;display:inline-block;">                               
+            <img src="https://vignette2.wikia.nocookie.net/writin/images/a/ab/Ghost.png/revision/latest?cb=20111207152938">
+            </span> 
+            <!--<img id = "pt_picture1_input" class="drag_picture" style="width:20%;display:inline-block;">-->
             
             <span class="text_content" style="font-family:'Just Me Again Down Here', cursive; text-align:center;
-                                               color:#a81103;
-                                            font-size:4rem;">STARTS<br>10th SEP 2017<br>every friday night</span>
-                                            
-            <span class="text_content" style="font-family:Naum Gothic; text-align:center;
+                                   color:#a81103;
+                                font-size:32px;width:45%;display:inline-block;">STARTS<br>10th SEP 2017<br>every friday night</span>
+            
+            
+            <span class="text_content" style="font-family:Nanum Gothic; text-align:center;
                                                color:#b5b5b5;
-                                            font-size:2rem;">SMOKE FREE EVENT / ALCOHOL FREE / NIGHT DOOR SALES AVAILABLE</span>                                            
+                                            font-size:12px;;">SMOKE FREE EVENT / ALCOHOL FREE / NIGHT DOOR SALES AVAILABLE</span>
+                                            
+            <!--<span class="text_content" style="height:50px"></span>                                   -->
             
  
       </div>
-
-
-     
-                <!--<span class="text_content" style="position: absolute; color: #000000; font-weight: bold; font-family: 'Armata', sans-serif; top: 100px;">-->
-                <!--    COME DIRECTLY TO THE<br>-->
-                <!--    WAREHOUSE OR OUTLET<br>   text-shadow: 0px 0px 3px #eee, 5px 5px 2px #008080, -5px -2px 2px #a0291e;  -->
-                <!--</span>-->
-                <!--<span class="text_content" style="position: absolute; color: #000000; font-family: 'Armata', sans-serif; font-size: 1.5rem; top: 200px;">-->
-                <!--    02)000-0000-->
-                <!--</span>-->
-            
    </div>
-
-
 
 <script>
 
@@ -156,24 +151,21 @@
                         this.style.backgroundColor = "#ba7276"
                        }
                     break;
-                    case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)
-                        if($(".input_option:eq(<%=ind%>) .toggle_sw").html()=="+")
-                            $(".input_option:eq(<%=ind%>) .toggle_sw").html("-")
-                        else
-                            $(".input_option:eq(<%=ind%>) .toggle_sw").html("+")
-                                
+                case "toggle_sw": $(".option:eq(<%=ind%>)").toggle("blind",1000)    
+                    if($(".input_option:eq(<%=ind%>) .toggle_sw").html()=="+")
+                        $(".input_option:eq(<%=ind%>) .toggle_sw").html("-")
+                    else
+                        $(".input_option:eq(<%=ind%>) .toggle_sw").html("+")
                 break;
 
             }
-         
-         
         });
         
         $(".input_option:eq(<%=ind%>) .slider").on("slide",function(){
             target=$('.text_content:eq(<%=ind%>)');
             target.css("font-size", $(".input_option:eq(<%=ind%>) .slider").slider("option","value")+"px");
             $(".input_option:eq(<%=ind%>) .lbl_fontsize").text(target.css("font-size"))
-        })
+        });
         
         $(".input_option:eq(<%=ind%>) .fs").on("selectmenuchange",function(){
           target=$('.text_content:eq(<%=ind%>)');
@@ -184,29 +176,36 @@
         //색상
         
     <%end%>
-    
-    
+
      $( function jquery_ui_apply() {
+         
         $("button").button();
         
         $( ".slider" ).slider({
             animate:"fast"
         });
+        
         $(".fs").selectmenu();
         $(".option").toggle();
         
-      } );
+      });
     
-     
     $("body").mousedown(function(){    
-        $("#htmltag").val($("#here").html())
+        ////////////////////////////폰트 적용 안되는거 빠구기 //////////////////////////
+        $("#htmltag").val($("#here").html().replace(/&quot;/gi,"\'"))
     });
       
-  
-    $("#hpost_picture").change(function(){
-      $('#submit_poster').trigger('click');
+    $("#hpost_picture1").change(function(){
+          $('#submit_poster').trigger('click');
     });
+    
+    // $("#hpost_picture2").change(function(){
+    //       $('#submit_poster').trigger('click');
+    // });
+
     $("span").draggable();
+    
+    $(".drag_picture").draggable();
 
     function setBodyColor(jscolor) {
 
@@ -220,3 +219,4 @@
     // //$( "#pt_picture" ).resizable({ghost: true});
 //   })
 </script>
+
