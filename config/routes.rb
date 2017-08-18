@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :hposts
+  resources :hposts ,only: [:create ,:destroy,:show,:index,:edit,:update]
   root 'home#index'
   get 'home/edit1'
   post '/write' => 'home#write'
@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'home/edit_test'
   post '/write2' => 'home#write2'
   get 'home/about'
+  
+  get 'new/:id'=>"hposts#new"
+  
+  
   
   
   # The priority is based upon order of creation: first created -> highest priority.

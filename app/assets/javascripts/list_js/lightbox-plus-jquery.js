@@ -9295,7 +9295,8 @@ return jQuery;
   Lightbox.prototype.enable = function() {
     var self = this;
     $('body').on('click', 'a[rel^=lightbox], area[rel^=lightbox], a[data-lightbox], area[data-lightbox]', function(event) {
-      self.start($(event.currentTarget));
+       self.start($(event.currentTarget));
+       
       return false;
     });
   };
@@ -9354,6 +9355,8 @@ return jQuery;
         self.changeImage(self.album.length - 1);
       } else {
         self.changeImage(self.currentImageIndex - 1);
+        // num = $(".lb-number:eq(0)").text().split(" ")[1];
+        // $("input:eq(0)").on("click",function(){ location.href='/new/'+num });
       }
       return false;
     });
@@ -9361,8 +9364,14 @@ return jQuery;
     this.$lightbox.find('.lb-next').on('click', function() {
       if (self.currentImageIndex === self.album.length - 1) {
         self.changeImage(0);
+        alert("여기다");
+        //성준성준
       } else {
         self.changeImage(self.currentImageIndex + 1);
+        
+        // num = $(".lb-number:eq(0)").text().split(" ")[1];
+        // $("input:eq(0)").on("click",function(){ location.href='/new/'+num });
+        //성준성준
       }
       return false;
     });
@@ -9448,6 +9457,7 @@ return jQuery;
           }
         }
       }
+      
     }
 
     // Position Lightbox
@@ -9576,11 +9586,12 @@ return jQuery;
   Lightbox.prototype.showImage = function() {
     this.$lightbox.find('.lb-loader').stop(true).hide();
     this.$lightbox.find('.lb-image').fadeIn(this.options.imageFadeDuration);
-
+	
     this.updateNav();
     this.updateDetails();
     this.preloadNeighboringImages();
     this.enableKeyboardNav();
+    
   };
 
   // Display previous and next navigation if appropriate.
@@ -9646,13 +9657,18 @@ return jQuery;
     if (this.album.length > 1 && this.options.showImageNumberLabel) {
       var labelText = this.imageCountLabel(this.currentImageIndex + 1, this.album.length);
       this.$lightbox.find('.lb-number').text(labelText).fadeIn('fast');
+      
     } else {
       this.$lightbox.find('.lb-number').hide();
     }
 
     this.$outerContainer.removeClass('animating');
 
-    this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {
+    this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {//생준
+    
+     $(".lb-number:eq(0)").append("<input type='button' value='만들어버리기'>")
+     num = $(".lb-number:eq(0)").text().split(" ")[1];
+     $("input:eq(0)").on("click",function(){ location.href='/new/'+num });
       return self.sizeOverlay();
     });
   };

@@ -1,31 +1,32 @@
-
+<head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<div class="parent">
-     <div class="child">
+</head>
+<style>
+    .text_content{
+        z-index:1;
+    }
+</style>
+<div class="row">
+    <div class="col-md-4 col-md-offset-1">
         <header>
             <h1>Make Your Poster</h1>
         </header>
         
-        Background Color :
-        <button class="roundbt jscolor {valueElement:'chosen-value', onFineChange:'setBodyColor(this)'}"> </button>
-     
-     
         <div class="input_form row" id="in_here">
             
-            <div class="form-group">
-                
+            <!--<div class="form-group">-->
+
                 <label class="sr-only" for="pic">pic</label>
                 
                 <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
                 
                     <div class="field">
                         
-                        <%= f.input :picture, as: :file %>
+                        <%= f.input :picture1, as: :file %>
                         
-                        <%= f.hidden_field :picture_cache %>
+                        <%= f.hidden_field :picture1_cache %>
                         
                     </div>
                     
@@ -43,48 +44,52 @@
                     
                 <% end %>
                 
-            </div>
-            
+            <!--</div>-->
         </div>
-        
     </div>
     
-    
-
+     <div class="col-md-1"></div>     <!-- 간격 맞추기용 -->
   <!-- 오른쪽 poster -->
-    <div class="child" id="here">
-        <div class = "poster" id = "html-content-holder" style = "background-image: url('../back1.jpg'); background-size: 100% 100%; background-repeat: no-repeat;">
-            <span class="text_content" style="position: relative; font-size: 1.5rem; top: 30px; text-align: left; left: 10px;">제 4회 청소년을 위한 영화학교 졸업작품 상영회</span>
+ 
+  
+  <!--여기에 디비에 있는 html tag를 넣을꺼임-->
+  <div class="col-md-5 col-sm-12" id="here">
+     <div class = "poster" id = "html-content-holder" style = "background-image: url('../back1.jpg'); background-size: 100% 100%; background-repeat: no-repeat;">
+            <span class="text_content" style="position: relative; color: #000000; font-size: 1.5rem; top: 30px; text-align: left; left: 10px;">제 4회 청소년을 위한 영화학교 졸업작품 상영회</span>
                 <span class="text_content" id="title" style="position: relative; width: 400px;
-                                                            font-family: 'Nanum Gothic', cursive;
-                                                            font-size: 10rem;
+                                                            font-family: 'lobster', cursive;
+                                                            font-size: 8rem;
                                                             height: auto;
                                                             border:0;
                                                             left:59px;
                                                             top: 10px;
                                                             text-align:left;
+                                                            color: #000000;
                                                             background:transparent;">
                     Pony<br>Film<br>Festival<br>
                 </span>
-                    <span class="text_content" style="font-size: 3rem; font-family: 'Allan', cursive; ">
+                    <span class="text_content" style="color: #000000; font-size: 3rem; font-family: 'Allan', cursive; ">
                         Play On Neverending Youth
                     </span>
-                    <span class = "text_content" style = "top : 16px;">
+                    <span class = "text_content" style = "color: #000000; top : 16px;">
                         일시: 2017년 8월 30일 (수) 오후 2시
                     </span>
                     <br>
-                    <span class = "text_content">
+                    <span class = "text_content" style="color: #000000;">
                         장소: 한국영화진흥위원회
                     </span>
                     <br>
-                        <img src="../logo1.PNG" style="width:170px; height:40px;">
-                        <img src="../logo2.PNG" style="width:150px; height:40px;">
-                        <img src="../logo3.jpg" style="width:150px; height:40px;">
-                        <img src="../logo4.jpg" style="width:200px; height:40px;">
+                    <span style="color: #000000;">
+                        주최:
+                        <img src="../logo1.PNG" style="width:100px; height:20px;">
+                        <img src="../logo2.PNG" style="width:100px; height:20px;">
+                        <img src="../logo3.jpg" style="width:100px; height:20px;">
+                        <img src="../logo4.jpg" style="width:100px; height:20px;">
+                    </span>
         </div>
-    </div>
+     </div>
 </div>
-<a id="btn-Convert-Html2Image" href="#" ></a>
+
 
 <script>
 

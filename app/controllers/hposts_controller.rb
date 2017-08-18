@@ -18,7 +18,24 @@ class HpostsController < ApplicationController
   # GET /hposts/new
   def new
     @hpost = Hpost.new
-    render :_form
+    i = params[:id].to_i
+    if i == 1
+      render :form1
+    elsif i==2
+      render :form2
+    elsif i==3
+      render :form3
+    elsif i==4
+      render :form4
+    elsif i==5
+      render :form5
+    elsif i==6
+      render :form6
+    elsif i==7
+      render :form6
+    else
+      render :_form
+    end
   end
 
   # GET /hposts/1/edit
