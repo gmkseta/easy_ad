@@ -3,11 +3,13 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
+
 <style>
     .text_content{
         z-index:1;
     }
 </style>
+
 <div class="row">
     <div class="col-md-4 col-md-offset-1">
         <header>
@@ -18,17 +20,17 @@
             
             <!--<div class="form-group">-->
 
-                <label class="sr-only" for="pic">pic</label>
+                <!--<label class="sr-only" for="pic">pic</label>-->
                 
-                <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
+                <!--<%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>-->
                 
-                    <div class="field">
+                <!--    <div class="field">-->
                         
-                        <%= f.input :picture1, as: :file %>
+                <!--        <%= f.input :picture1, as: :file %>-->
                         
-                        <%= f.hidden_field :picture1_cache %>
+                <!--        <%= f.hidden_field :picture1_cache %>-->
                         
-                    </div>
+                <!--    </div>-->
                     
                     <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %>
                 
@@ -36,36 +38,41 @@
                     
                     <div class="actions">
                         
-                        <%= f.submit id:"submit_poster" %>
+                        <%= f.submit id:"submit_poster",value:"UPLOAD" %>
                         
                     </div>
                     
                     <a href="/hposts/<%=@hpost.id%>">완 료</a>
                     
                 <% end %>
-                
-            <!--</div>-->
         </div>
     </div>
-    
+
   <div class="col-md-2"></div>     <!-- 간격 맞추기용 -->
   <!-- 오른쪽 poster -->
   <!--여기에 디비에 있는 html tag를 넣을꺼임-->
-  <div class="col-md-4 col-sm-12" id="here"></div>
+   
+    <div class="col-md-4 col-sm-12" id="here">
+        <div class="poster" id="html-content-holder" style="background-color: gray; top: 0px; background-image: linear-gradient(rgb(219, 208, 189), rgb(216, 200, 186));">
+            <span class="text_content ui-draggable ui-draggable-handle" style="position: relative; left: -90px; top: 254px; font-family: 'Noto Serif'; font-size: 1em; color: rgb(145, 89, 84);">EASY AD PRESENTS</span>
+            <span class="text_content ui-draggable ui-draggable-handle" style="position: relative; left: -104px; top: 251px; font-family: 'Noto Serif'; font-size: 1.5em; color: rgb(112, 78, 34);">18.08.2017</span>
+            <span class="text_content ui-draggable ui-draggable-handle" style="position: relative; left: 0px; top: 363px; font-family: Cinzel; font-size: 6em; transform: rotate(-15deg); z-index: 2; color: rgb(0, 0, 0);">Winter</span>
+            <span class="text_content ui-draggable ui-draggable-handle" style="position: relative; left: 5px; top: 121px; font-family: Cinzel; font-size: 5em; transform: rotate(-15deg); z-index: 2; color: rgb(0, 0, 0);">Snow</span>
+            <span class="text_content ui-draggable ui-draggable-handle" style="position: relative; left: -1px; top: 285px; font-family: Cinzel; font-size: 5em; transform: rotate(-15deg); z-index: 2; color: rgb(0, 0, 0);">Night</span>
+            <img src="../ribbon.png" class="drag_picture ui-draggable ui-draggable-handle" style="width: 500px; height: 500px; position: relative; left: 4px; top: -148px;">
+            
+            
+            <span class="text_content ui-draggable ui-draggable-handle" style="position: relative; left: 227px; top: -21px; font-family: 'Noto Serif'; font-size: 0.5em; text-align: center; color: rgb(89, 62, 62);">
+                Lorem Ipsum is simply dummy <br>
+            </span>
 
+        </div>
+    
+  </div>
 </div>
 
-
 <script>
-    //일단 html 태그 
-     var tag = "<%=escape_javascript(@hpost.htmltag)%>";
-     $("#here").html(tag.replace(/&lt;/gi,"<").replace(/&gt;/gi,">").replace(/&quot;/gi,"\""));
-    
-    
-    //그다음은 이미지 넣으시고요
-    $('#pt_picture1_input').attr('src','<%=@hpost.picture1.url%>').css("z-index","1");
-    
-    
+
     //그다음 html 태그 로부터 텍스트 컨텐츠가 몇개 있는지 확인 하시고
     //늕 그냥 컨트롤러에서 처리함
     for(var i=0;i < <%=@text_contents_count%>;i++){

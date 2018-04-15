@@ -20,22 +20,22 @@
             
             <!--<div class="form-group">-->
 
-                <label class="sr-only" for="pic">pic</label>
+                <!--<label class="sr-only" for="pic">pic</label>-->
                 
-                <%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>
+                <!--<%= simple_form_for @hpost,remote:true, html: {multipart: true} do |f| %>-->
                 
-                    <div class="field">
-                        <%= f.input :picture1, as: :file %>
-                        <%= f.hidden_field :picture1_cache %>
+                <!--    <div class="field">-->
+                <!--        <%= f.input :picture1, as: :file %>-->
+                <!--        <%= f.hidden_field :picture1_cache %>-->
                         
-                    </div>
+                <!--    </div>-->
                     <%= f.hidden_field :htmltag ,value:"",id:"htmltag" %><br>
                     
                     
                     <div class="actions">
-                        <%= f.submit id:"submit_poster" %>
+                        <%= f.submit id:"submit_poster",value:"UPLOAD" %>
                     </div>
-                     
+                    
                     <a href="/hposts/<%=@hpost.id%>">완 료</a>
                     
                 <% end %>
@@ -50,24 +50,14 @@
   <!--여기에 디비에 있는 html tag를 넣을꺼임-->
     <div class="col-md-4 col-sm-12" id="here" >
         <div class="poster" id="html-content-holder" style = "background-color:gray">
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Noto Serif'; font-size: 1em;">EASY AD PRESENTS</span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Noto Serif'; font-size: 1.5em;">18.08.2017</span>
-            <span class = "text_content" style= "position: relative; left: 6px; top: 335px; font-family: 'Cinzel'; font-size: 6em; transform: rotate(-15deg);">Winter</span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Cinzel'; font-size: 5em; transform: rotate(-15deg);">Snow</span>
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Cinzel'; font-size: 5em; transform: rotate(-15deg);">Night</span>
-            <img src="../ribbon.png" class = "drag_picture" style="width: 500px; height: 500px; position: relative; left: 4px; top: -148px;">
-            
-            
-            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Noto Serif'; font-size: 1em; text-align : center">
-                Lorem Ipsum is simply dummy <br>
-                text of the printing and typesetting industry. <br>
-                Lorem Ipsum has been the industry's <br>
-                standard dummy text ever since the 1500s, 
-            </span>
+            <span class = "text_content" style= "position: relative; left: 6px; top: 335px; font-family: 'Amatic SC'; font-size: 5em;">flowers</span>
+            <span class = "text_content" style= "position: relative; left: 5px; top: 300px; font-family: 'Amatic SC'; font-size: 5em;;">are</span>
+            <span class = "text_content" style= "position: relative; left: 9px; top: 265px; font-family: 'Amatic SC'; font-size: 5em;">forever</span>
+            <img src="../floral.png" class = "drag_picture" style="width: 600px; height: 600px; position: relative; left: 4px; top: -148px;">
 
         </div>
     </div>
-
+</div>
 <script>
 
    

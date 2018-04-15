@@ -1,0 +1,22 @@
+\r\n
+<div class="poster" id="html-content-holder" style="background-color: #000000;">    
+    <span class="text_content ui-draggable ui-draggable-handle" 
+    style="text-shadow: rgb(255, 255, 255) 0px 0px 5px, rgb(0, 0, 0) 0px 0px 10px, rgb(28, 106, 216) 0px 0px 20px, rgb(28, 106, 216) 0px 0px 40px; 
+    font-size: 74px; font-family: Monoton, cursive; position: relative; left: -42px; top: 38px;">NIGHT</span>\r\n            
+
+
+    <span class="text_content ui-draggable ui-draggable-handle" style="text-shadow: rgb(255, 255, 255) 0px 0px 5px, rgb(0, 0, 0) 0px 0px 10px, rgb(28, 106, 216) 0px 0px 20px, rgb(28, 106, 216) 0px 0px 40px; 
+    font-size: 77px; font-family: Monoton, cursive; position: relative; left: 24px; top: -20px;">PARTY</span> \r\n   
+      
+    <img src="https://img.buzzfeed.com/buzzfeed-static/static/2013-09/campaign_images/webdr06/30/14/22-animated-neon-posters-from-classic-movies-1-10267-1380565662-25_big.jpg" style="width:95%">\r\n\r\n            
+  span class="text_content ui-draggable ui-draggable-handle"
+   style="font-family: Acme; font-size: 18px; color: rgb(217, 224, 226); position: relative;">OUR SPECIAL GUEST</span>            \r\n           
+    \r\n            
+
+    <span class="text_content ui-draggable ui-draggable-handle" style="font-family: Acme; font-size: 42px;
+     color: rgb(175, 204, 214); position: relative;">DJ LINCONAN , DJ SUP</span>\r\n                                              \r\n            
+
+     <span class="text_content ui-draggable ui-draggable-handle" style="font-family: Acme; font-size: 18px; color: rgb(217, 224, 226); position: relative;">Free Before Midnight W/ Free Drink</span>\r\n  
+                                                 \r\n            
+                  <span class="text_content ui-draggable ui-draggable-handle" style="height: 50px; position: relative;"></span>                        
+</div>                    

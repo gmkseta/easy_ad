@@ -19,22 +19,38 @@ class HpostsController < ApplicationController
   def new
     @hpost = Hpost.new
     i = params[:id].to_i
+    
+    
     if i == 1
-      render :form1
+      @text_contents_count=10
+      
+      render :"/ubeg/form8(night_market)"
     elsif i==2
-      render :form2
+      @text_contents_count=5
+      render :"/ubeg/form7(nightparty)"
     elsif i==3
-      render :form3
+      @text_contents_count=3
+      render :"/ubeg/form11(hack)"
     elsif i==4
-      render :form4
+      @text_contents_count=2
+      render :"/ubeg/form12(watermelon)"
     elsif i==5
-      render :form5
+    @text_contents_count=5
+      render :"/ubeg/form4(blacksale)"
     elsif i==6
-      render :form6
+      @text_contents_count=4
+      render :"/ubeg/form13(harder)"
     elsif i==7
-      render :form6
-    else
-      render :_form
+      @text_contents_count=4
+      render :"/ubeg/form9(pony)"
+    elsif i==8
+      @text_contents_count=4
+      render :"/ubeg/form6(horror)"      
+    elsif i==9
+      @text_contents_count=6
+      render :"/ubeg/_form"
+      
+      
     end
   end
 
